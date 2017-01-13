@@ -1,0 +1,34 @@
+<md-dialog aria-label="User Login" flex="40">
+	<md-toolbar ng-class="{'md-accent': loginFailed}">
+		<div class="md-toolbar-tools">
+			<h2>用户登录</h2>
+		</div>
+	</md-toolbar>
+	<md-dialog-content>
+		<div class="md-dialog-content">
+			<div class="row" >
+				<div class="col-md-12">
+					<form>
+						<div class="form-group">
+							<label for="account">用户名</label>
+							<input type="text" class="form-control" id="account" placeholder="请输入用户名" ng-model="loginInfo.account" ng-keypress="pressNext($event)" md-autofocus>
+						</div>
+						<div class="form-group">
+							<label for="password">密码</label>
+							<input type="password" class="form-control" id="password" placeholder="请输入登录密码" ng-model="loginInfo.password" ng-keypress="pressLogin($event)">
+						</div>
+						<div class="form-group has-error" ng-if="loginFailed">
+						  	<span id="helpBlock2" class="help-block">
+						  		用户登录失败
+						  	</span>
+						</div>						
+					</form>
+				</div>
+			</div>
+		</div>
+	</md-dialog-content>
+	<md-dialog-actions layout="row">		
+		<span flex></span>		
+		<md-button class="md-raised md-primary" ng-click="login()">登录</md-button>
+	</md-dialog-actions>
+</md-dialog>

@@ -1,0 +1,63 @@
+<md-dialog aria-label="新建日志">
+    <form ng-cloak name="logForm" role="form" novalidate>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>新建日志</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()" aria-label="Close">
+                    <md-icon class="glyphicon glyphicon-remove" aria-hidden="true"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="form-group" ng-class="{'has-error': logForm.$dirty && logForm.projectCode.$invalid}">
+                            <label class="control-label" for="projectCode">项目编号</label>
+                            <select name="projectCode" ng-options="project.projectCode as project.projectCode + ' ' + project.projectName for project in projects" ng-model="log.projectCode" class="form-control" required></select>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="form-group" ng-class="{'has-error': logForm.$dirty && logForm.taskTime.$invalid}">
+                            <label class="control-label" for="taskTime">工时（分钟）</label>
+                            <input type="number" class="form-control" id="taskTime" name="taskTime" ng-model="log.taskTime" required min=1 max=1440>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <label>日志类型</label>
+                            <select ng-options="type.id as type.name for type in logTypes" ng-model="log.logType" class="form-control"></select>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="form-group" ng-class="{'has-error': logForm.$dirty && logForm.logTime.$invalid}">                        
+                            <label class="control-label" for="logTime">日志时间</label>
+                            <input type="text" class="form-control" name="logTime" datetimepicker ng-model="log.logTime" required>                            
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group" ng-class="{'has-error': logForm.$dirty && logForm.content.$invalid}">
+                            <label class="control-label" for="content">日志内容</label>
+                            <textarea class="form-control" rows="12" name="content" ng-model="log.content" required maxlength=1000></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <div ng-if="logForm.$valid">
+                <md-button class="md-raised md-primary" ng-click="save()">
+                    提交并新建
+                </md-button>
+                <md-button class="md-raised md-primary" ng-click="save(true)">
+                    提交日志
+                </md-button>
+            </div>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

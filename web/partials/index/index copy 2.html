@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="BOSS">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BOSS</title>
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body ng-cloak ng-controller="IndexCtrl">
+    <md-button class="md-primary md-raised" ng-click="showAdvanced($event)">
+        Custom Dialog
+    </md-button>
+    <div class="row" style="margin-top: 230px;">
+        <div class="col-md-offset-1 col-md-10">
+            <section id="search">
+                <label for="search-input"><i class="glyphicon glyphicon-search" aria-hidden="true"></i><span class="sr-only">Search icons</span></label>
+                <input id="search-input" class="form-control input-lg" placeholder="Search icons" autocomplete="off" style="height: 60px;">
+                <a id="search-clear" href="#" class="glyphicon glyphicon-remove-sign" aria-hidden="true"><span class="sr-only">Clear search</span></a>
+            </section>
+        </div>
+    </div>
+    <script src="assets/vendor/requirejs/require.js" data-main="main.js"></script>
+</body>
+
+</html>

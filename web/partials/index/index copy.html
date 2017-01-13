@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="description" content="BOSS">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>BOSS</title>
+		<link rel="shortcut icon" href="favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<body ng-cloak ng-controller="IndexCtrl" class="container">
+		<form>
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<div class="form-group">
+						<label for="projectCode">项目编号</label>
+						<select ng-options="project.projectCode as project.projectCode for project in projects" ng-model="log.projectCode" ng-change="projectChanged()" class="form-control"></select>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<div class="form-group">
+						<label for="projectName">项目名称</label>
+						<input type="text" class="form-control" id="projectName" ng-model="projectName" readonly>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<div class="form-group">
+						<label>日志类型</label>
+						<select ng-options="type.id as type.name for type in logTypes" ng-model="log.logType" class="form-control"></select>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<div class="form-group">
+						<label for="taskTime">工时（分钟）</label>
+						<input type="number" class="form-control" id="taskTime" ng-model="log.taskTime">
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<div class="form-group">
+						<label for="logTime">日志时间</label>
+						<div class="input-group date" datetimepicker ng-model="log.logTime">
+							<input type="text" class="form-control" id="logTime">
+							<span class="input-group-addon">
+	                        	<span class="glyphicon glyphicon-calendar"></span>
+                    		</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<div class="form-group">
+						<label for="recordTime">填写时间</label>
+						<input type="text" class="form-control" id="recordTime" ng-model="log.recordTime" readonly>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					<div class="form-group">
+						<label for="content">日志内容</label>
+						<textarea class="form-control" rows="10" ng-model="log.content"></textarea>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					<button type="submit" class="btn btn-primary" ng-click="save()">保存</button>
+					<button type="button" class="btn btn-grey">清空</button>
+				</div>
+			</div>
+		</form>
+		<script src="assets/vendor/requirejs/require.js" data-main="main.js"></script>
+	</body>
+</html>

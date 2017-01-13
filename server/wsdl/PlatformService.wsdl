@@ -1,0 +1,2820 @@
+<wsdl:definitions targetNamespace="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:tns="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+	<wsdl:types>
+		<s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+			<s:element name="HelloWorld">
+				<s:complexType/>
+			</s:element>
+			<s:element name="HelloWorldResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="HelloWorldResult" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetData">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="filter" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetDataResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="GetDataResult">
+							<s:complexType>
+								<s:sequence>
+									<s:element ref="s:schema"/>
+									<s:any/>
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetNameByAccount">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="account" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetNameByAccountResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="GetNameByAccountResult" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetWordsContent">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="WordsID" type="s:int"/>
+						<s:element maxOccurs="1" minOccurs="1" name="belongID" type="s:int"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetWordsContentResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="GetWordsContentResult" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="CheckUserPermission">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="userID" type="s:int"/>
+						<s:element maxOccurs="1" minOccurs="1" name="permissionID" type="s:int"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="CheckUserPermissionResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="CheckUserPermissionResult" type="s:boolean"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetSettings">
+				<s:complexType/>
+			</s:element>
+			<s:element name="GetSettingsResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="GetSettingsResult">
+							<s:complexType>
+								<s:sequence>
+									<s:any maxOccurs="unbounded" minOccurs="0" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax"/>
+									<s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax"/>
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AddS_Settings">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="keyName" type="s:string"/>
+						<s:element maxOccurs="1" minOccurs="0" name="configValue" type="s:string"/>
+						<s:element maxOccurs="1" minOccurs="0" name="remark" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AddS_SettingsResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="AddS_SettingsResult" type="s:boolean"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="UpdateS_Settings">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="id" type="s:int"/>
+						<s:element maxOccurs="1" minOccurs="0" name="keyName" type="s:string"/>
+						<s:element maxOccurs="1" minOccurs="0" name="configValue" type="s:string"/>
+						<s:element maxOccurs="1" minOccurs="0" name="remark" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="UpdateS_SettingsResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="UpdateS_SettingsResult" type="s:boolean"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="CheckValue">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="keyName" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="CheckValueResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="CheckValueResult" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="DeleteS_Settings">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="keyName" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="DeleteS_SettingsResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="DeleteS_SettingsResult" type="s:boolean"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AddUserToRole">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="userID" type="s:int"/>
+						<s:element maxOccurs="1" minOccurs="1" name="roleID" type="s:int"/>
+						<s:element maxOccurs="1" minOccurs="0" name="remark" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AddUserToRoleResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="AddUserToRoleResult" type="s:boolean"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="RemoveUserFromRole">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="userID" type="s:int"/>
+						<s:element maxOccurs="1" minOccurs="1" name="roleID" type="s:int"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="RemoveUserFromRoleResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="RemoveUserFromRoleResult" type="s:boolean"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetRolesNotHaveUser">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="UserID" type="s:int"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetRolesNotHaveUserResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="GetRolesNotHaveUserResult">
+							<s:complexType>
+								<s:sequence>
+									<s:any maxOccurs="unbounded" minOccurs="0" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax"/>
+									<s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax"/>
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetRolesByUser">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="userID" type="s:int"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetRolesByUserResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="GetRolesByUserResult">
+							<s:complexType>
+								<s:sequence>
+									<s:any maxOccurs="unbounded" minOccurs="0" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax"/>
+									<s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax"/>
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetUserInfo">
+				<s:complexType/>
+			</s:element>
+			<s:element name="GetUserInfoResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="GetUserInfoResult">
+							<s:complexType>
+								<s:sequence>
+									<s:any maxOccurs="unbounded" minOccurs="0" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax"/>
+									<s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax"/>
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetUserInfoByFilter">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="filter" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetUserInfoByFilterResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="GetUserInfoByFilterResult">
+							<s:complexType>
+								<s:sequence>
+									<s:any maxOccurs="unbounded" minOccurs="0" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax"/>
+									<s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax"/>
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AddUsersToRole">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="userIDs" type="tns:ArrayOfInt"/>
+						<s:element maxOccurs="1" minOccurs="1" name="roleID" type="s:int"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="ArrayOfInt">
+				<s:sequence>
+					<s:element maxOccurs="unbounded" minOccurs="0" name="int" type="s:int"/>
+				</s:sequence>
+			</s:complexType>
+			<s:element name="AddUsersToRoleResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="AddUsersToRoleResult" type="s:boolean"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="RemoveUsersFromRole">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="userIDs" type="tns:ArrayOfInt"/>
+						<s:element maxOccurs="1" minOccurs="1" name="roleID" type="s:int"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="RemoveUsersFromRoleResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="RemoveUsersFromRoleResult" type="s:boolean"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetRoleInfo">
+				<s:complexType/>
+			</s:element>
+			<s:element name="GetRoleInfoResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="GetRoleInfoResult">
+							<s:complexType>
+								<s:sequence>
+									<s:any maxOccurs="unbounded" minOccurs="0" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax"/>
+									<s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax"/>
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetUsersByRole">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="roleID" type="s:int"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetUsersByRoleResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="GetUsersByRoleResult">
+							<s:complexType>
+								<s:sequence>
+									<s:any maxOccurs="unbounded" minOccurs="0" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax"/>
+									<s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax"/>
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetUsersNotInRole">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="roleID" type="s:int"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetUsersNotInRoleResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="GetUsersNotInRoleResult">
+							<s:complexType>
+								<s:sequence>
+									<s:any maxOccurs="unbounded" minOccurs="0" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax"/>
+									<s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax"/>
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetAllDaLeiList">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="flag" type="s:boolean"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetAllDaLeiListResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="GetAllDaLeiListResult">
+							<s:complexType>
+								<s:sequence>
+									<s:any maxOccurs="unbounded" minOccurs="0" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax"/>
+									<s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax"/>
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetXiaoLeiListByWordsID">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="wordsID" type="s:int"/>
+						<s:element maxOccurs="1" minOccurs="1" name="flag" type="s:boolean"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetXiaoLeiListByWordsIDResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="GetXiaoLeiListByWordsIDResult">
+							<s:complexType>
+								<s:sequence>
+									<s:any maxOccurs="unbounded" minOccurs="0" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax"/>
+									<s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax"/>
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="InsertS_WordsByDaLei">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="wordsID" type="s:int"/>
+						<s:element maxOccurs="1" minOccurs="0" name="wordsContent" type="s:string"/>
+						<s:element maxOccurs="1" minOccurs="0" name="wordsValue" type="s:string"/>
+						<s:element maxOccurs="1" minOccurs="0" name="wordsRemark" type="s:string"/>
+						<s:element maxOccurs="1" minOccurs="1" name="belongID" type="s:int"/>
+						<s:element maxOccurs="1" minOccurs="1" name="sortID" type="s:int"/>
+						<s:element maxOccurs="1" minOccurs="1" name="isActive" type="s:boolean"/>
+						<s:element maxOccurs="1" minOccurs="1" name="flag" type="s:boolean"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="InsertS_WordsByDaLeiResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="InsertS_WordsByDaLeiResult" type="s:boolean"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="InsertS_WordsByXiaoLei">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="wordsID" type="s:int"/>
+						<s:element maxOccurs="1" minOccurs="0" name="wordsContent" type="s:string"/>
+						<s:element maxOccurs="1" minOccurs="0" name="wordsValue" type="s:string"/>
+						<s:element maxOccurs="1" minOccurs="0" name="wordsRemark" type="s:string"/>
+						<s:element maxOccurs="1" minOccurs="1" name="belongID" type="s:int"/>
+						<s:element maxOccurs="1" minOccurs="1" name="sortID" type="s:int"/>
+						<s:element maxOccurs="1" minOccurs="1" name="isActive" type="s:boolean"/>
+						<s:element maxOccurs="1" minOccurs="1" name="flag" type="s:boolean"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="InsertS_WordsByXiaoLeiResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="InsertS_WordsByXiaoLeiResult" type="s:boolean"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="UpdateS_WordsByDaLei">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="id" type="s:int"/>
+						<s:element maxOccurs="1" minOccurs="1" name="wordsID" type="s:int"/>
+						<s:element maxOccurs="1" minOccurs="0" name="wordsContent" type="s:string"/>
+						<s:element maxOccurs="1" minOccurs="0" name="wordsValue" type="s:string"/>
+						<s:element maxOccurs="1" minOccurs="0" name="wordsRemark" type="s:string"/>
+						<s:element maxOccurs="1" minOccurs="1" name="belongID" type="s:int"/>
+						<s:element maxOccurs="1" minOccurs="1" name="sortID" type="s:int"/>
+						<s:element maxOccurs="1" minOccurs="1" name="isActive" type="s:boolean"/>
+						<s:element maxOccurs="1" minOccurs="1" name="flag" type="s:boolean"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="UpdateS_WordsByDaLeiResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="UpdateS_WordsByDaLeiResult" type="s:boolean"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="UpdateS_WordsByXiaoLei">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="id" type="s:int"/>
+						<s:element maxOccurs="1" minOccurs="1" name="wordsID" type="s:int"/>
+						<s:element maxOccurs="1" minOccurs="0" name="wordsContent" type="s:string"/>
+						<s:element maxOccurs="1" minOccurs="0" name="wordsValue" type="s:string"/>
+						<s:element maxOccurs="1" minOccurs="0" name="wordsRemark" type="s:string"/>
+						<s:element maxOccurs="1" minOccurs="1" name="belongID" type="s:int"/>
+						<s:element maxOccurs="1" minOccurs="1" name="sortID" type="s:int"/>
+						<s:element maxOccurs="1" minOccurs="1" name="isActive" type="s:boolean"/>
+						<s:element maxOccurs="1" minOccurs="1" name="flag" type="s:boolean"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="UpdateS_WordsByXiaoLeiResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="UpdateS_WordsByXiaoLeiResult" type="s:boolean"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="DelDaLeiS_Words">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="id" type="s:int"/>
+						<s:element maxOccurs="1" minOccurs="1" name="wordsID" type="s:int"/>
+						<s:element maxOccurs="1" minOccurs="1" name="flag" type="s:boolean"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="DelDaLeiS_WordsResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="DelDaLeiS_WordsResult" type="s:boolean"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="DelXiaoLeiS_Words">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="id" type="s:int"/>
+						<s:element maxOccurs="1" minOccurs="1" name="flag" type="s:boolean"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="DelXiaoLeiS_WordsResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="DelXiaoLeiS_WordsResult" type="s:boolean"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="ModifyPassword">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="account" type="s:string"/>
+						<s:element maxOccurs="1" minOccurs="0" name="oldPass" type="s:string"/>
+						<s:element maxOccurs="1" minOccurs="0" name="newPass" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="ModifyPasswordResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="ModifyPasswordResult" type="s:boolean"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="CheckPassword">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="account" type="s:string"/>
+						<s:element maxOccurs="1" minOccurs="0" name="pws" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="CheckPasswordResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="CheckPasswordResult" type="s:boolean"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetUserInfoEntity">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="account" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetUserInfoEntityResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="GetUserInfoEntityResult" type="tns:UserInfo"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="UserInfo">
+				<s:sequence>
+					<s:element maxOccurs="1" minOccurs="0" name="Phone" type="s:string"/>
+					<s:element maxOccurs="1" minOccurs="0" name="CellPhone" type="s:string"/>
+					<s:element maxOccurs="1" minOccurs="0" name="IdCard" type="s:string"/>
+					<s:element maxOccurs="1" minOccurs="0" name="EMail" type="s:string"/>
+					<s:element maxOccurs="1" minOccurs="1" name="BorthDate" nillable="true" type="s:dateTime"/>
+					<s:element maxOccurs="1" minOccurs="1" name="Sex" type="s:boolean"/>
+					<s:element maxOccurs="1" minOccurs="0" name="Address" type="s:string"/>
+					<s:element maxOccurs="1" minOccurs="0" name="PostNum" type="s:string"/>
+					<s:element maxOccurs="1" minOccurs="1" name="UserID" type="s:int"/>
+					<s:element maxOccurs="1" minOccurs="0" name="UserName" type="s:string"/>
+					<s:element maxOccurs="1" minOccurs="0" name="Account" type="s:string"/>
+					<s:element maxOccurs="1" minOccurs="0" name="PWS" type="s:string"/>
+					<s:element maxOccurs="1" minOccurs="0" name="Remark" type="s:string"/>
+					<s:element maxOccurs="1" minOccurs="1" name="IS_ACTIVE" type="s:boolean"/>
+					<s:element maxOccurs="1" minOccurs="1" name="ExpireDate" nillable="true" type="s:dateTime"/>
+					<s:element maxOccurs="1" minOccurs="1" name="CreatedDate" nillable="true" type="s:dateTime"/>
+					<s:element maxOccurs="1" minOccurs="1" name="Department" type="s:int"/>
+				</s:sequence>
+			</s:complexType>
+			<s:element name="GetRoleInfoEntity">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="roleID" type="s:int"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetRoleInfoEntityResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="GetRoleInfoEntityResult" type="tns:RoleInfo"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="RoleInfo">
+				<s:sequence>
+					<s:element maxOccurs="1" minOccurs="1" name="RoleID" type="s:int"/>
+					<s:element maxOccurs="1" minOccurs="0" name="RoleName" type="s:string"/>
+					<s:element maxOccurs="1" minOccurs="0" name="Remark" type="s:string"/>
+				</s:sequence>
+			</s:complexType>
+			<s:element name="AddRole">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="roleInfo" type="tns:RoleInfo"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AddRoleResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="AddRoleResult" type="s:int"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="UpdateRoleInfo">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="roleInfo" type="tns:RoleInfo"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="UpdateRoleInfoResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="UpdateRoleInfoResult" type="s:boolean"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetRoleInfoByFilter">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="filter" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetRoleInfoByFilterResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="GetRoleInfoByFilterResult">
+							<s:complexType>
+								<s:sequence>
+									<s:any maxOccurs="unbounded" minOccurs="0" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax"/>
+									<s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax"/>
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetPermissionGroupInfoEntity">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="permissionGroupID" type="s:int"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetPermissionGroupInfoEntityResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="GetPermissionGroupInfoEntityResult" type="tns:PermissionGroupInfo"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="PermissionGroupInfo">
+				<s:sequence>
+					<s:element maxOccurs="1" minOccurs="1" name="PermissionGroupID" type="s:int"/>
+					<s:element maxOccurs="1" minOccurs="0" name="PermissionGroupName" type="s:string"/>
+					<s:element maxOccurs="1" minOccurs="1" name="BelongPermissionGroupID" type="s:int"/>
+					<s:element maxOccurs="1" minOccurs="0" name="Remark" type="s:string"/>
+				</s:sequence>
+			</s:complexType>
+			<s:element name="AddPermissionGroup">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="permissionGroupInfo" type="tns:PermissionGroupInfo"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AddPermissionGroupResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="AddPermissionGroupResult" type="s:int"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="UpdatePermissionGroupInfo">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="permissionGroupInfo" type="tns:PermissionGroupInfo"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="UpdatePermissionGroupInfoResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="UpdatePermissionGroupInfoResult" type="s:boolean"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetPermissionGroupInfo">
+				<s:complexType/>
+			</s:element>
+			<s:element name="GetPermissionGroupInfoResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="GetPermissionGroupInfoResult">
+							<s:complexType>
+								<s:sequence>
+									<s:any maxOccurs="unbounded" minOccurs="0" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax"/>
+									<s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax"/>
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="DelPermissionGroup">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="permissionGroupID" type="s:int"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="DelPermissionGroupResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="DelPermissionGroupResult" type="s:boolean"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetPermissionInfo">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="permissionID" type="s:int"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetPermissionInfoResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="GetPermissionInfoResult" type="tns:PermissionInfo"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="PermissionInfo">
+				<s:sequence>
+					<s:element maxOccurs="1" minOccurs="1" name="PermissionID" type="s:int"/>
+					<s:element maxOccurs="1" minOccurs="0" name="PermissionName" type="s:string"/>
+					<s:element maxOccurs="1" minOccurs="0" name="Remark" type="s:string"/>
+				</s:sequence>
+			</s:complexType>
+			<s:element name="GetPermissionGroupsByPermission">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="permissionID" type="s:int"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetPermissionGroupsByPermissionResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="GetPermissionGroupsByPermissionResult">
+							<s:complexType>
+								<s:sequence>
+									<s:any maxOccurs="unbounded" minOccurs="0" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax"/>
+									<s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax"/>
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="UpdatePermissionInfo">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="permissionInfo" type="tns:PermissionInfo"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="UpdatePermissionInfoResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="UpdatePermissionInfoResult" type="s:boolean"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="RemovePermissionFromGroup">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="permissionID" type="s:int"/>
+						<s:element maxOccurs="1" minOccurs="1" name="PermissionGroupID" type="s:int"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="RemovePermissionFromGroupResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="RemovePermissionFromGroupResult" type="s:boolean"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AddPermissionToGroup">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="permissionID" type="s:int"/>
+						<s:element maxOccurs="1" minOccurs="1" name="permissionGroupID" type="s:int"/>
+						<s:element maxOccurs="1" minOccurs="1" name="permissionDisplayIndex" type="s:int"/>
+						<s:element maxOccurs="1" minOccurs="0" name="remark" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AddPermissionToGroupResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="AddPermissionToGroupResult" type="s:boolean"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AddPermissionInfo">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="permissionInfo" type="tns:PermissionInfo"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AddPermissionInfoResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="AddPermissionInfoResult" type="s:int"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetPermissionsNotInPermissionGroup">
+				<s:complexType/>
+			</s:element>
+			<s:element name="GetPermissionsNotInPermissionGroupResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="GetPermissionsNotInPermissionGroupResult">
+							<s:complexType>
+								<s:sequence>
+									<s:any maxOccurs="unbounded" minOccurs="0" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax"/>
+									<s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax"/>
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetPermissionByPermissionGroup">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="PermissionGroupID" type="s:int"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetPermissionByPermissionGroupResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="GetPermissionByPermissionGroupResult">
+							<s:complexType>
+								<s:sequence>
+									<s:any maxOccurs="unbounded" minOccurs="0" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax"/>
+									<s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax"/>
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetAllMenusByUser">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="userID" type="s:int"/>
+						<s:element maxOccurs="1" minOccurs="1" name="MenuID" type="s:int"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetAllMenusByUserResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="GetAllMenusByUserResult">
+							<s:complexType>
+								<s:sequence>
+									<s:any maxOccurs="unbounded" minOccurs="0" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax"/>
+									<s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax"/>
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="UpdateUserInfo">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="userInfo" type="tns:UserInfo"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="UpdateUserInfoResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="UpdateUserInfoResult" type="s:boolean"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AddUser">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="userInfo" type="tns:UserInfo"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AddUserResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="AddUserResult" type="s:int"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetUserInfoEntityByID">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="userID" type="s:int"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetUserInfoEntityByIDResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="GetUserInfoEntityByIDResult" type="tns:UserInfo"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AddPermissionsToRole">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="permissionIDs" type="tns:ArrayOfInt"/>
+						<s:element maxOccurs="1" minOccurs="1" name="roleID" type="s:int"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AddPermissionsToRoleResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="AddPermissionsToRoleResult" type="s:boolean"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="RemovePermissionsFromRole">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="permissionIDs" type="tns:ArrayOfInt"/>
+						<s:element maxOccurs="1" minOccurs="1" name="roleID" type="s:int"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="RemovePermissionsFromRoleResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="RemovePermissionsFromRoleResult" type="s:boolean"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetPermissionAndPermissionGroup">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="StoredProcedure" type="s:string"/>
+						<s:element maxOccurs="1" minOccurs="1" name="roleid" type="s:int"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetPermissionAndPermissionGroupResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="GetPermissionAndPermissionGroupResult">
+							<s:complexType>
+								<s:sequence>
+									<s:element ref="s:schema"/>
+									<s:any/>
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AddMenu">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="menu" type="tns:MenuItem"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="MenuItem">
+				<s:sequence>
+					<s:element maxOccurs="1" minOccurs="1" name="MenuID" type="s:int"/>
+					<s:element maxOccurs="1" minOccurs="0" name="MenuName" type="s:string"/>
+					<s:element maxOccurs="1" minOccurs="0" name="Event" type="s:string"/>
+					<s:element maxOccurs="1" minOccurs="1" name="BelongID" type="s:int"/>
+					<s:element maxOccurs="1" minOccurs="1" name="DisplayIndex" type="s:int"/>
+					<s:element maxOccurs="1" minOccurs="1" name="PermissionID" type="s:int"/>
+					<s:element maxOccurs="1" minOccurs="0" name="ImageLink" type="s:string"/>
+					<s:element maxOccurs="1" minOccurs="1" name="PicMode" type="tns:MenuItemPicMode"/>
+					<s:element maxOccurs="1" minOccurs="1" name="Status" type="s:int"/>
+					<s:element maxOccurs="1" minOccurs="1" name="WindowState" nillable="true" type="s:int"/>
+					<s:element maxOccurs="1" minOccurs="1" name="WindowMode" nillable="true" type="s:int"/>
+					<s:element maxOccurs="1" minOccurs="1" name="MdiChildForm" nillable="true" type="s:int"/>
+					<s:element maxOccurs="1" minOccurs="0" name="Remark" type="s:string"/>
+					<s:element maxOccurs="1" minOccurs="1" name="MenuWidth" nillable="true" type="s:int"/>
+					<s:element maxOccurs="1" minOccurs="1" name="MenuHeight" nillable="true" type="s:int"/>
+				</s:sequence>
+			</s:complexType>
+			<s:simpleType name="MenuItemPicMode">
+				<s:restriction base="s:string">
+					<s:enumeration value="None"/>
+					<s:enumeration value="Small"/>
+					<s:enumeration value="Large"/>
+				</s:restriction>
+			</s:simpleType>
+			<s:element name="AddMenuResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="AddMenuResult" type="s:int"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="UpdateMenu">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="menu" type="tns:MenuItem"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="UpdateMenuResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="UpdateMenuResult" type="s:boolean"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="DeleteMenu">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="menuID" type="s:int"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="DeleteMenuResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="DeleteMenuResult" type="s:boolean"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetAllMenus">
+				<s:complexType/>
+			</s:element>
+			<s:element name="GetAllMenusResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="GetAllMenusResult">
+							<s:complexType>
+								<s:sequence>
+									<s:any maxOccurs="unbounded" minOccurs="0" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax"/>
+									<s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax"/>
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="StrToPicMode">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="s" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="StrToPicModeResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="1" name="StrToPicModeResult" type="tns:MenuItemPicMode"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+		</s:schema>
+	</wsdl:types>
+	<wsdl:message name="HelloWorldSoapIn">
+		<wsdl:part element="tns:HelloWorld" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="HelloWorldSoapOut">
+		<wsdl:part element="tns:HelloWorldResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetDataSoapIn">
+		<wsdl:part element="tns:GetData" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetDataSoapOut">
+		<wsdl:part element="tns:GetDataResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetNameByAccountSoapIn">
+		<wsdl:part element="tns:GetNameByAccount" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetNameByAccountSoapOut">
+		<wsdl:part element="tns:GetNameByAccountResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetWordsContentSoapIn">
+		<wsdl:part element="tns:GetWordsContent" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetWordsContentSoapOut">
+		<wsdl:part element="tns:GetWordsContentResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="CheckUserPermissionSoapIn">
+		<wsdl:part element="tns:CheckUserPermission" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="CheckUserPermissionSoapOut">
+		<wsdl:part element="tns:CheckUserPermissionResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetSettingsSoapIn">
+		<wsdl:part element="tns:GetSettings" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetSettingsSoapOut">
+		<wsdl:part element="tns:GetSettingsResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="AddS_SettingsSoapIn">
+		<wsdl:part element="tns:AddS_Settings" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="AddS_SettingsSoapOut">
+		<wsdl:part element="tns:AddS_SettingsResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="UpdateS_SettingsSoapIn">
+		<wsdl:part element="tns:UpdateS_Settings" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="UpdateS_SettingsSoapOut">
+		<wsdl:part element="tns:UpdateS_SettingsResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="CheckValueSoapIn">
+		<wsdl:part element="tns:CheckValue" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="CheckValueSoapOut">
+		<wsdl:part element="tns:CheckValueResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="DeleteS_SettingsSoapIn">
+		<wsdl:part element="tns:DeleteS_Settings" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="DeleteS_SettingsSoapOut">
+		<wsdl:part element="tns:DeleteS_SettingsResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="AddUserToRoleSoapIn">
+		<wsdl:part element="tns:AddUserToRole" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="AddUserToRoleSoapOut">
+		<wsdl:part element="tns:AddUserToRoleResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="RemoveUserFromRoleSoapIn">
+		<wsdl:part element="tns:RemoveUserFromRole" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="RemoveUserFromRoleSoapOut">
+		<wsdl:part element="tns:RemoveUserFromRoleResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetRolesNotHaveUserSoapIn">
+		<wsdl:part element="tns:GetRolesNotHaveUser" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetRolesNotHaveUserSoapOut">
+		<wsdl:part element="tns:GetRolesNotHaveUserResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetRolesByUserSoapIn">
+		<wsdl:part element="tns:GetRolesByUser" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetRolesByUserSoapOut">
+		<wsdl:part element="tns:GetRolesByUserResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetUserInfoSoapIn">
+		<wsdl:part element="tns:GetUserInfo" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetUserInfoSoapOut">
+		<wsdl:part element="tns:GetUserInfoResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetUserInfoByFilterSoapIn">
+		<wsdl:part element="tns:GetUserInfoByFilter" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetUserInfoByFilterSoapOut">
+		<wsdl:part element="tns:GetUserInfoByFilterResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="AddUsersToRoleSoapIn">
+		<wsdl:part element="tns:AddUsersToRole" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="AddUsersToRoleSoapOut">
+		<wsdl:part element="tns:AddUsersToRoleResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="RemoveUsersFromRoleSoapIn">
+		<wsdl:part element="tns:RemoveUsersFromRole" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="RemoveUsersFromRoleSoapOut">
+		<wsdl:part element="tns:RemoveUsersFromRoleResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetRoleInfoSoapIn">
+		<wsdl:part element="tns:GetRoleInfo" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetRoleInfoSoapOut">
+		<wsdl:part element="tns:GetRoleInfoResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetUsersByRoleSoapIn">
+		<wsdl:part element="tns:GetUsersByRole" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetUsersByRoleSoapOut">
+		<wsdl:part element="tns:GetUsersByRoleResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetUsersNotInRoleSoapIn">
+		<wsdl:part element="tns:GetUsersNotInRole" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetUsersNotInRoleSoapOut">
+		<wsdl:part element="tns:GetUsersNotInRoleResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetAllDaLeiListSoapIn">
+		<wsdl:part element="tns:GetAllDaLeiList" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetAllDaLeiListSoapOut">
+		<wsdl:part element="tns:GetAllDaLeiListResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetXiaoLeiListByWordsIDSoapIn">
+		<wsdl:part element="tns:GetXiaoLeiListByWordsID" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetXiaoLeiListByWordsIDSoapOut">
+		<wsdl:part element="tns:GetXiaoLeiListByWordsIDResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="InsertS_WordsByDaLeiSoapIn">
+		<wsdl:part element="tns:InsertS_WordsByDaLei" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="InsertS_WordsByDaLeiSoapOut">
+		<wsdl:part element="tns:InsertS_WordsByDaLeiResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="InsertS_WordsByXiaoLeiSoapIn">
+		<wsdl:part element="tns:InsertS_WordsByXiaoLei" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="InsertS_WordsByXiaoLeiSoapOut">
+		<wsdl:part element="tns:InsertS_WordsByXiaoLeiResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="UpdateS_WordsByDaLeiSoapIn">
+		<wsdl:part element="tns:UpdateS_WordsByDaLei" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="UpdateS_WordsByDaLeiSoapOut">
+		<wsdl:part element="tns:UpdateS_WordsByDaLeiResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="UpdateS_WordsByXiaoLeiSoapIn">
+		<wsdl:part element="tns:UpdateS_WordsByXiaoLei" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="UpdateS_WordsByXiaoLeiSoapOut">
+		<wsdl:part element="tns:UpdateS_WordsByXiaoLeiResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="DelDaLeiS_WordsSoapIn">
+		<wsdl:part element="tns:DelDaLeiS_Words" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="DelDaLeiS_WordsSoapOut">
+		<wsdl:part element="tns:DelDaLeiS_WordsResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="DelXiaoLeiS_WordsSoapIn">
+		<wsdl:part element="tns:DelXiaoLeiS_Words" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="DelXiaoLeiS_WordsSoapOut">
+		<wsdl:part element="tns:DelXiaoLeiS_WordsResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="ModifyPasswordSoapIn">
+		<wsdl:part element="tns:ModifyPassword" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="ModifyPasswordSoapOut">
+		<wsdl:part element="tns:ModifyPasswordResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="CheckPasswordSoapIn">
+		<wsdl:part element="tns:CheckPassword" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="CheckPasswordSoapOut">
+		<wsdl:part element="tns:CheckPasswordResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetUserInfoEntitySoapIn">
+		<wsdl:part element="tns:GetUserInfoEntity" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetUserInfoEntitySoapOut">
+		<wsdl:part element="tns:GetUserInfoEntityResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetRoleInfoEntitySoapIn">
+		<wsdl:part element="tns:GetRoleInfoEntity" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetRoleInfoEntitySoapOut">
+		<wsdl:part element="tns:GetRoleInfoEntityResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="AddRoleSoapIn">
+		<wsdl:part element="tns:AddRole" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="AddRoleSoapOut">
+		<wsdl:part element="tns:AddRoleResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="UpdateRoleInfoSoapIn">
+		<wsdl:part element="tns:UpdateRoleInfo" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="UpdateRoleInfoSoapOut">
+		<wsdl:part element="tns:UpdateRoleInfoResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetRoleInfoByFilterSoapIn">
+		<wsdl:part element="tns:GetRoleInfoByFilter" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetRoleInfoByFilterSoapOut">
+		<wsdl:part element="tns:GetRoleInfoByFilterResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetPermissionGroupInfoEntitySoapIn">
+		<wsdl:part element="tns:GetPermissionGroupInfoEntity" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetPermissionGroupInfoEntitySoapOut">
+		<wsdl:part element="tns:GetPermissionGroupInfoEntityResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="AddPermissionGroupSoapIn">
+		<wsdl:part element="tns:AddPermissionGroup" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="AddPermissionGroupSoapOut">
+		<wsdl:part element="tns:AddPermissionGroupResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="UpdatePermissionGroupInfoSoapIn">
+		<wsdl:part element="tns:UpdatePermissionGroupInfo" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="UpdatePermissionGroupInfoSoapOut">
+		<wsdl:part element="tns:UpdatePermissionGroupInfoResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetPermissionGroupInfoSoapIn">
+		<wsdl:part element="tns:GetPermissionGroupInfo" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetPermissionGroupInfoSoapOut">
+		<wsdl:part element="tns:GetPermissionGroupInfoResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="DelPermissionGroupSoapIn">
+		<wsdl:part element="tns:DelPermissionGroup" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="DelPermissionGroupSoapOut">
+		<wsdl:part element="tns:DelPermissionGroupResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetPermissionInfoSoapIn">
+		<wsdl:part element="tns:GetPermissionInfo" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetPermissionInfoSoapOut">
+		<wsdl:part element="tns:GetPermissionInfoResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetPermissionGroupsByPermissionSoapIn">
+		<wsdl:part element="tns:GetPermissionGroupsByPermission" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetPermissionGroupsByPermissionSoapOut">
+		<wsdl:part element="tns:GetPermissionGroupsByPermissionResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="UpdatePermissionInfoSoapIn">
+		<wsdl:part element="tns:UpdatePermissionInfo" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="UpdatePermissionInfoSoapOut">
+		<wsdl:part element="tns:UpdatePermissionInfoResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="RemovePermissionFromGroupSoapIn">
+		<wsdl:part element="tns:RemovePermissionFromGroup" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="RemovePermissionFromGroupSoapOut">
+		<wsdl:part element="tns:RemovePermissionFromGroupResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="AddPermissionToGroupSoapIn">
+		<wsdl:part element="tns:AddPermissionToGroup" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="AddPermissionToGroupSoapOut">
+		<wsdl:part element="tns:AddPermissionToGroupResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="AddPermissionInfoSoapIn">
+		<wsdl:part element="tns:AddPermissionInfo" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="AddPermissionInfoSoapOut">
+		<wsdl:part element="tns:AddPermissionInfoResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetPermissionsNotInPermissionGroupSoapIn">
+		<wsdl:part element="tns:GetPermissionsNotInPermissionGroup" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetPermissionsNotInPermissionGroupSoapOut">
+		<wsdl:part element="tns:GetPermissionsNotInPermissionGroupResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetPermissionByPermissionGroupSoapIn">
+		<wsdl:part element="tns:GetPermissionByPermissionGroup" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetPermissionByPermissionGroupSoapOut">
+		<wsdl:part element="tns:GetPermissionByPermissionGroupResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetAllMenusByUserSoapIn">
+		<wsdl:part element="tns:GetAllMenusByUser" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetAllMenusByUserSoapOut">
+		<wsdl:part element="tns:GetAllMenusByUserResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="UpdateUserInfoSoapIn">
+		<wsdl:part element="tns:UpdateUserInfo" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="UpdateUserInfoSoapOut">
+		<wsdl:part element="tns:UpdateUserInfoResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="AddUserSoapIn">
+		<wsdl:part element="tns:AddUser" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="AddUserSoapOut">
+		<wsdl:part element="tns:AddUserResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetUserInfoEntityByIDSoapIn">
+		<wsdl:part element="tns:GetUserInfoEntityByID" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetUserInfoEntityByIDSoapOut">
+		<wsdl:part element="tns:GetUserInfoEntityByIDResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="AddPermissionsToRoleSoapIn">
+		<wsdl:part element="tns:AddPermissionsToRole" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="AddPermissionsToRoleSoapOut">
+		<wsdl:part element="tns:AddPermissionsToRoleResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="RemovePermissionsFromRoleSoapIn">
+		<wsdl:part element="tns:RemovePermissionsFromRole" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="RemovePermissionsFromRoleSoapOut">
+		<wsdl:part element="tns:RemovePermissionsFromRoleResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetPermissionAndPermissionGroupSoapIn">
+		<wsdl:part element="tns:GetPermissionAndPermissionGroup" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetPermissionAndPermissionGroupSoapOut">
+		<wsdl:part element="tns:GetPermissionAndPermissionGroupResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="AddMenuSoapIn">
+		<wsdl:part element="tns:AddMenu" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="AddMenuSoapOut">
+		<wsdl:part element="tns:AddMenuResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="UpdateMenuSoapIn">
+		<wsdl:part element="tns:UpdateMenu" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="UpdateMenuSoapOut">
+		<wsdl:part element="tns:UpdateMenuResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="DeleteMenuSoapIn">
+		<wsdl:part element="tns:DeleteMenu" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="DeleteMenuSoapOut">
+		<wsdl:part element="tns:DeleteMenuResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetAllMenusSoapIn">
+		<wsdl:part element="tns:GetAllMenus" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetAllMenusSoapOut">
+		<wsdl:part element="tns:GetAllMenusResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="StrToPicModeSoapIn">
+		<wsdl:part element="tns:StrToPicMode" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="StrToPicModeSoapOut">
+		<wsdl:part element="tns:StrToPicModeResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:portType name="Service1Soap">
+		<wsdl:operation name="HelloWorld">
+			<wsdl:input message="tns:HelloWorldSoapIn"/>
+			<wsdl:output message="tns:HelloWorldSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="GetData">
+			<wsdl:input message="tns:GetDataSoapIn"/>
+			<wsdl:output message="tns:GetDataSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="GetNameByAccount">
+			<wsdl:input message="tns:GetNameByAccountSoapIn"/>
+			<wsdl:output message="tns:GetNameByAccountSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="GetWordsContent">
+			<wsdl:input message="tns:GetWordsContentSoapIn"/>
+			<wsdl:output message="tns:GetWordsContentSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="CheckUserPermission">
+			<wsdl:input message="tns:CheckUserPermissionSoapIn"/>
+			<wsdl:output message="tns:CheckUserPermissionSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="GetSettings">
+			<wsdl:input message="tns:GetSettingsSoapIn"/>
+			<wsdl:output message="tns:GetSettingsSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="AddS_Settings">
+			<wsdl:input message="tns:AddS_SettingsSoapIn"/>
+			<wsdl:output message="tns:AddS_SettingsSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="UpdateS_Settings">
+			<wsdl:input message="tns:UpdateS_SettingsSoapIn"/>
+			<wsdl:output message="tns:UpdateS_SettingsSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="CheckValue">
+			<wsdl:input message="tns:CheckValueSoapIn"/>
+			<wsdl:output message="tns:CheckValueSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="DeleteS_Settings">
+			<wsdl:input message="tns:DeleteS_SettingsSoapIn"/>
+			<wsdl:output message="tns:DeleteS_SettingsSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="AddUserToRole">
+			<wsdl:input message="tns:AddUserToRoleSoapIn"/>
+			<wsdl:output message="tns:AddUserToRoleSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="RemoveUserFromRole">
+			<wsdl:input message="tns:RemoveUserFromRoleSoapIn"/>
+			<wsdl:output message="tns:RemoveUserFromRoleSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="GetRolesNotHaveUser">
+			<wsdl:input message="tns:GetRolesNotHaveUserSoapIn"/>
+			<wsdl:output message="tns:GetRolesNotHaveUserSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="GetRolesByUser">
+			<wsdl:input message="tns:GetRolesByUserSoapIn"/>
+			<wsdl:output message="tns:GetRolesByUserSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="GetUserInfo">
+			<wsdl:input message="tns:GetUserInfoSoapIn"/>
+			<wsdl:output message="tns:GetUserInfoSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="GetUserInfoByFilter">
+			<wsdl:input message="tns:GetUserInfoByFilterSoapIn"/>
+			<wsdl:output message="tns:GetUserInfoByFilterSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="AddUsersToRole">
+			<wsdl:input message="tns:AddUsersToRoleSoapIn"/>
+			<wsdl:output message="tns:AddUsersToRoleSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="RemoveUsersFromRole">
+			<wsdl:input message="tns:RemoveUsersFromRoleSoapIn"/>
+			<wsdl:output message="tns:RemoveUsersFromRoleSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="GetRoleInfo">
+			<wsdl:input message="tns:GetRoleInfoSoapIn"/>
+			<wsdl:output message="tns:GetRoleInfoSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="GetUsersByRole">
+			<wsdl:input message="tns:GetUsersByRoleSoapIn"/>
+			<wsdl:output message="tns:GetUsersByRoleSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="GetUsersNotInRole">
+			<wsdl:input message="tns:GetUsersNotInRoleSoapIn"/>
+			<wsdl:output message="tns:GetUsersNotInRoleSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="GetAllDaLeiList">
+			<wsdl:input message="tns:GetAllDaLeiListSoapIn"/>
+			<wsdl:output message="tns:GetAllDaLeiListSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="GetXiaoLeiListByWordsID">
+			<wsdl:input message="tns:GetXiaoLeiListByWordsIDSoapIn"/>
+			<wsdl:output message="tns:GetXiaoLeiListByWordsIDSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="InsertS_WordsByDaLei">
+			<wsdl:input message="tns:InsertS_WordsByDaLeiSoapIn"/>
+			<wsdl:output message="tns:InsertS_WordsByDaLeiSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="InsertS_WordsByXiaoLei">
+			<wsdl:input message="tns:InsertS_WordsByXiaoLeiSoapIn"/>
+			<wsdl:output message="tns:InsertS_WordsByXiaoLeiSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="UpdateS_WordsByDaLei">
+			<wsdl:input message="tns:UpdateS_WordsByDaLeiSoapIn"/>
+			<wsdl:output message="tns:UpdateS_WordsByDaLeiSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="UpdateS_WordsByXiaoLei">
+			<wsdl:input message="tns:UpdateS_WordsByXiaoLeiSoapIn"/>
+			<wsdl:output message="tns:UpdateS_WordsByXiaoLeiSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="DelDaLeiS_Words">
+			<wsdl:input message="tns:DelDaLeiS_WordsSoapIn"/>
+			<wsdl:output message="tns:DelDaLeiS_WordsSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="DelXiaoLeiS_Words">
+			<wsdl:input message="tns:DelXiaoLeiS_WordsSoapIn"/>
+			<wsdl:output message="tns:DelXiaoLeiS_WordsSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="ModifyPassword">
+			<wsdl:input message="tns:ModifyPasswordSoapIn"/>
+			<wsdl:output message="tns:ModifyPasswordSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="CheckPassword">
+			<wsdl:input message="tns:CheckPasswordSoapIn"/>
+			<wsdl:output message="tns:CheckPasswordSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="GetUserInfoEntity">
+			<wsdl:input message="tns:GetUserInfoEntitySoapIn"/>
+			<wsdl:output message="tns:GetUserInfoEntitySoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="GetRoleInfoEntity">
+			<wsdl:input message="tns:GetRoleInfoEntitySoapIn"/>
+			<wsdl:output message="tns:GetRoleInfoEntitySoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="AddRole">
+			<wsdl:input message="tns:AddRoleSoapIn"/>
+			<wsdl:output message="tns:AddRoleSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="UpdateRoleInfo">
+			<wsdl:input message="tns:UpdateRoleInfoSoapIn"/>
+			<wsdl:output message="tns:UpdateRoleInfoSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="GetRoleInfoByFilter">
+			<wsdl:input message="tns:GetRoleInfoByFilterSoapIn"/>
+			<wsdl:output message="tns:GetRoleInfoByFilterSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="GetPermissionGroupInfoEntity">
+			<wsdl:input message="tns:GetPermissionGroupInfoEntitySoapIn"/>
+			<wsdl:output message="tns:GetPermissionGroupInfoEntitySoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="AddPermissionGroup">
+			<wsdl:input message="tns:AddPermissionGroupSoapIn"/>
+			<wsdl:output message="tns:AddPermissionGroupSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="UpdatePermissionGroupInfo">
+			<wsdl:input message="tns:UpdatePermissionGroupInfoSoapIn"/>
+			<wsdl:output message="tns:UpdatePermissionGroupInfoSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="GetPermissionGroupInfo">
+			<wsdl:input message="tns:GetPermissionGroupInfoSoapIn"/>
+			<wsdl:output message="tns:GetPermissionGroupInfoSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="DelPermissionGroup">
+			<wsdl:input message="tns:DelPermissionGroupSoapIn"/>
+			<wsdl:output message="tns:DelPermissionGroupSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="GetPermissionInfo">
+			<wsdl:input message="tns:GetPermissionInfoSoapIn"/>
+			<wsdl:output message="tns:GetPermissionInfoSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="GetPermissionGroupsByPermission">
+			<wsdl:input message="tns:GetPermissionGroupsByPermissionSoapIn"/>
+			<wsdl:output message="tns:GetPermissionGroupsByPermissionSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="UpdatePermissionInfo">
+			<wsdl:input message="tns:UpdatePermissionInfoSoapIn"/>
+			<wsdl:output message="tns:UpdatePermissionInfoSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="RemovePermissionFromGroup">
+			<wsdl:input message="tns:RemovePermissionFromGroupSoapIn"/>
+			<wsdl:output message="tns:RemovePermissionFromGroupSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="AddPermissionToGroup">
+			<wsdl:input message="tns:AddPermissionToGroupSoapIn"/>
+			<wsdl:output message="tns:AddPermissionToGroupSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="AddPermissionInfo">
+			<wsdl:input message="tns:AddPermissionInfoSoapIn"/>
+			<wsdl:output message="tns:AddPermissionInfoSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="GetPermissionsNotInPermissionGroup">
+			<wsdl:input message="tns:GetPermissionsNotInPermissionGroupSoapIn"/>
+			<wsdl:output message="tns:GetPermissionsNotInPermissionGroupSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="GetPermissionByPermissionGroup">
+			<wsdl:input message="tns:GetPermissionByPermissionGroupSoapIn"/>
+			<wsdl:output message="tns:GetPermissionByPermissionGroupSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="GetAllMenusByUser">
+			<wsdl:input message="tns:GetAllMenusByUserSoapIn"/>
+			<wsdl:output message="tns:GetAllMenusByUserSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="UpdateUserInfo">
+			<wsdl:input message="tns:UpdateUserInfoSoapIn"/>
+			<wsdl:output message="tns:UpdateUserInfoSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="AddUser">
+			<wsdl:input message="tns:AddUserSoapIn"/>
+			<wsdl:output message="tns:AddUserSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="GetUserInfoEntityByID">
+			<wsdl:input message="tns:GetUserInfoEntityByIDSoapIn"/>
+			<wsdl:output message="tns:GetUserInfoEntityByIDSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="AddPermissionsToRole">
+			<wsdl:input message="tns:AddPermissionsToRoleSoapIn"/>
+			<wsdl:output message="tns:AddPermissionsToRoleSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="RemovePermissionsFromRole">
+			<wsdl:input message="tns:RemovePermissionsFromRoleSoapIn"/>
+			<wsdl:output message="tns:RemovePermissionsFromRoleSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="GetPermissionAndPermissionGroup">
+			<wsdl:input message="tns:GetPermissionAndPermissionGroupSoapIn"/>
+			<wsdl:output message="tns:GetPermissionAndPermissionGroupSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="AddMenu">
+			<wsdl:input message="tns:AddMenuSoapIn"/>
+			<wsdl:output message="tns:AddMenuSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="UpdateMenu">
+			<wsdl:input message="tns:UpdateMenuSoapIn"/>
+			<wsdl:output message="tns:UpdateMenuSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="DeleteMenu">
+			<wsdl:input message="tns:DeleteMenuSoapIn"/>
+			<wsdl:output message="tns:DeleteMenuSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="GetAllMenus">
+			<wsdl:input message="tns:GetAllMenusSoapIn"/>
+			<wsdl:output message="tns:GetAllMenusSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="StrToPicMode">
+			<wsdl:input message="tns:StrToPicModeSoapIn"/>
+			<wsdl:output message="tns:StrToPicModeSoapOut"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="Service1Soap" type="tns:Service1Soap">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="HelloWorld">
+			<soap:operation soapAction="http://tempuri.org/HelloWorld" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetData">
+			<soap:operation soapAction="http://tempuri.org/GetData" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetNameByAccount">
+			<soap:operation soapAction="http://tempuri.org/GetNameByAccount" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetWordsContent">
+			<soap:operation soapAction="http://tempuri.org/GetWordsContent" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="CheckUserPermission">
+			<soap:operation soapAction="http://tempuri.org/CheckUserPermission" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetSettings">
+			<soap:operation soapAction="http://tempuri.org/GetSettings" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="AddS_Settings">
+			<soap:operation soapAction="http://tempuri.org/AddS_Settings" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="UpdateS_Settings">
+			<soap:operation soapAction="http://tempuri.org/UpdateS_Settings" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="CheckValue">
+			<soap:operation soapAction="http://tempuri.org/CheckValue" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="DeleteS_Settings">
+			<soap:operation soapAction="http://tempuri.org/DeleteS_Settings" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="AddUserToRole">
+			<soap:operation soapAction="http://tempuri.org/AddUserToRole" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="RemoveUserFromRole">
+			<soap:operation soapAction="http://tempuri.org/RemoveUserFromRole" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetRolesNotHaveUser">
+			<soap:operation soapAction="http://tempuri.org/GetRolesNotHaveUser" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetRolesByUser">
+			<soap:operation soapAction="http://tempuri.org/GetRolesByUser" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetUserInfo">
+			<soap:operation soapAction="http://tempuri.org/GetUserInfo" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetUserInfoByFilter">
+			<soap:operation soapAction="http://tempuri.org/GetUserInfoByFilter" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="AddUsersToRole">
+			<soap:operation soapAction="http://tempuri.org/AddUsersToRole" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="RemoveUsersFromRole">
+			<soap:operation soapAction="http://tempuri.org/RemoveUsersFromRole" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetRoleInfo">
+			<soap:operation soapAction="http://tempuri.org/GetRoleInfo" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetUsersByRole">
+			<soap:operation soapAction="http://tempuri.org/GetUsersByRole" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetUsersNotInRole">
+			<soap:operation soapAction="http://tempuri.org/GetUsersNotInRole" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetAllDaLeiList">
+			<soap:operation soapAction="http://tempuri.org/GetAllDaLeiList" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetXiaoLeiListByWordsID">
+			<soap:operation soapAction="http://tempuri.org/GetXiaoLeiListByWordsID" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="InsertS_WordsByDaLei">
+			<soap:operation soapAction="http://tempuri.org/InsertS_WordsByDaLei" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="InsertS_WordsByXiaoLei">
+			<soap:operation soapAction="http://tempuri.org/InsertS_WordsByXiaoLei" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="UpdateS_WordsByDaLei">
+			<soap:operation soapAction="http://tempuri.org/UpdateS_WordsByDaLei" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="UpdateS_WordsByXiaoLei">
+			<soap:operation soapAction="http://tempuri.org/UpdateS_WordsByXiaoLei" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="DelDaLeiS_Words">
+			<soap:operation soapAction="http://tempuri.org/DelDaLeiS_Words" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="DelXiaoLeiS_Words">
+			<soap:operation soapAction="http://tempuri.org/DelXiaoLeiS_Words" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="ModifyPassword">
+			<soap:operation soapAction="http://tempuri.org/ModifyPassword" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="CheckPassword">
+			<soap:operation soapAction="http://tempuri.org/CheckPassword" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetUserInfoEntity">
+			<soap:operation soapAction="http://tempuri.org/GetUserInfoEntity" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetRoleInfoEntity">
+			<soap:operation soapAction="http://tempuri.org/GetRoleInfoEntity" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="AddRole">
+			<soap:operation soapAction="http://tempuri.org/AddRole" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="UpdateRoleInfo">
+			<soap:operation soapAction="http://tempuri.org/UpdateRoleInfo" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetRoleInfoByFilter">
+			<soap:operation soapAction="http://tempuri.org/GetRoleInfoByFilter" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetPermissionGroupInfoEntity">
+			<soap:operation soapAction="http://tempuri.org/GetPermissionGroupInfoEntity" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="AddPermissionGroup">
+			<soap:operation soapAction="http://tempuri.org/AddPermissionGroup" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="UpdatePermissionGroupInfo">
+			<soap:operation soapAction="http://tempuri.org/UpdatePermissionGroupInfo" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetPermissionGroupInfo">
+			<soap:operation soapAction="http://tempuri.org/GetPermissionGroupInfo" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="DelPermissionGroup">
+			<soap:operation soapAction="http://tempuri.org/DelPermissionGroup" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetPermissionInfo">
+			<soap:operation soapAction="http://tempuri.org/GetPermissionInfo" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetPermissionGroupsByPermission">
+			<soap:operation soapAction="http://tempuri.org/GetPermissionGroupsByPermission" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="UpdatePermissionInfo">
+			<soap:operation soapAction="http://tempuri.org/UpdatePermissionInfo" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="RemovePermissionFromGroup">
+			<soap:operation soapAction="http://tempuri.org/RemovePermissionFromGroup" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="AddPermissionToGroup">
+			<soap:operation soapAction="http://tempuri.org/AddPermissionToGroup" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="AddPermissionInfo">
+			<soap:operation soapAction="http://tempuri.org/AddPermissionInfo" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetPermissionsNotInPermissionGroup">
+			<soap:operation soapAction="http://tempuri.org/GetPermissionsNotInPermissionGroup" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetPermissionByPermissionGroup">
+			<soap:operation soapAction="http://tempuri.org/GetPermissionByPermissionGroup" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetAllMenusByUser">
+			<soap:operation soapAction="http://tempuri.org/GetAllMenusByUser" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="UpdateUserInfo">
+			<soap:operation soapAction="http://tempuri.org/UpdateUserInfo" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="AddUser">
+			<soap:operation soapAction="http://tempuri.org/AddUser" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetUserInfoEntityByID">
+			<soap:operation soapAction="http://tempuri.org/GetUserInfoEntityByID" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="AddPermissionsToRole">
+			<soap:operation soapAction="http://tempuri.org/AddPermissionsToRole" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="RemovePermissionsFromRole">
+			<soap:operation soapAction="http://tempuri.org/RemovePermissionsFromRole" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetPermissionAndPermissionGroup">
+			<soap:operation soapAction="http://tempuri.org/GetPermissionAndPermissionGroup" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="AddMenu">
+			<soap:operation soapAction="http://tempuri.org/AddMenu" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="UpdateMenu">
+			<soap:operation soapAction="http://tempuri.org/UpdateMenu" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="DeleteMenu">
+			<soap:operation soapAction="http://tempuri.org/DeleteMenu" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetAllMenus">
+			<soap:operation soapAction="http://tempuri.org/GetAllMenus" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="StrToPicMode">
+			<soap:operation soapAction="http://tempuri.org/StrToPicMode" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:binding name="Service1Soap12" type="tns:Service1Soap">
+		<soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="HelloWorld">
+			<soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetData">
+			<soap12:operation soapAction="http://tempuri.org/GetData" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetNameByAccount">
+			<soap12:operation soapAction="http://tempuri.org/GetNameByAccount" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetWordsContent">
+			<soap12:operation soapAction="http://tempuri.org/GetWordsContent" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="CheckUserPermission">
+			<soap12:operation soapAction="http://tempuri.org/CheckUserPermission" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetSettings">
+			<soap12:operation soapAction="http://tempuri.org/GetSettings" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="AddS_Settings">
+			<soap12:operation soapAction="http://tempuri.org/AddS_Settings" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="UpdateS_Settings">
+			<soap12:operation soapAction="http://tempuri.org/UpdateS_Settings" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="CheckValue">
+			<soap12:operation soapAction="http://tempuri.org/CheckValue" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="DeleteS_Settings">
+			<soap12:operation soapAction="http://tempuri.org/DeleteS_Settings" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="AddUserToRole">
+			<soap12:operation soapAction="http://tempuri.org/AddUserToRole" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="RemoveUserFromRole">
+			<soap12:operation soapAction="http://tempuri.org/RemoveUserFromRole" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetRolesNotHaveUser">
+			<soap12:operation soapAction="http://tempuri.org/GetRolesNotHaveUser" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetRolesByUser">
+			<soap12:operation soapAction="http://tempuri.org/GetRolesByUser" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetUserInfo">
+			<soap12:operation soapAction="http://tempuri.org/GetUserInfo" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetUserInfoByFilter">
+			<soap12:operation soapAction="http://tempuri.org/GetUserInfoByFilter" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="AddUsersToRole">
+			<soap12:operation soapAction="http://tempuri.org/AddUsersToRole" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="RemoveUsersFromRole">
+			<soap12:operation soapAction="http://tempuri.org/RemoveUsersFromRole" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetRoleInfo">
+			<soap12:operation soapAction="http://tempuri.org/GetRoleInfo" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetUsersByRole">
+			<soap12:operation soapAction="http://tempuri.org/GetUsersByRole" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetUsersNotInRole">
+			<soap12:operation soapAction="http://tempuri.org/GetUsersNotInRole" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetAllDaLeiList">
+			<soap12:operation soapAction="http://tempuri.org/GetAllDaLeiList" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetXiaoLeiListByWordsID">
+			<soap12:operation soapAction="http://tempuri.org/GetXiaoLeiListByWordsID" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="InsertS_WordsByDaLei">
+			<soap12:operation soapAction="http://tempuri.org/InsertS_WordsByDaLei" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="InsertS_WordsByXiaoLei">
+			<soap12:operation soapAction="http://tempuri.org/InsertS_WordsByXiaoLei" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="UpdateS_WordsByDaLei">
+			<soap12:operation soapAction="http://tempuri.org/UpdateS_WordsByDaLei" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="UpdateS_WordsByXiaoLei">
+			<soap12:operation soapAction="http://tempuri.org/UpdateS_WordsByXiaoLei" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="DelDaLeiS_Words">
+			<soap12:operation soapAction="http://tempuri.org/DelDaLeiS_Words" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="DelXiaoLeiS_Words">
+			<soap12:operation soapAction="http://tempuri.org/DelXiaoLeiS_Words" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="ModifyPassword">
+			<soap12:operation soapAction="http://tempuri.org/ModifyPassword" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="CheckPassword">
+			<soap12:operation soapAction="http://tempuri.org/CheckPassword" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetUserInfoEntity">
+			<soap12:operation soapAction="http://tempuri.org/GetUserInfoEntity" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetRoleInfoEntity">
+			<soap12:operation soapAction="http://tempuri.org/GetRoleInfoEntity" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="AddRole">
+			<soap12:operation soapAction="http://tempuri.org/AddRole" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="UpdateRoleInfo">
+			<soap12:operation soapAction="http://tempuri.org/UpdateRoleInfo" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetRoleInfoByFilter">
+			<soap12:operation soapAction="http://tempuri.org/GetRoleInfoByFilter" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetPermissionGroupInfoEntity">
+			<soap12:operation soapAction="http://tempuri.org/GetPermissionGroupInfoEntity" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="AddPermissionGroup">
+			<soap12:operation soapAction="http://tempuri.org/AddPermissionGroup" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="UpdatePermissionGroupInfo">
+			<soap12:operation soapAction="http://tempuri.org/UpdatePermissionGroupInfo" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetPermissionGroupInfo">
+			<soap12:operation soapAction="http://tempuri.org/GetPermissionGroupInfo" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="DelPermissionGroup">
+			<soap12:operation soapAction="http://tempuri.org/DelPermissionGroup" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetPermissionInfo">
+			<soap12:operation soapAction="http://tempuri.org/GetPermissionInfo" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetPermissionGroupsByPermission">
+			<soap12:operation soapAction="http://tempuri.org/GetPermissionGroupsByPermission" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="UpdatePermissionInfo">
+			<soap12:operation soapAction="http://tempuri.org/UpdatePermissionInfo" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="RemovePermissionFromGroup">
+			<soap12:operation soapAction="http://tempuri.org/RemovePermissionFromGroup" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="AddPermissionToGroup">
+			<soap12:operation soapAction="http://tempuri.org/AddPermissionToGroup" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="AddPermissionInfo">
+			<soap12:operation soapAction="http://tempuri.org/AddPermissionInfo" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetPermissionsNotInPermissionGroup">
+			<soap12:operation soapAction="http://tempuri.org/GetPermissionsNotInPermissionGroup" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetPermissionByPermissionGroup">
+			<soap12:operation soapAction="http://tempuri.org/GetPermissionByPermissionGroup" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetAllMenusByUser">
+			<soap12:operation soapAction="http://tempuri.org/GetAllMenusByUser" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="UpdateUserInfo">
+			<soap12:operation soapAction="http://tempuri.org/UpdateUserInfo" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="AddUser">
+			<soap12:operation soapAction="http://tempuri.org/AddUser" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetUserInfoEntityByID">
+			<soap12:operation soapAction="http://tempuri.org/GetUserInfoEntityByID" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="AddPermissionsToRole">
+			<soap12:operation soapAction="http://tempuri.org/AddPermissionsToRole" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="RemovePermissionsFromRole">
+			<soap12:operation soapAction="http://tempuri.org/RemovePermissionsFromRole" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetPermissionAndPermissionGroup">
+			<soap12:operation soapAction="http://tempuri.org/GetPermissionAndPermissionGroup" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="AddMenu">
+			<soap12:operation soapAction="http://tempuri.org/AddMenu" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="UpdateMenu">
+			<soap12:operation soapAction="http://tempuri.org/UpdateMenu" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="DeleteMenu">
+			<soap12:operation soapAction="http://tempuri.org/DeleteMenu" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetAllMenus">
+			<soap12:operation soapAction="http://tempuri.org/GetAllMenus" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="StrToPicMode">
+			<soap12:operation soapAction="http://tempuri.org/StrToPicMode" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="Service1">
+		<wsdl:port binding="tns:Service1Soap" name="Service1Soap">
+			<soap:address location="http://128.1.1.3:8888/PlatformService.asmx"/>
+		</wsdl:port>
+		<wsdl:port binding="tns:Service1Soap12" name="Service1Soap12">
+			<soap12:address location="http://128.1.1.3:8888/PlatformService.asmx"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

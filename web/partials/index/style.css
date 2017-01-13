@@ -1,0 +1,65 @@
+body {
+	overflow: hidden;
+}
+
+.page-content {
+	padding-top: 10px;
+	padding-left: 15px;    
+	padding-right: 15px;
+	padding-bottom: 10px;
+    overflow: auto;
+}
+
+.page-view {
+    width: 98%;
+    height: 100%;
+}
+
+.page-toolbar {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	opacity: 0.1;
+	z-index: 0;
+}
+
+.md-fab .md-fab-toolbar-background {
+	left: 0;
+}
+
+.glyphicon {
+	font-size: 18px;
+}
+
+.md-fab .glyphicon {
+	left: 1px;
+	top: 2px;
+}
+
+/*// #search {
+//     position: relative;
+//     font-size: 22px;
+//     padding-top: 40px;
+//     margin: -20px auto 0
+// }
+
+// #search label {
+//     position: absolute;
+//     left: 17px;
+//     top: 57px
+// }
+
+// #search #search-input,#search .hint {
+//     padding-left: 43px;
+//     padding-right: 43px;
+//     border-radius: 30px;
+// }
+
+// #search #search-clear {
+//     text-decoration: none;
+//     position: absolute;
+//     right: 18px;
+//     top: 57px;
+//     color: #b3b3b3
+// }*/

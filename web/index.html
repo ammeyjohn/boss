@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="BOSS">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BOSS</title>
+    <link rel="shortcut icon" href="favicon.ico" />
+    <base href="/">
+</head>
+
+<body ng-cloak ng-controller="IndexCtrl">
+    <md-toolbar>
+        <md-fab-actions class="md-toolbar-tools">
+            <md-button aria-label="new_log" class="md-icon-button" ng-click="toolbarClick('BOSS_NEW_LOG')">
+                <md-tooltip md-delay="500">新建日志</md-tooltip>
+                <md-icon class="glyphicon glyphicon-file"></md-icon>
+            </md-button>
+        </md-fab-actions>
+    </md-toolbar>
+    <div class="page-content">
+        <div class="page-view" ui-view></div>
+    </div>
+
+    <script src="assets/vendor/requirejs/require.js" data-main="main.js"></script>
+</body>
+
+</html>

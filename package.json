@@ -1,0 +1,19 @@
+{
+  "name": "boss",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "author": "yuanjie <yuanjie@shanghai3h.com>",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.0",
+    "ipware": "^1.0.0",
+    "lodash": "^4.17.4",
+    "moment": "^2.17.1",
+    "multer": "^1.2.1",
+    "soap": "^0.18.0"
+  }
+}
