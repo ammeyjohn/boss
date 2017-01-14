@@ -120,7 +120,7 @@ exports.boss = {
             }
             if (condition.projectCode && condition.projectCode !== '') {
                 var len = condition.projectCode.length;
-                if (len == 1) {
+                if (len === 1) {
                     clause += " and S_XiangMuBH='" + condition.projectCode + "'";
                 } else if (len > 1) {
                     clause += " and S_XiangMuBH in (";
@@ -132,8 +132,19 @@ exports.boss = {
                     clause += ")";
                 }
             }
-            if (condition.logType) {
-                clause += " and I_LogType=" + condition.logType;
+            if (condition.logType && condition.logType !== '') {
+                var len = condition.logType.length;
+                if (len === 1) {
+                    clause += " and I_LogType=" + condition.logType;
+                } else if (len > 1) {
+                    clause += " and I_LogType in (";
+                    var temp = "";
+                    _.each(condition.logType, function(type) {
+                        temp += "," + type;
+                    });
+                    clause += temp.substring(1);
+                    clause += ")";
+                }
             }
             if (condition.departmentId) {
                 clause += " and I_DengJiBM=" + condition.departmentId;

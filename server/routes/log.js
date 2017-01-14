@@ -4,13 +4,6 @@ var api = require('../api.js');
 var router = express.Router();
 
 router.post('/', function(req, res) {
-    // var condition = {
-    //     logStartTime: req.query.logStartTime,
-    //     logEndTime: req.query.logEndTime,
-    //     user: req.query.user,
-    //     logType: req.query.logType,
-    //     projectCode: req.query.projectCode
-    // }
     console.log(req.body);
     api.boss.log.get(req.body, function(result) {
         res.json(result);

@@ -17,7 +17,13 @@
             <div class="form-group">
                 <label for="logType" class="col-sm-3 control-label">日志类型</label>
                 <div class="col-sm-9">
-                    <select ng-options="type.id as type.name for type in logTypes" ng-model="condition.logType" class="form-control"></select>
+                    <ui-select multiple ng-model="condition.logType" theme="bootstrap" close-on-select="false">
+                        <ui-select-match placeholder="请选择项目类型">{{$item.name}}</ui-select-match>
+                        <ui-select-choices repeat="type.id as type in logTypes | propsFilter: {id: $select.search, name: $select.search, code: $select.search}">
+                            <div ng-bind-html="type.code + '-' + type.name | highlight: $select.search"></div>
+                        </ui-select-choices>
+                    </ui-select>
+                    <!-- <select ng-options="type.id as type.name for type in logTypes" ng-model="condition.logType" class="form-control"></select> -->
                 </div>
             </div>
         </div>
