@@ -11,32 +11,40 @@ define([
             require: '?ngModel',
             restrict: 'AE',
             scope: {
-                format: '@'
+                format: '@',
+                showClear: '@'
             },
             link: function(scope, elem, attrs, model) {
 
                 var option = {
                     format: 'YYYY-MM-DD HH:mm:ss',
-                    useCurrent: true
+                    useCurrent: true,
+                    showClear: false
                 }
 
                 if (scope.format) {
                     option.format = scope.format;
                 }
 
+                if (scope.showClear) {
+                    option.showClear = (scope.showClear == 'true');
+                }
+
                 elem.datetimepicker(option)
                     .on('dp.change', function(e) {
                         if (model) {
-                            if (!e.date) {
-                                model.$setDirty();
-                                model.$setViewValue(null);
-
-                                if (model.$validators.required) {
+                            if (model.$validators.required) {
+                                if (!e.date) {
                                     model.$setValidity('required', false);
                                 }
+                            }
+
+                            model.$setDirty();
+
+                            if (!e.date) {
+                                model.$setViewValue(null);
                             } else {
                                 if (!moment(model.$modelValue).isSame(e.date)) {
-                                    model.$setDirty();
                                     model.$setViewValue(moment(e.date).format(option.format));
                                 }
                             }
@@ -55,9 +63,7 @@ define([
                     // }
 
                     model.$render = function() {
-                        if (model.$viewValue) {
-                            elem.data('DateTimePicker').date(model.$viewValue);
-                        }
+                        elem.data('DateTimePicker').date(model.$viewValue);
                     }
                 }
             }

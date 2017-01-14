@@ -49,7 +49,7 @@
                 <div class="col-sm-9">
                     <div class="input-group">
                         <input type="text" class="form-control" id="logStartTime" datetimepicker format="YYYY-MM-DD" ng-model="condition.logStartTime">
-                        <div class="input-group-addon">-</div>
+                        <span class="input-group-addon">-</span>
                         <input type="text" class="form-control" id="logEndTime" datetimepicker format="YYYY-MM-DD" ng-model="condition.logEndTime">
                     </div>
                 </div>
@@ -60,9 +60,12 @@
                 <label for="logStartTime" class="col-sm-3 control-label">填写时间</label>
                 <div class="col-sm-9">
                     <div class="input-group">
-                        <input type="text" class="form-control" id="logStartTime" datetimepicker format="YYYY-MM-DD" ng-model="condition.logStartTime">
-                        <div class="input-group-addon">-</div>
-                        <input type="text" class="form-control" id="logEndTime" datetimepicker format="YYYY-MM-DD" ng-model="condition.logEndTime">
+                        <input type="text" class="form-control" id="recordStartTime" datetimepicker format="YYYY-MM-DD" show-clear=true ng-model="condition.recordStartTime">
+                        <span class="input-group-addon">-</span>
+                        <input type="text" class="form-control" id="recordEndTime" datetimepicker format="YYYY-MM-DD" show-clear=true ng-model="condition.recordEndTime">
+                        <span class="input-group-addon" ng-click="clearRecordTime()">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </span>
                     </div>
                 </div>
             </div>

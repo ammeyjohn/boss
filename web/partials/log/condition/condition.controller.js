@@ -21,7 +21,9 @@ define([
             projectCode: '',
             user: credential.account,
             logStartTime: moment().subtract(7, 'days').format(DATE_FORMAT),
-            logEndTime: moment().format(DATE_FORMAT)
+            logEndTime: moment().format(DATE_FORMAT),
+            recordStartTime: null,
+            recordEndTime: null
         }
 
         // 常用项目列表
@@ -84,6 +86,16 @@ define([
 
         $scope.clear = function() {
             $scope.condition = _.cloneDeep(default_condition);
+        }
+
+        $scope.clearRecordTime = function() {
+            $scope.condition.recordStartTime = null;
+            $scope.condition.recordEndTime = null;
+        }
+
+        $scope.clearLogTime = function() {
+            $scope.condition.logStartTime = null;
+            $scope.condition.logEndTime = null;
         }
 
         $scope.search = function() {
