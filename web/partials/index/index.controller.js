@@ -18,11 +18,15 @@ require([
         });
 
         var resize = function() {
-            var height = $(window).height() - 84;
-            $('.page-content').height(height);
+            var size = {
+                width: $(window).width(),
+                height: $(window).height() - 84
+            }            
+            $('.page-content').height(size.height);
+            $rootScope.$broadcast("BOSS_WINDOWS_RESIZED", size);
         }
 
-        resize();
+        resize();        
 
         $rootScope.$on('$stateChangeStart',
             function(event, toState, toParams, fromState, fromParams, options) {
@@ -41,6 +45,10 @@ require([
 
         $scope.toolbarClick = function(name) {
             $rootScope.$broadcast(name);
+        }
+
+        $scope.goto = function(name, params) {
+            $state.go(name, params);
         }
 
     }

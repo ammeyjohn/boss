@@ -83,7 +83,7 @@ exports.boss = {
                 D_RiZhiSJ: moment(log.logTime).format('YYYY-MM-DDTHH:mm:ss'),
                 I_DengJiBM: log.departmentId,
                 S_DengJiRAccount: log.user,
-                S_DengJiIP: log.ip,
+                S_DengJiIP: lop.ip,
                 I_JiaBanBH: null,
                 I_WeiHuBH: null,
                 I_ChuChaiBH: null,
@@ -118,11 +118,33 @@ exports.boss = {
             if (condition.user) {
                 clause += " and S_DengJiRAccount='" + condition.user + "'";
             }
-            if (condition.projectCode) {
-                clause += " and S_XiangMuBH='" + condition.projectCode + "'";
+            if (condition.projectCode && condition.projectCode !== '') {
+                var len = condition.projectCode.length;
+                if (len === 1) {
+                    clause += " and S_XiangMuBH='" + condition.projectCode + "'";
+                } else if (len > 1) {
+                    clause += " and S_XiangMuBH in (";
+                    var codes = "";
+                    _.each(condition.projectCode, function(code) {
+                        codes += ",'" + code + "'";
+                    });
+                    clause += codes.substring(1);
+                    clause += ")";
+                }
             }
-            if (condition.logType) {
-                clause += " and I_LogType=" + condition.logType;
+            if (condition.logType && condition.logType !== '') {
+                var len = condition.logType.length;
+                if (len === 1) {
+                    clause += " and I_LogType=" + condition.logType;
+                } else if (len > 1) {
+                    clause += " and I_LogType in (";
+                    var temp = "";
+                    _.each(condition.logType, function(type) {
+                        temp += "," + type;
+                    });
+                    clause += temp.substring(1);
+                    clause += ")";
+                }
             }
             if (condition.departmentId) {
                 clause += " and I_DengJiBM=" + condition.departmentId;

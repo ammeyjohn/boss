@@ -14,12 +14,10 @@ define([
                 }
             },
             queryLogs: {
-                method: 'GET',
-                url: '/api/log',
+                method: 'POST',
+                url: '/api/log/query',
                 params: {
-                    logStartTime: '@logStartTime',
-                    logEndTime: '@logEndTime',
-                    user: '@user'
+                    condition: '@condition'
                 }
             }
         });

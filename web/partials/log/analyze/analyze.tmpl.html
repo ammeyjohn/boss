@@ -1,0 +1,33 @@
+<div ui-view></div>
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6">
+        <div style="width: 100%; height: 300px; overflow-y: auto">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <td>项目编号</td>
+                        <td>项目名称</td>
+                        <td>工时（人日）</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="row in data">
+                        <td>{{row.projectCode}}</td>
+                        <td>{{row.projectName}}</td>
+                        <td>{{row.duration | number: 2}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6"></div>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6">
+        <div style="width: 100%; height: 350px;">
+            <div id="main" echarts ec-option="option" style="width: 100%;height:100%;"></div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6">
+    </div>
+</div>

@@ -1,50 +1,4 @@
-<div class="row">
-    <form class="form-horizontal">
-        <div class="col-xs-12 col-sm-6 col-md-6">
-            <div class="form-group">
-                <label for="projectCode" class="col-sm-3 control-label">项目编号</label>
-                <div class="col-sm-9">
-                    <select ng-options="project.projectCode as project.projectCode + ' ' + project.projectName for project in projects" ng-model="condition.projectCode" class="form-control"></select>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-6">
-            <div class="form-group">
-                <label for="recordUser" class="col-sm-3 control-label">登记人员</label>
-                <div class="col-sm-9">
-                    <input type="text" class="form-control" id="recordUser" ng-model="condition.user" readonly>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-6">
-            <div class="form-group">
-                <label for="logStartTime" class="col-sm-3 control-label">日志时间</label>
-                <div class="col-sm-9">
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="logStartTime" 
-                        datetimepicker format="YYYY-MM-DD" ng-model="condition.logStartTime">
-                        <div class="input-group-addon">-</div>
-                        <input type="text" class="form-control" id="logEndTime" 
-                        datetimepicker format="YYYY-MM-DD" ng-model="condition.logEndTime">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-6">
-            <div class="form-group">
-                <label for="logType" class="col-sm-3 control-label">日志类型</label>
-                <div class="col-sm-9">
-                    <select ng-options="type.id as type.name for type in logTypes" ng-model="condition.logType" class="form-control"></select>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-        <div class="col-md-offset-11 col-md-1 col-sm-offset-11 col-sm-1 col-xs-offset-10 col-xs-2">
-            <button type="button" class="btn btn-primary" ng-click="search()">查询</button>
-        </div>
-        </div>
-    </form>
-</div>
+<div ui-view></div>
 <div class="row">
     <div class="col-md-12 table-responsive">
         <table class="table table-hover">
@@ -71,6 +25,14 @@
                 </tr>
             </tbody>
         </table>
-        <ul uib-pagination total-items="pagination.totalItems" ng-model="pagination.currentPage"  items-per-page="pagination.itemsPerPage" previous-text="上一页" next-text="下一页" ng-change="pageChanged()"></ul>
+        <ul uib-pagination 
+            total-items="pagination.totalItems" 
+            ng-model="pagination.currentPage"  
+            items-per-page="pagination.itemsPerPage" 
+            previous-text="上一页" 
+            next-text="下一页" 
+            max-size="4"
+            force-ellipses="true"
+            ng-change="pageChanged()"></ul>
     </div>
 </div>
