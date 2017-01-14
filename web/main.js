@@ -65,6 +65,10 @@
             /* 定义CSS样式库 */
             'font-awesome': 'assets/vendor/font-awesome/css/font-awesome.min',
 
+            /* Echarts */
+            'echarts.full': 'assets/plugin/echarts/echarts.min',
+            'echarts.common': 'assets/plugin/echarts/echarts.common.min',
+            'echarts.simple': 'assets/plugin/echarts/echarts.simple.min',
 
             /* 定义资源文件夹 */
             'vendor': 'assets/vendor',
@@ -74,12 +78,13 @@
 
             /* 定义系统服务 */
 
-            /* 定义模块文件夹 */
+            /* 定义模块文件夹 */            
             'boss.login': 'partials/login/login.module',
             'boss.log': 'partials/log/log.module',
 
             /* 定义其他组件 */
             'directive.datetimepicker': 'directives/datetimepicker.directive',
+            'directive.echarts': 'directives/echarts.directive',
 
             /* 资源脚本 */
             'boss.api': 'resources/boss.api.module',

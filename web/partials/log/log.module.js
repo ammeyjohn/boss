@@ -4,7 +4,8 @@ define([
     'angular-cookies',
     'angular-bootstrap',
     'angular-ui-select',
-    'boss.api',
+    'directive.echarts',
+    'boss.api'
 ], function(ng) {
     'use strict';
 
@@ -13,6 +14,7 @@ define([
         'ngSanitize',
         'ui.bootstrap',
         'ui.select',
+        'echarts',
         'boss.api'
     ]);
 
@@ -65,6 +67,36 @@ define([
                         }
                     }
                 });
+
+                // log.analyze
+                $stateProvider.state({
+                    name: 'log.analyze',
+                    url: '/analyze',
+                    views: {
+                        '@log': {
+                            templateUrl: 'partials/log/analyze/analyze.tmpl.html',
+                            controller: 'LogAnalyzeCtrl',
+                            resolve: {
+                                loadModule: ['$ocLazyLoad', function($ocLazyLoad) {
+                                    return $ocLazyLoad.load({
+                                        files: ['partials/log/analyze/analyze.controller.js']
+                                    });
+                                }]
+                            }
+                        },
+                        '@log.analyze': {
+                            templateUrl: 'partials/log/condition/condition.tmpl.html',
+                            controller: 'LogConditionCtrl',
+                            resolve: {
+                                loadModule: ['$ocLazyLoad', function($ocLazyLoad) {
+                                    return $ocLazyLoad.load({
+                                        files: ['partials/log/condition/condition.controller.js']
+                                    });
+                                }]
+                            }
+                        }
+                    }
+                });                
             }
         ]);
 
