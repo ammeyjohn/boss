@@ -83,7 +83,7 @@ exports.boss = {
                 D_RiZhiSJ: moment(log.logTime).format('YYYY-MM-DDTHH:mm:ss'),
                 I_DengJiBM: log.departmentId,
                 S_DengJiRAccount: log.user,
-                S_DengJiIP: log.ip,
+                S_DengJiIP: lop.ip,
                 I_JiaBanBH: null,
                 I_WeiHuBH: null,
                 I_ChuChaiBH: null,

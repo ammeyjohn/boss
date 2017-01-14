@@ -15,7 +15,7 @@ define([
             },
             queryLogs: {
                 method: 'POST',
-                url: '/api/log',
+                url: '/api/log/query',
                 params: {
                     condition: '@condition'
                 }

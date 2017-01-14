@@ -35,24 +35,22 @@ define([
         });
 
         $scope.save = function(close) {            
-            console.log($scope.log);
+            logApi.add($scope.log).$promise.then(function(log) {
 
-            // logApi.add($scope.log).$promise.then(function(log) {
+                $mdToast.show(
+                    $mdToast.simple()
+                    .textContent('日志添加成功!')
+                    .position('bottom right')
+                    .hideDelay(3000)
+                );
 
-            //     $mdToast.show(
-            //         $mdToast.simple()
-            //         .textContent('日志添加成功!')
-            //         .position('bottom right')
-            //         .hideDelay(3000)
-            //     );
-
-            //     if (close) {
-            //         $mdDialog.hide();
-            //     } else {
-            //         $scope.log.content = '';
-            //         $scope.log.logTime = moment().format('YYYY-MM-DD HH:mm:ss');
-            //     }
-            // });
+                if (close) {
+                    $mdDialog.hide();
+                } else {
+                    $scope.log.content = '';
+                    $scope.log.logTime = moment().format('YYYY-MM-DD HH:mm:ss');
+                }
+            });
         }
 
         $scope.cancel = function() {
