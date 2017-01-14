@@ -54,6 +54,7 @@
             'angular-cookies': 'assets/vendor/angular-cookies/angular-cookies.min',
             'angular-aria': 'assets/vendor/angular-aria/angular-aria.min',
             'angular-ui-router': 'assets/vendor/angular-ui-router/release/angular-ui-router.min',
+            'angular-ui-select': 'assets/vendor/angular-ui-select/dist/select.min',
             'angular-local-storage': 'assets/vendor/angular-local-storage/dist/angular-local-storage.min',
             'angular-bootstrap': 'assets/vendor/angular-bootstrap/ui-bootstrap-tpls.min',
             'angular-material': 'assets/vendor/angular-material/angular-material.min',

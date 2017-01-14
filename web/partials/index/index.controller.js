@@ -22,7 +22,7 @@ require([
             $('.page-content').height(height);
         }
 
-        resize();
+        resize();        
 
         $rootScope.$on('$stateChangeStart',
             function(event, toState, toParams, fromState, fromParams, options) {

@@ -1,0 +1,51 @@
+<div class="row">
+    <form class="form-horizontal">
+        <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="form-group">
+                <label for="projectCode" class="col-sm-3 control-label">项目编号</label>
+                <div class="col-sm-9">
+                    <!-- <select ng-options="project.projectCode as project.projectCode + ' ' + project.projectName for project in projects" ng-model="condition.projectCode" class="form-control"></select> -->
+                    <ui-select multiple ng-model="condition.projectCode" theme="bootstrap" close-on-select="false">
+                        <ui-select-match placeholder="请选择项目编号">{{$item.projectCode}}</ui-select-match>
+                        <ui-select-choices repeat="project.projectCode as project in projects | propsFilter: {projectCode: $select.search, projectName: $select.search}">
+                            <div ng-bind-html="project.projectCode + ' ' + project.projectName | highlight: $select.search"></div>                            
+                        </ui-select-choices>
+                    </ui-select>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="form-group">
+                <label for="recordUser" class="col-sm-3 control-label">登记人员</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="recordUser" ng-model="condition.user" readonly>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="form-group">
+                <label for="logStartTime" class="col-sm-3 control-label">日志时间</label>
+                <div class="col-sm-9">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="logStartTime" datetimepicker format="YYYY-MM-DD" ng-model="condition.logStartTime">
+                        <div class="input-group-addon">-</div>
+                        <input type="text" class="form-control" id="logEndTime" datetimepicker format="YYYY-MM-DD" ng-model="condition.logEndTime">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="form-group">
+                <label for="logType" class="col-sm-3 control-label">日志类型</label>
+                <div class="col-sm-9">
+                    <select ng-options="type.id as type.name for type in logTypes" ng-model="condition.logType" class="form-control"></select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <button type="button" class="btn btn-primary" style="float: right" ng-click="search()">查询</button>
+            </div>
+        </div>
+    </form>
+</div>

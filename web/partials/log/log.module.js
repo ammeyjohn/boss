@@ -1,21 +1,26 @@
 define([
     'angular',
+    'angular-sanitize',
     'angular-cookies',
     'angular-bootstrap',
+    'angular-ui-select',
     'boss.api',
 ], function(ng) {
     'use strict';
 
     var logModule = ng.module('boss.log', [
         'ngCookies',
+        'ngSanitize',
         'ui.bootstrap',
+        'ui.select',
         'boss.api'
     ]);
 
     logModule
-        .config(['$controllerProvider',
-            function($controllerProvider) {
+        .config(['$controllerProvider', '$filterProvider',
+            function($controllerProvider, $filterProvider) {
                 logModule.controller = $controllerProvider.register;
+                logModule.filter = $filterProvider.register;
             }
         ]);
 
@@ -35,14 +40,29 @@ define([
                 $stateProvider.state({
                     name: 'log.search',
                     url: '/search',
-                    templateUrl: 'partials/log/search/search.tmpl.html',
-                    controller: 'LogSearchCtrl',
-                    resolve: {
-                        loadModule: ['$ocLazyLoad', function($ocLazyLoad) {
-                            return $ocLazyLoad.load({
-                                files: ['partials/log/search/search.controller.js']
-                            });
-                        }]
+                    views: {
+                        '@log': {
+                            templateUrl: 'partials/log/search/search.tmpl.html',
+                            controller: 'LogSearchCtrl',
+                            resolve: {
+                                loadModule: ['$ocLazyLoad', function($ocLazyLoad) {
+                                    return $ocLazyLoad.load({
+                                        files: ['partials/log/search/search.controller.js']
+                                    });
+                                }]
+                            }
+                        },
+                        '@log.search': {
+                            templateUrl: 'partials/log/condition/condition.tmpl.html',
+                            controller: 'LogConditionCtrl',
+                            resolve: {
+                                loadModule: ['$ocLazyLoad', function($ocLazyLoad) {
+                                    return $ocLazyLoad.load({
+                                        files: ['partials/log/condition/condition.controller.js']
+                                    });
+                                }]
+                            }
+                        }
                     }
                 });
             }

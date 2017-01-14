@@ -118,8 +118,19 @@ exports.boss = {
             if (condition.user) {
                 clause += " and S_DengJiRAccount='" + condition.user + "'";
             }
-            if (condition.projectCode) {
-                clause += " and S_XiangMuBH='" + condition.projectCode + "'";
+            if (condition.projectCode && condition.projectCode !== '') {
+                var len = condition.projectCode.length;
+                if (len == 1) {
+                    clause += " and S_XiangMuBH='" + condition.projectCode + "'";
+                } else if (len > 1) {
+                    clause += " and S_XiangMuBH in (";
+                    var codes = "";
+                    _.each(condition.projectCode, function(code) {
+                        codes += ",'" + code + "'";
+                    });
+                    clause += codes.substring(1);
+                    clause += ")";
+                }
             }
             if (condition.logType) {
                 clause += " and I_LogType=" + condition.logType;
