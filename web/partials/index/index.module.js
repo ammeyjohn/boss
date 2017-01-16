@@ -3,7 +3,7 @@ define([
     'angular-cookies',
     'angular-material',
     'boss.login',
-    'boss.log'    
+    'boss.log'
 ], function(ng) {
     'use strict';
 
@@ -21,7 +21,11 @@ define([
             function($stateProvider, $locationProvider) {
                 $locationProvider.html5Mode(true);
             }
-        ])
+        ]);
+
+    indexModule.config(['$qProvider', function($qProvider) {
+        $qProvider.errorOnUnhandledRejections(false);
+    }]);
 
     return indexModule;
 

@@ -1,4 +1,3 @@
-var debug = require('debug')('boss:server');
 var path = require('path');
 var express = require('express');
 var bodyParser = require('body-parser');
@@ -42,12 +41,4 @@ var server = app.listen(8055, function() {
     var port = server.address().port
 
     console.log("Server listening at http://%s:%s", host, port)
-});
-
-server.on('listening', function() {
-    var addr = server.address();
-    var bind = typeof addr === 'string' ?
-        'pipe ' + addr :
-        'port ' + addr.port;
-    debug('Listening on ' + bind);
 });

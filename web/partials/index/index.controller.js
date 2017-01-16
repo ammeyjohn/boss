@@ -70,39 +70,3 @@ require([
         IndexCtrl
     ]);
 });
-
-
-// $scope.projects = [];
-// $scope.projectName = null;
-
-// userApi.getProjectByUser({
-//     user: 'yuanjie'
-// }).$promise.then(function(projects) {
-//     $scope.projects = projects.data;
-//     $scope.log.projectCode = $scope.projects[0].projectCode;
-//     $scope.projectChanged();
-// });
-
-// $scope.log = {
-//     logId: 0,
-//     logType: 2,
-//     logTime: moment().format('YYYY-MM-DD HH:mm:ss'),
-//     recordTime: moment().format('YYYY-MM-DD HH:mm:ss'),
-//     taskTime: 0,            
-//     projectCode: null,
-//     content: null,
-//     user: 'yuanjie'
-// };
-
-// $scope.projectChanged = function() {
-//     var project = _.find($scope.projects, {
-//         projectCode: $scope.log.projectCode
-//     });
-//     $scope.projectName = project.projectName;
-// }
-
-// $scope.save = function() {
-//     userApi.add($scope.log).$promise.then(function(log) {
-//         console.log(log);
-//     });
-// }

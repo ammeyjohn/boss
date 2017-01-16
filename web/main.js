@@ -139,7 +139,7 @@
         deps: [],
 
         /* TODO：在正式上线前需要移除这行代码 */
-        //urlArgs: 'bust=' + (new Date()).getTime()
+        urlArgs: 'v=1.0.0.0'
     });
 
     /// 全局初始化 ///

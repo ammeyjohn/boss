@@ -25,8 +25,8 @@ var request = function(wsdl, callback) {
 }
 
 var _call = function(wsdl, method, params, callback) {
-    console.log(method);
-    console.log(params);
+    // console.log(method);
+    // console.log(params);
     request(wsdl, function(client) {    
         client[method](params, function(err, result) {
             if (!err) {
