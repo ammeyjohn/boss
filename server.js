@@ -37,7 +37,7 @@ app.get('*', function(req, res) {
     res.sendFile(path.join(__dirname, './web/index.html')); // load the single view file (angular will handle the page changes on the front-end)
 });
 
-var server = app.listen(8081, function() {
+var server = app.listen(8055, function() {
     var host = server.address().address
     var port = server.address().port
 
