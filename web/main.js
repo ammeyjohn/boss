@@ -36,6 +36,7 @@
 
             /* 第三方组件 */
             'lodash': 'assets/vendor/lodash/dist/lodash.min',
+            'moment': 'assets/vendor/moment/min/moment-with-locales.min',
 
             /* Bootstrap */
             'bootstrap': 'assets/vendor/bootstrap/dist/js/bootstrap.min',
@@ -60,7 +61,7 @@
             'angular-material': 'assets/vendor/angular-material/angular-material.min',
 
             /* AngularJS Directives */
-            'oclazyload': 'assets/vendor/oclazyload/dist/oclazyload.require.min',
+            'oclazyload': 'assets/vendor/oclazyload/dist/ocLazyLoad.require.min',
 
             /* 定义CSS样式库 */
             'font-awesome': 'assets/vendor/font-awesome/css/font-awesome.min',
@@ -126,11 +127,7 @@
                 'css!datetimepicker-css'
             ]
         },
-        packages: [{
-            name: 'moment',
-            location: 'assets/vendor/moment/min',
-            main: 'moment-with-locales.min'
-        }],
+        packages: [],
         map: {
             '*': {
                 'css': '../../assets/vendor/require-css/css'
