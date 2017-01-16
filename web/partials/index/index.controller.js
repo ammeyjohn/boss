@@ -21,23 +21,32 @@ require([
             var size = {
                 width: $(window).width(),
                 height: $(window).height() - 84
-            }            
+            }
             $('.page-content').height(size.height);
             $rootScope.$broadcast("BOSS_WINDOWS_RESIZED", size);
         }
 
-        resize();        
+        resize();
 
         $rootScope.$on('$stateChangeStart',
             function(event, toState, toParams, fromState, fromParams, options) {
-                var credential = $cookies.getObject('credential');
-                if (!credential) {
-                    if (toState.code !== 'LOGIN') {
+            	var credential = $cookies.getObject('credential');
+                if (toState.code !== 'LOGIN') {                    
+                    if (!credential) {
                         event.preventDefault();
                         $state.go('login');
                     }
+                } else {
+                	if(credential) {
+                		event.preventDefault();
+                        $state.go('log.search');	
+                	}
                 }
             });
+
+        if($state.current.url === '^') {
+        	$state.go('login');
+        }
 
         $scope.mouseMove = function(event) {
             console.log(event);
