@@ -30,7 +30,7 @@ app.use('/api/user', user);
 app.use('/api/project', project);
 app.use('/api/log', log);
 
-app.use(express.static('web'));
+app.use(express.static(path.join(__dirname, 'web')));
 app.get('*', function(req, res) {
     console.log(req.method + ' ' + req.url);
     res.sendFile(path.join(__dirname, './web/index.html')); // load the single view file (angular will handle the page changes on the front-end)
