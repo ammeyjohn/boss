@@ -89,7 +89,7 @@ exports.boss = {
                 I_ChuChaiBH: null,
                 I_ChengBenGS: log.departmentId
             };
-            console.log(_log);
+            //console.log(_log);
 
             request.call("InsertOrUpdateLog", {
                 "_Log": _log
@@ -155,7 +155,7 @@ exports.boss = {
             if (condition.recordEndTime) {
                 clause += " and D_DengJiSJ<'" + condition.recordEndTime + "'";
             }
-            console.log(clause);
+            //console.log(clause);
             request.call("SelectLogView", {
                 "filter": clause
             }, function(result) {
