@@ -20,8 +20,8 @@ define([
             logType: 2,
             projectCode: '',
             user: credential.account,
-            logStartTime: moment().subtract(7, 'days').format(DATE_FORMAT),
-            logEndTime: moment().format(DATE_FORMAT),
+            logStartTime: moment().startOf('month').format(DATE_FORMAT),
+            logEndTime: moment().endOf('month').format(DATE_FORMAT),
             recordStartTime: null,
             recordEndTime: null
         }

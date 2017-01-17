@@ -6,9 +6,9 @@ require([
 ], function(ng, moment, _, indexModule) {
     'use strict';
 
-    function IndexCtrl($scope, $rootScope, $state, $cookies) {
+    function IndexCtrl($scope, $rootScope, $state, $location, $cookies) {
 
-        $scope.credential = $cookies.getObject('credential');            
+        $scope.credential = $cookies.getObject('credential');
 
         // 监听窗体resize事件
         var resized;
@@ -32,22 +32,22 @@ require([
 
         $rootScope.$on('$stateChangeStart',
             function(event, toState, toParams, fromState, fromParams, options) {
-            	var credential = $cookies.getObject('credential');
-                if (toState.code !== 'LOGIN') {                    
+                var credential = $cookies.getObject('credential');
+                if (toState.code !== 'LOGIN') {
                     if (!credential) {
                         event.preventDefault();
                         $state.go('login');
                     }
                 } else {
-                	if(credential) {
-                		event.preventDefault();
-                        $state.go('log.search');	
-                	}
+                    if (credential) {
+                        event.preventDefault();
+                        $state.go('log.analyze');
+                    }
                 }
             });
 
-        if($state.current.url === '^') {
-        	$state.go('login');
+        if ($location.url() === '/') {
+            $state.go('login');
         }
 
         $scope.mouseMove = function(event) {
@@ -64,7 +64,7 @@ require([
 
         $scope.logout = function() {
             $cookies.remove('credential');
-            $state.go('login'); 
+            $state.go('login');
         }
     }
 
@@ -72,6 +72,7 @@ require([
         '$scope',
         '$rootScope',
         '$state',
+        '$location',
         '$cookies',
         IndexCtrl
     ]);

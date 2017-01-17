@@ -24,7 +24,7 @@ define([
                 $cookies.putObject('credential', {
                     account: loginInfo.account
                 })
-                $state.go('log.search');
+                $state.go('log.analyze');
             });
         };
 

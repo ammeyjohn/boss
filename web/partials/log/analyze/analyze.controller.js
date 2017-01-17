@@ -13,6 +13,8 @@ define([
 
     function LogAnalyzeCtrl($scope, $rootScope, $cookies, prjApi, logApi) {
 
+        var credential = $cookies.getObject('credential');
+
         $scope.option = {
             title: {},
             tooltip: {
@@ -46,6 +48,10 @@ define([
         $scope.data = {};
 
         $scope.$on('BOSS_SEARCH', function(evt, condition) {
+            search(condition);
+        });
+
+        var search = function(condition) {
             logApi.queryLogs(condition).$promise.then(function(logs) {
                 var data = {}
                 _.each(logs.data, function(log, key) {
@@ -69,7 +75,18 @@ define([
                     }
                 });
             });
-        });
+        }
+
+        var condition = {
+            logType: 2,
+            projectCode: '',
+            user: credential.account,
+            logStartTime: moment().startOf('month').format('YYYY-MM-DD'),
+            logEndTime: moment().endOf('month').format('YYYY-MM-DD'),
+            recordStartTime: null,
+            recordEndTime: null
+        }
+        search(condition);
 
     }
 

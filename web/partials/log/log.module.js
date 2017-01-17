@@ -27,7 +27,7 @@ define([
         ]);
 
     logModule
-        .config(['$stateProvider',
+        .config(['$stateProvider', 
             function($stateProvider) {
 
                 // log
@@ -36,36 +36,6 @@ define([
                     name: 'log',
                     url: '/log',
                     template: '<div ui-view />'
-                });
-
-                // log.search
-                $stateProvider.state({
-                    name: 'log.search',
-                    url: '/search',
-                    views: {
-                        '@log': {
-                            templateUrl: 'partials/log/search/search.tmpl.html',
-                            controller: 'LogSearchCtrl',
-                            resolve: {
-                                loadModule: ['$ocLazyLoad', function($ocLazyLoad) {
-                                    return $ocLazyLoad.load({
-                                        files: ['partials/log/search/search.controller.js']
-                                    });
-                                }]
-                            }
-                        },
-                        '@log.search': {
-                            templateUrl: 'partials/log/condition/condition.tmpl.html',
-                            controller: 'LogConditionCtrl',
-                            resolve: {
-                                loadModule: ['$ocLazyLoad', function($ocLazyLoad) {
-                                    return $ocLazyLoad.load({
-                                        files: ['partials/log/condition/condition.controller.js']
-                                    });
-                                }]
-                            }
-                        }
-                    }
                 });
 
                 // log.analyze
@@ -96,7 +66,37 @@ define([
                             }
                         }
                     }
-                });                
+                });                 
+
+                // log.search
+                $stateProvider.state({
+                    name: 'log.search',
+                    url: '/search',
+                    views: {
+                        '@log': {
+                            templateUrl: 'partials/log/search/search.tmpl.html',
+                            controller: 'LogSearchCtrl',
+                            resolve: {
+                                loadModule: ['$ocLazyLoad', function($ocLazyLoad) {
+                                    return $ocLazyLoad.load({
+                                        files: ['partials/log/search/search.controller.js']
+                                    });
+                                }]
+                            }
+                        },
+                        '@log.search': {
+                            templateUrl: 'partials/log/condition/condition.tmpl.html',
+                            controller: 'LogConditionCtrl',
+                            resolve: {
+                                loadModule: ['$ocLazyLoad', function($ocLazyLoad) {
+                                    return $ocLazyLoad.load({
+                                        files: ['partials/log/condition/condition.controller.js']
+                                    });
+                                }]
+                            }
+                        }
+                    }
+                });      
             }
         ]);
 
