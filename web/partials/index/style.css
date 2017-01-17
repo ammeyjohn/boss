@@ -37,6 +37,12 @@ body {
 	top: 2px;
 }
 
+.md-dialog-content input[type=search] {
+	-webkit-appearance: inherit;
+	box-sizing: inherit;
+	-webkit-box-sizing: inherit;
+}
+
 /*// #search {
 //     position: relative;
 //     font-size: 22px;

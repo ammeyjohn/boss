@@ -18,7 +18,7 @@ define([
             logType: 2,
             logTime: moment().format('YYYY-MM-DD HH:mm:ss'),
             recordTime: moment().format('YYYY-MM-DD HH:mm:ss'),
-            taskTime: 0,
+            taskTime: null,
             projectCode: null,
             content: null,
             user: credential.account
@@ -47,7 +47,8 @@ define([
                 if (close) {
                     $mdDialog.hide();
                 } else {
-                    $scope.log.content = '';
+                    $scope.log.content = null;
+                    $scope.log.taskTime = null;
                     $scope.log.logTime = moment().format('YYYY-MM-DD HH:mm:ss');
                 }
             });
