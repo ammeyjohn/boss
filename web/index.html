@@ -12,8 +12,11 @@
 </head>
 
 <body ng-cloak ng-controller="IndexCtrl">
-    <md-toolbar>
-        <md-fab-actions class="md-toolbar-tools">
+    <md-toolbar class="md-hue-2">
+        <div class="md-toolbar-tools">
+            <h2>
+                <span>BOSS</span>
+            </h2>
             <md-button aria-label="new_log" class="md-icon-button" ng-click="toolbarClick('BOSS_NEW_LOG')">
                 <md-tooltip md-delay="500">新建日志</md-tooltip>
                 <md-icon class="glyphicon glyphicon-file"></md-icon>
@@ -25,8 +28,15 @@
             <md-button aria-label="new_analyze" class="md-icon-button" ng-click="goto('log.analyze')">
                 <md-tooltip md-delay="500">日志分析</md-tooltip>
                 <md-icon class="glyphicon glyphicon-stats"></md-icon>
-            </md-button>
-        </md-fab-actions>
+            </md-button>            
+            <span flex></span>
+            <h5>                                
+                <span>{{credential.account}}</span>
+            </h5>
+            <md-button aria-label="logout" class="md-icon-button" ng-click="logout()">
+                <md-icon class="glyphicon glyphicon-off"></md-icon>
+            </md-button>            
+        </div>
     </md-toolbar>
     <div class="page-content">
         <div class="page-view" ui-view></div>

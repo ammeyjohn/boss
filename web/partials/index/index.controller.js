@@ -8,6 +8,8 @@ require([
 
     function IndexCtrl($scope, $rootScope, $state, $cookies) {
 
+        $scope.credential = $cookies.getObject('credential');            
+
         // 监听窗体resize事件
         var resized;
         $(window).resize(function(event) {
@@ -60,6 +62,10 @@ require([
             $state.go(name, params);
         }
 
+        $scope.logout = function() {
+            $cookies.remove('credential');
+            $state.go('login'); 
+        }
     }
 
     indexModule.controller('IndexCtrl', [
