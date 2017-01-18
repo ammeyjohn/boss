@@ -7,17 +7,56 @@ exports.boss = {
     user: {
         /* 用户登录 */
         login: function(account, password, callback) {
-            request.callplt("CheckPassword", {
-                "account": account,
-                "pws": password
-            }, function(result) {
-                if (utils.checkFunction(callback)) {
-                    callback({
-                        code: 0,
-                        data: result.CheckPasswordResult
-                    });
-                }
+
+            var user = _.find(global.users, {
+                account: account
             });
+
+            var data = {
+                success: false,
+                loginTime: null,
+                user: null
+            };
+
+            if (!user) {
+                callback({
+                    code: -1,
+                    error: {
+                        message: '无法找到用户"' + account + '"。'
+                    },
+                    data: data
+                });
+            } else {
+                request.callplt("CheckPassword", {
+                    "account": account,
+                    "pws": password
+                }, function(result) {
+                    if (result.CheckPasswordResult) {
+                        data.success = true;
+                        data.loginTime = utils.now();
+                        data.user = user;
+
+                        callback({
+                            code: 0,
+                            data: data
+                        });
+                    } else {
+                        callback({
+                            code: -1,
+                            data: data,
+                            error: {
+                                message: '用户名或密码不正确。'
+                            }
+                        });
+                    }
+                }, function(error) {
+                    callback({
+                        code: -1,
+                        data: data,
+                        error: error
+                    });
+                });
+            }
         },
 
         /* 获得当前用户IP地址 */

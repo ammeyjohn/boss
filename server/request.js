@@ -17,40 +17,33 @@ var request = function(wsdl, callback) {
                 callback({
                     code: 500,
                     data: null,
-                    err: err
+                    error: err
                 });
             }
         }
     });
 }
 
-var _call = function(wsdl, method, params, callback) {
+var _call = function(wsdl, method, params, resolve, reject) {
     // console.log(method);
     // console.log(params);
-    request(wsdl, function(client) {    
+    request(wsdl, function(client) {
         client[method](params, function(err, result) {
             if (!err) {
-                callback(result);
+                resolve(result);
             } else {
-                console.error("Method call error");
-                console.error(err);
-
-                if (utils.checkFunction(callback)) {
-                    callback({
-                        code: 500,
-                        data: null,
-                        err: err
-                    })
-                }
+                // console.error("Method call error");
+                // console.error(err);
+                reject(err)
             }
         });
     });
 }
 
-exports.call = function(method, params, callback) {
-    _call(boss, method, params, callback);
+exports.call = function(method, params, resolve, reject) {
+    _call(boss, method, params, resolve, reject);
 }
 
-exports.callplt = function(method, params, callback) {    
-    _call(platform, method, params, callback);
+exports.callplt = function(method, params, resolve, reject) {
+    _call(platform, method, params, resolve, reject);
 }

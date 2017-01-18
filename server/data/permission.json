@@ -1,0 +1,29 @@
+{
+  "users": [
+    {
+      "account": "yuanjie",
+      "name": "袁杰",
+      "department": 25,
+      "roles": ["root"]
+    }
+  ],
+  "roles": [
+  	{
+  		"root": {
+  			"name": "超级管理员"
+  		},
+  		"admin": {
+  			"name": "管理员"
+  		},
+  		"director": {
+  			"name": "总监"
+  		},
+  		"manager": {
+  			"name": "部门经理"
+  		},
+  		"staff": {
+  			"name": "员工"
+  		}
+  	}
+  ]
+}

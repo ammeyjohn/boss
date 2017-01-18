@@ -21,9 +21,8 @@ define([
                 clickOutsideToClose: false,
                 fullscreen: true
             }).then(function(loginInfo) {
-                $cookies.putObject('credential', {
-                    account: loginInfo.account
-                })
+                loginInfo.account = loginInfo.user.account;
+                $cookies.putObject('credential', loginInfo);
                 $state.go('log.analyze');
             });
         };
@@ -35,16 +34,24 @@ define([
 
         $scope.loginFailed = false;
         $scope.loginInfo = {
-            account: '',
-            password: ''
+            account: null,
+            password: null
         }
+        $scope.errorMessage = '';
 
         $scope.login = function() {
+            if (!$scope.loginInfo.account || !$scope.loginInfo.password) {
+                $scope.loginFailed = true;
+                $scope.errorMessage = '请先输入用户名和密码。';
+                return;
+            }
             userApi.login($scope.loginInfo).$promise.then(function(result) {
-                if (result.data) {
-                    $mdDialog.hide($scope.loginInfo);
+                if (result.data && result.data.success) {
+                    $mdDialog.hide(result.data);
                 } else {
+                    console.log(result);
                     $scope.loginFailed = true;
+                    $scope.errorMessage = result.error.message;
                 }
             });
         }
