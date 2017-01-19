@@ -186,8 +186,8 @@ exports.boss = {
             request.call("SelectLogView", {
                 "filter": clause
             }, function(result) {
-                if (utils.checkFunction(callback)) {
-                    var table = utils.getTable(result, "SelectLogViewResult");
+                if (utils.checkFunction(callback)) {                    
+                    var table = utils.getTable(result, "SelectLogViewResult");                    
                     var rows = [];
                     _.each(table, function(row) {
                         rows.push({
@@ -200,8 +200,8 @@ exports.boss = {
                             workTime: row.I_LogGongShi,
                             recordTime: row.D_DengJiSJ,
                             recordUser: row.S_DengJiRAccount,
-                            Department: row.S_DengJiBM,
-                            UserName: row.UserName
+                            department: row.S_DengJiBM,
+                            userName: row.UserName
                         });
                     });
                     callback({
