@@ -7,9 +7,7 @@ require([
 ], function(ng, moment, _, indexModule) {
     'use strict';
 
-    function IndexCtrl($scope, $rootScope, $state, $location, $cookies) {
-
-        $scope.credential = $cookies.getObject('credential');
+    function IndexCtrl($scope, $rootScope, $state, $location, $cookies) {        
 
         // 监听窗体resize事件
         var resized;
@@ -50,6 +48,10 @@ require([
         if ($location.url() === '/') {
             $state.go('login');
         }
+
+        $scope.$on('BOSS_USER_LOGIN', function(evt, loginInfo){
+            $scope.credential = loginInfo;
+        });
 
         $scope.authorize = function(roles) {
             var authorized = false;

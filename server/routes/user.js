@@ -6,7 +6,7 @@ router.get('/login', function(req, res) {
     api.boss.user.login(
         req.query.account,
         req.query.password,
-        function(result) {
+        function(result) {            
             res.json(result);
         });
 });

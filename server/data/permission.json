@@ -3,8 +3,8 @@
     {
       "account": "yuanjie",
       "name": "袁杰",
-      "department": 25,
-      "roles": ["staff"]
+      "department": 25,      
+      "roles": ["root", "admin", "manager"]
     }
   ],
   "roles": [

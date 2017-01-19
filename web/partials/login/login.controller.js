@@ -6,7 +6,7 @@ define([
 ], function(ng, _, loginModule) {
     'use strict';
 
-    function LoginCtrl($scope, $state, $cookies, $mdDialog, userApi) {
+    function LoginCtrl($scope, $rootScope, $state, $cookies, $mdDialog, userApi) {
 
         $scope.showAdvanced = function(ev) {
             $mdDialog.show({
@@ -23,6 +23,7 @@ define([
             }).then(function(loginInfo) {
                 loginInfo.account = loginInfo.user.account;
                 $cookies.putObject('credential', loginInfo);
+                $rootScope.$broadcast('BOSS_USER_LOGIN', loginInfo);
                 $state.go('log.analyze');
             });
         };
@@ -30,7 +31,7 @@ define([
         $scope.showAdvanced();
     }
 
-    function LoginDialogCtrl($scope, $state, $timeout, $mdDialog, userApi) {
+    function LoginDialogCtrl($scope, $state, $mdDialog, userApi) {
 
         $scope.loginFailed = false;
         $scope.loginInfo = {
@@ -71,6 +72,7 @@ define([
 
     loginModule.controller('LoginCtrl', [
         '$scope',
+        '$rootScope',
         '$state',
         '$cookies',
         '$mdDialog',
