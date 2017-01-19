@@ -3,27 +3,307 @@
     {
       "account": "yuanjie",
       "name": "袁杰",
-      "department": 25,      
-      "roles": ["root", "admin", "manager"]
+      "department": -2,
+      "roles": [
+        "root",
+        "admin",
+        "manager"
+      ]
+    },
+    {
+      "account": "hujianing",
+      "name": "胡嘉宁",
+      "department": 25,
+      "roles": [
+        "admin",
+        "manager"
+      ]
+    },
+    {
+      "account": "shijianping",
+      "name": "施剑平",
+      "department": -1,
+      "roles": [
+        "admin",
+        "manager"
+      ]
+    },
+    {
+      "account": "qiweiwei",
+      "name": "齐巍巍",
+      "department": -3,
+      "roles": [
+        "admin",
+        "manager"
+      ]
+    },
+    {
+      "account": "chenhaifan",
+      "name": "陈海帆",
+      "department": -1,
+      "roles": [
+        "staff"
+      ]
+    },
+    {
+      "account": "dengzhimin",
+      "name": "邓志敏",
+      "department": -1,
+      "roles": [
+        "staff"
+      ]
+    },
+    {
+      "account": "fangyun",
+      "name": "方芸",
+      "department": -2,
+      "roles": [
+        "staff"
+      ]
+    },
+    {
+      "account": "he.ping",
+      "name": "何平",
+      "department": -1,
+      "roles": [
+        "staff"
+      ]
+    },
+    {
+      "account": "huangxixi",
+      "name": "黄茜茜",
+      "department": -3,
+      "roles": [
+        "staff"
+      ]
+    },
+    {
+      "account": "limeng",
+      "name": "李猛",
+      "department": -1,
+      "roles": [
+        "staff"
+      ]
+    },
+    {
+      "account": "lishiduo",
+      "name": "李士朵",
+      "department": -3,
+      "roles": [
+        "staff"
+      ]
+    },
+    {
+      "account": "liudongmeng",
+      "name": "刘冬萌",
+      "department": -2,
+      "roles": [
+        "staff"
+      ]
+    },
+    {
+      "account": "nimin",
+      "name": "倪民",
+      "department": -3,
+      "roles": [
+        "staff"
+      ]
+    },
+    {
+      "account": "panshihu",
+      "name": "潘石虎",
+      "department": -3,
+      "roles": [
+        "staff"
+      ]
+    },
+    {
+      "account": "pengyang",
+      "name": "彭洋",
+      "department": -2,
+      "roles": [
+        "staff"
+      ]
+    },
+    {
+      "account": "shaoyunpeng",
+      "name": "邵云鹏",
+      "department": -1,
+      "roles": [
+        "staff"
+      ]
+    },
+    {
+      "account": "shichunyan",
+      "name": "施春燕",
+      "department": -2,
+      "roles": [
+        "staff"
+      ]
+    },
+    {
+      "account": "songshanxia",
+      "name": "宋姗霞",
+      "department": -2,
+      "roles": [
+        "staff"
+      ]
+    },
+    {
+      "account": "tanghuijuan",
+      "name": "唐慧娟",
+      "department": -1,
+      "roles": [
+        "staff"
+      ]
+    },
+    {
+      "account": "wang.lei",
+      "name": "王磊",
+      "department": -3,
+      "roles": [
+        "staff"
+      ]
+    },
+    {
+      "account": "wanghu",
+      "name": "王虎",
+      "department": -3,
+      "roles": [
+        "staff"
+      ]
+    },
+    {
+      "account": "weijianyu",
+      "name": "魏建雨",
+      "department": -1,
+      "roles": [
+        "staff"
+      ]
+    },
+    {
+      "account": "yaokui",
+      "name": "姚奎",
+      "department": -1,
+      "roles": [
+        "staff"
+      ]
+    },
+    {
+      "account": "yuxiaozhou",
+      "name": "俞晓舟",
+      "department": -1,
+      "roles": [
+        "staff"
+      ]
+    },
+    {
+      "account": "zangwei",
+      "name": "臧伟",
+      "department": -1,
+      "roles": [
+        "staff"
+      ]
+    },
+    {
+      "account": "zhanggaojiong",
+      "name": "张高炯",
+      "department": -3,
+      "roles": [
+        "staff"
+      ]
+    },
+    {
+      "account": "zhangjing",
+      "name": "张静",
+      "department": -1,
+      "roles": [
+        "staff"
+      ]
+    },
+    {
+      "account": "zhangxiaoyu",
+      "name": "张晓宇",
+      "department": -3,
+      "roles": [
+        "staff"
+      ]
+    },
+    {
+      "account": "zhangyang",
+      "name": "张洋",
+      "department": -3,
+      "roles": [
+        "staff"
+      ]
+    },
+    {
+      "account": "zhouzhenxing",
+      "name": "周振兴",
+      "department": -3,
+      "roles": [
+        "staff"
+      ]
+    },
+    {
+      "account": "zhucong",
+      "name": "朱聪",
+      "department": -2,
+      "roles": [
+        "staff"
+      ]
+    },
+    {
+      "account": "yangyang",
+      "name": "杨阳",
+      "department": -2,
+      "roles": [
+        "staff"
+      ]
+    }
+  ],
+  "departments": [
+    {
+      "id": 25,
+      "code": "RD",
+      "name": "软件研发部"
+    },
+    {
+      "id": -1,
+      "parent": "软件研发部",
+      "code": "UAP",
+      "name": "软件研发平台组"
+    },
+    {
+      "id": -2,
+      "parent": "软件研发部",
+      "code": "PD",
+      "name": "软件研发生产组"
+    },
+    {
+      "id": -3,
+      "parent": "软件研发部",
+      "code": "CM",
+      "name": "软件研发客服组"
     }
   ],
   "roles": [
-  	{
-  		"root": {
-  			"name": "超级管理员"
-  		},
-  		"admin": {
-  			"name": "管理员"
-  		},
-  		"director": {
-  			"name": "总监"
-  		},
-  		"manager": {
-  			"name": "部门经理"
-  		},
-  		"staff": {
-  			"name": "员工"
-  		}
-  	}
+    {
+      "root": {
+        "name": "超级管理员"
+      },
+      "admin": {
+        "name": "管理员"
+      },
+      "director": {
+        "name": "总监"
+      },
+      "manager": {
+        "name": "部门经理"
+      },
+      "staff": {
+        "name": "员工"
+      }
+    }
   ]
 }

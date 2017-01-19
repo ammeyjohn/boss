@@ -4,7 +4,7 @@ var utils = require('./utils.js');
 var request = require('./request.js');
 
 var convertArrayToWhereClause = function(array, field, withQuotes) {
-    var clause = '';    
+    var clause = '';
     if (array && array.length > 0) {
         var quotes = withQuotes ? "'" : "";
         if (array.length === 1) {
@@ -15,7 +15,7 @@ var convertArrayToWhereClause = function(array, field, withQuotes) {
             });
             clause = ' and ' + field + ' in (' + clause.substring(1) + ')';
         }
-    }    
+    }
     return clause;
 }
 
@@ -75,6 +75,14 @@ exports.boss = {
             }
         },
 
+        /* 获取用户列表 */
+        getUsers: function() {
+            return {
+                code: 0,
+                data: global.users
+            };
+        },
+
         /* 获得当前用户IP地址 */
         getIP: function(callback) {
             request.call("GetCustomerIP", null, function(result) {
@@ -85,6 +93,14 @@ exports.boss = {
                     });
                 }
             });
+        },
+
+        /* 获取部门列表 */
+        getDepartments: function() {
+            return {
+                code: 0,
+                data: global.departments
+            };
         },
 
         /* 获取指定用户所在的部门编号 */
@@ -159,7 +175,7 @@ exports.boss = {
         },
 
         /* 查询日志记录并以简略格式返回 */
-        get: function(condition, callback) {            
+        get: function(condition, callback) {
             if (!condition.logStartTime) {
                 condition.logStartTime = utils.formatDate(moment().subtract(7, 'days'));
             }
@@ -167,27 +183,47 @@ exports.boss = {
                 condition.logEndTime = utils.formatDate(moment());
             }
 
+            // 处理部门查询条件            
+            if (condition.departments &&
+                condition.departments.length > 0) {
+
+                var negtive = _.filter(condition.departments, function(dept) {
+                    return dept < 0
+                });
+
+                if (negtive.length > 0) {
+                    _.each(negtive, function(dept) {
+                        _.each(_.filter(global.users, {
+                            department: dept
+                        }), function(user) {
+                            condition.users.push(user.account)
+                        });
+                        condition.departments = _.without(condition.departments, dept);
+                    });
+                    condition.users = _.uniq(condition.users)
+                    console.log(condition);
+                }
+            }
+
             var clause = "";
             clause += "D_RiZhiSJ>='" + utils.formatDate(condition.logStartTime) + "'";
             clause += " and D_RiZhiSJ<'" + utils.formatDate(condition.logEndTime) + "'";
-            clause += convertArrayToWhereClause(condition.users, 'S_DengJiRAccount', true);
-            clause += convertArrayToWhereClause(condition.projectCode, 'S_XiangMuBH', true);
-            clause += convertArrayToWhereClause(condition.logType, 'I_LogType', true);
-            if (condition.departmentId) {
-                clause += " and I_DengJiBM=" + condition.departmentId;
-            }
             if (condition.recordStartTime) {
                 clause += " and D_DengJiSJ>='" + condition.recordStartTime + "'";
             }
             if (condition.recordEndTime) {
                 clause += " and D_DengJiSJ<'" + condition.recordEndTime + "'";
             }
-            //console.log(clause);
+            clause += convertArrayToWhereClause(condition.users, 'S_DengJiRAccount', true);
+            clause += convertArrayToWhereClause(condition.projectCode, 'S_XiangMuBH', true);
+            clause += convertArrayToWhereClause(condition.logType, 'I_LogType', false);
+            clause += convertArrayToWhereClause(condition.departments, 'I_DengJiBM', false);
+            console.log(clause);
             request.call("SelectLogView", {
                 "filter": clause
             }, function(result) {
-                if (utils.checkFunction(callback)) {                    
-                    var table = utils.getTable(result, "SelectLogViewResult");                    
+                if (utils.checkFunction(callback)) {
+                    var table = utils.getTable(result, "SelectLogViewResult");
                     var rows = [];
                     _.each(table, function(row) {
                         rows.push({

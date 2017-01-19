@@ -9,6 +9,8 @@ require([
 
     function IndexCtrl($scope, $rootScope, $state, $location, $cookies) {        
 
+        $scope.credential = $cookies.getObject('credential');            
+
         // 监听窗体resize事件
         var resized;
         $(window).resize(function(event) {

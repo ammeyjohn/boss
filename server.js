@@ -3,12 +3,14 @@ var fs = require("fs");
 var express = require('express');
 var bodyParser = require('body-parser');
 
-var user = require('./server/routes/user')
-var project = require('./server/routes/project')
-var log = require('./server/routes/log')
+var user = require('./server/routes/user');
+var department = require('./server/routes/department');
+var project = require('./server/routes/project');
+var log = require('./server/routes/log');
 
 // 加载用户权限列表
 global.users = null;
+global.departments = null;
 global.roles = null;
 
 var filePath = path.join(__dirname, 'server/data/permission.json');
@@ -19,6 +21,7 @@ fs.readFile(filePath, function(err, data) {
 
     var permission = JSON.parse(data.toString());
     global.users = permission.users;
+    global.departments = permission.departments;
     global.roles = permission.roles;
     // console.log(global.users);
     // console.log(global.roles);
@@ -45,6 +48,7 @@ app.use(function(req, res, next) {
 });
 
 app.use('/api/user', user);
+app.use('/api/department', department);
 app.use('/api/project', project);
 app.use('/api/log', log);
 

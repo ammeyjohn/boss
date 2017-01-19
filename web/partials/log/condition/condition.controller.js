@@ -4,12 +4,14 @@ define([
     'lodash',
     'settings',
     'boss.log',
+    'boss.api.user',
     'boss.api.project',
+    'boss.api.department',
     'directive.datetimepicker'
 ], function(ng, moment, _, settings, logModule) {
     'use strict';
 
-    function LogConditionCtrl($scope, $rootScope, $cookies, prjApi) {
+    function LogConditionCtrl($scope, $rootScope, $cookies, userApi, prjApi, deptApi) {
 
         var DATE_FORMAT = 'YYYY-MM-DD';
 
@@ -19,6 +21,7 @@ define([
         var default_condition = {
             logType: 2,
             projectCode: null,
+            departments: null,
             users: [credential.account],
             logStartTime: moment().startOf('month').format(DATE_FORMAT),
             logEndTime: moment().endOf('month').format(DATE_FORMAT),
@@ -27,16 +30,29 @@ define([
         }
 
         // 常用项目列表
-        $scope.projects = [];
+        $scope.projects = null;
+
+        // 用户列表        
+        $scope.users = null;
+
+        // 部门列表
+        $scope.departments = null;
 
         // 日志类型
-        $scope.logTypes = settings.logTypes;
-
-        // 用户列表
-        $scope.users = settings.users;
+        $scope.logTypes = settings.logTypes;        
 
         // 条件对象
         $scope.condition = _.cloneDeep(default_condition);
+
+        // 加载用户列表
+        userApi.getAll().$promise.then(function(users) {
+            $scope.users = users.data;
+        });
+
+        // 加载部门列表
+        deptApi.getAll().$promise.then(function(departments){
+            $scope.departments = departments.data;
+        });
 
         // 加载常用项目编号列表
         prjApi.getProjectByUser({
@@ -110,7 +126,9 @@ define([
         '$scope',
         '$rootScope',
         '$cookies',
+        'boss.api.user',
         'boss.api.project',
+        'boss.api.department',
         LogConditionCtrl
     ]);
 });

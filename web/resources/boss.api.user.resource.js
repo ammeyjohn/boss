@@ -14,6 +14,10 @@ define([
                     password: 'password'
                 }
             },
+            getAll: {
+                method: 'GET',
+                url: '/api/user'
+            },
             getIP: {
                 method: 'GET',
                 url: '/api/user/ip'

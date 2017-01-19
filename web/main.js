@@ -90,6 +90,7 @@
             /* 资源脚本 */
             'boss.api': 'resources/boss.api.module',
             'boss.api.user': 'resources/boss.api.user.resource',
+            'boss.api.department': 'resources/boss.api.department.resource',
             'boss.api.project': 'resources/boss.api.project.resource',
             'boss.api.log': 'resources/boss.api.log.resource'
         },
