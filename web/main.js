@@ -150,8 +150,7 @@
             'angular',
             'angular-ui-router',
             'oclazyload',
-            'bootstrap',
-            'css!./partials/index/style',
+            'bootstrap',            
             './partials/index/index.module',
             './partials/index/index.controller'
         ],

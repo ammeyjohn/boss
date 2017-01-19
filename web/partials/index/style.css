@@ -37,7 +37,7 @@ body {
 	top: 2px;
 }
 
-.md-dialog-content input[type=search] {
+input[type=search] {
 	-webkit-appearance: inherit;
 	box-sizing: inherit;
 	-webkit-box-sizing: inherit;

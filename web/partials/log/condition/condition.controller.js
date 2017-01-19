@@ -18,7 +18,7 @@ define([
 
         var default_condition = {
             logType: 2,
-            projectCode: [],
+            projectCode: null,
             users: [credential.account],
             logStartTime: moment().startOf('month').format(DATE_FORMAT),
             logEndTime: moment().endOf('month').format(DATE_FORMAT),
