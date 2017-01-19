@@ -72,17 +72,17 @@ define([
             id: -1,
             parent: 25,
             code: 'UAP',
-            name: '软件研发部-产品组'
+            name: '软件研发平台组'
         }, {
             id: -2,
             parent: 25,
             code: 'PD',
-            name: '软件研发部-生产组'
+            name: '软件研发生产组'
         }, {
             id: -3,
             parent: 25,
             code: 'CM',
-            name: '软件研发部-客服组'
+            name: '软件研发客服组'
         }]
     }
 

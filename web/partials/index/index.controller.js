@@ -51,6 +51,14 @@ require([
             $state.go('login');
         }
 
+        $scope.authorize = function(roles) {
+            var authorized = false;
+            if ($scope.credential) {
+                authorized = (_.intersection($scope.credential.user.roles, roles).length > 0);
+            }
+            return authorized;
+        }
+
         $scope.mouseMove = function(event) {
             console.log(event);
         }
