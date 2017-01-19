@@ -43,7 +43,7 @@ var utils = {
 
     today: function() {
         return moment().format("YYYY-MM-DD");
-    }
+    }    
 }
 
 _.each(utils, function(value, key) {

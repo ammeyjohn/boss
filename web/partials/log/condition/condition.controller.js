@@ -18,8 +18,8 @@ define([
 
         var default_condition = {
             logType: 2,
-            projectCode: '',
-            user: credential.account,
+            projectCode: [],
+            users: [credential.account],
             logStartTime: moment().startOf('month').format(DATE_FORMAT),
             logEndTime: moment().endOf('month').format(DATE_FORMAT),
             recordStartTime: null,
@@ -31,6 +31,9 @@ define([
 
         // 日志类型
         $scope.logTypes = settings.logTypes;
+
+        // 用户列表
+        $scope.users = settings.users;
 
         // 条件对象
         $scope.condition = _.cloneDeep(default_condition);

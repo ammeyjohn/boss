@@ -4,6 +4,7 @@ define([
 
     var settings = {
 
+        // 日志类型
         logTypes: [{
             id: 0,
             code: 'KFSC',
@@ -40,8 +41,49 @@ define([
             id: 8,
             code: 'XT',
             name: '协调'
-        }]
+        }],
 
+
+        // 用户列表
+        users: [{
+            account: 'hujianing',
+            name: '胡嘉宁',
+            department: 25
+        }, {
+            account: 'shijianping',
+            name: '施剑平',
+            department: -1
+        }, {
+            account: 'yuanjie',
+            name: '袁杰',
+            department: -2
+        }, {
+            account: 'qiweiwei',
+            name: '齐巍巍',
+            department: -3
+        }],
+        
+        // 部门列表
+        departments: [{
+            id: 25,
+            code: 'RD',
+            name: '软件研发部'
+        }, {
+            id: -1,
+            parent: 25,
+            code: 'UAP',
+            name: '软件研发部-产品组'
+        }, {
+            id: -2,
+            parent: 25,
+            code: 'PD',
+            name: '软件研发部-生产组'
+        }, {
+            id: -3,
+            parent: 25,
+            code: 'CM',
+            name: '软件研发部-客服组'
+        }]
     }
 
     return settings;

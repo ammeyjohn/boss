@@ -3,6 +3,22 @@ var moment = require("moment");
 var utils = require('./utils.js');
 var request = require('./request.js');
 
+var convertArrayToWhereClause = function(array, field, withQuotes) {
+    var clause = '';    
+    if (array && array.length > 0) {
+        var quotes = withQuotes ? "'" : "";
+        if (array.length === 1) {
+            clause = ' and ' + field + '=' + quotes + array[0] + quotes;
+        } else {
+            _.each(array, function(item) {
+                clause += ',' + quotes + item + quotes;
+            });
+            clause = ' and ' + field + ' in (' + clause.substring(1) + ')';
+        }
+    }    
+    return clause;
+}
+
 exports.boss = {
     user: {
         /* 用户登录 */
@@ -143,7 +159,7 @@ exports.boss = {
         },
 
         /* 查询日志记录并以简略格式返回 */
-        get: function(condition, callback) {
+        get: function(condition, callback) {            
             if (!condition.logStartTime) {
                 condition.logStartTime = utils.formatDate(moment().subtract(7, 'days'));
             }
@@ -154,37 +170,9 @@ exports.boss = {
             var clause = "";
             clause += "D_RiZhiSJ>='" + utils.formatDate(condition.logStartTime) + "'";
             clause += " and D_RiZhiSJ<'" + utils.formatDate(condition.logEndTime) + "'";
-            if (condition.user) {
-                clause += " and S_DengJiRAccount='" + condition.user + "'";
-            }
-            if (condition.projectCode && condition.projectCode !== '') {
-                var len = condition.projectCode.length;
-                if (len === 1) {
-                    clause += " and S_XiangMuBH='" + condition.projectCode + "'";
-                } else if (len > 1) {
-                    clause += " and S_XiangMuBH in (";
-                    var codes = "";
-                    _.each(condition.projectCode, function(code) {
-                        codes += ",'" + code + "'";
-                    });
-                    clause += codes.substring(1);
-                    clause += ")";
-                }
-            }
-            if (condition.logType && condition.logType !== '') {
-                var len = condition.logType.length;
-                if (len === 1) {
-                    clause += " and I_LogType=" + condition.logType;
-                } else if (len > 1) {
-                    clause += " and I_LogType in (";
-                    var temp = "";
-                    _.each(condition.logType, function(type) {
-                        temp += "," + type;
-                    });
-                    clause += temp.substring(1);
-                    clause += ")";
-                }
-            }
+            clause += convertArrayToWhereClause(condition.users, 'S_DengJiRAccount', true);
+            clause += convertArrayToWhereClause(condition.projectCode, 'S_XiangMuBH', true);
+            clause += convertArrayToWhereClause(condition.logType, 'I_LogType', true);
             if (condition.departmentId) {
                 clause += " and I_DengJiBM=" + condition.departmentId;
             }
