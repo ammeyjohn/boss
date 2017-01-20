@@ -55,8 +55,8 @@ define([
         });
 
         // 加载常用项目编号列表
-        prjApi.getProjectByUser({
-            user: credential.user.account
+        prjApi.getByAccount({
+            account: credential.user.account
         }).$promise.then(function(projects) {
             $scope.projects = projects.data;
         });

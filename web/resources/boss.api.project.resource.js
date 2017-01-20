@@ -6,11 +6,11 @@ define([
 
     apiModule.factory('boss.api.project', function($resource) {
         return $resource('project', {}, {           
-            getProjectByUser: {
+            getByAccount: {
                 method: 'GET',
-                url: '/api/project/:user',
+                url: '/api/project/user/:account',
                 params: {
-                    user: '@user'
+                    account: '@account'
                 }
             }
         });
