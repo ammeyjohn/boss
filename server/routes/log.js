@@ -37,7 +37,7 @@ router.post('/', function(req, res) {
                 res.status(404).send({
                     code: -1,
                     data: null,
-                    message: util.format('用户账号"%s"不存在', log.account)
+                    message: util.format('用户账号"%s"未激活或不存在', log.account)
                 });
             }
         });
