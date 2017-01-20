@@ -1,8 +1,9 @@
 var debug = require('debug')('boss:api:department');
 var path = require('path');
-var fs = require("fs");
+var fs = require('fs');
 var _ = require('lodash');
 var Q = require('q');
+var request = require('../request');
 
 const file = path.join(__dirname, '../data/departments.json');
 var __departments = null;
@@ -26,8 +27,21 @@ exports.getDepartments = function() {
 }
 
 // 根据部门编号获取部门
-exports.getDepartmentsById = function(id) {
-    return exports.getDepartments().then(function(departments){
-        return _.find(departments, id);        
+exports.getDepartmentById = function(id) {
+    return exports.getDepartments().then(function(departments) {
+        return _.find(departments, id);
     })
+}
+
+// 根据用户账号获取部门编号
+exports.getDepartmentByAccount = function(account) {
+    var defered = Q.defer();
+    request.call('GetDepartmentIdByAccount', {
+        'account': account
+    }, function(result) {
+        defered.resolve(result.GetDepartmentIdByAccountResult);
+    }, function(error){
+        defered.reject(error);
+    });
+    return defered.promise;
 }

@@ -21,7 +21,7 @@ define([
             taskTime: null,
             projectCode: null,
             content: null,
-            user: credential.account
+            account: credential.user.account
         };
 
         $scope.log = _.cloneDeep(default_log);

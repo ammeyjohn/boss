@@ -5,7 +5,6 @@ var Q = require('q');
 var moment = require("moment");
 var utils = require('../utils');
 var request = require('../request');
-var userApi = require('../api/user');
 
 var convertArrayToWhereClause = function(array, field, withQuotes) {
     var clause = '';
@@ -21,6 +20,46 @@ var convertArrayToWhereClause = function(array, field, withQuotes) {
         }
     }
     return clause;
+}
+
+exports.add = function(log) {
+    var defered = Q.defer();
+
+    if (log) {
+
+        var _log = {
+            LogID: 0,
+            S_XiangMuBH: log.projectCode,
+            S_LogComment: log.content,
+            I_LogType: log.logType,
+            I_LogGongShi: log.taskTime,
+            D_DengJiSJ: moment().format('YYYY-MM-DDTHH:mm:ss'),
+            D_RiZhiSJ: moment(log.logTime).format('YYYY-MM-DDTHH:mm:ss'),
+            I_DengJiBM: log.departmentId,
+            S_DengJiRAccount: log.user,
+            S_DengJiIP: log.ip,
+            I_JiaBanBH: null,
+            I_WeiHuBH: null,
+            I_ChuChaiBH: null,
+            I_ChengBenGS: log.departmentId
+        };
+        debug(_log);
+
+        request.call("InsertOrUpdateLog", {
+            "_Log": _log
+        }, function(result) {
+            log.logId = result.InsertOrUpdateLogResult;
+            log.recordTime = _log.D_DengJiSJ;
+            defered.resolve(log);
+        }, function(error) {
+            defered.reject(error);
+        });
+
+    } else {
+        defered.reject(null);
+    }
+
+    return defered.promise;
 }
 
 exports.query = function(condition) {
