@@ -34,7 +34,6 @@ define([
 
     function LoginDialogCtrl($scope, $state, $mdDialog, userApi, authApi) {
 
-        $scope.loginFailed = false;
         $scope.loginInfo = {
             account: null,
             password: null
@@ -43,18 +42,22 @@ define([
 
         $scope.login = function() {
             if (!$scope.loginInfo.account || !$scope.loginInfo.password) {
-                $scope.loginFailed = true;
                 $scope.errorMessage = '请先输入用户名和密码。';
                 return;
             }
+            
+            $scope.loginning = true;
             authApi.login($scope.loginInfo).$promise
                 .then(function(result) {
                     if (result.data && result.data.success) {
                         $mdDialog.hide(result.data);
                     } else {
-                        $scope.loginFailed = true;
-                        $scope.errorMessage = result.error.message;
+                        $scope.errorMessage = result.message;
                     }
+                    $scope.loginning = false;
+                }, function(error) {
+                    $scope.errorMessage = error.data.message;
+                    $scope.loginning = false;
                 });
         }
 
