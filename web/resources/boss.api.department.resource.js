@@ -5,8 +5,8 @@ define([
     'use strict';
 
     apiModule.factory('boss.api.department', function($resource) {
-        return $resource('user', {}, {
-            getAll: {
+        return $resource('department', {}, {
+            get: {
                 method: 'GET',
                 url: '/api/department'
             }

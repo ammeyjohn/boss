@@ -3,8 +3,6 @@ var path = require('path');
 var fs = require("fs");
 var _ = require('lodash');
 var Q = require('q');
-var utils = require('../utils.js');
-var request = require('../request.js');
 
 const file = path.join(__dirname, '../data/departments.json');
 var __departments = null;

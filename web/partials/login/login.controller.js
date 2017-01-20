@@ -22,10 +22,9 @@ define([
                 escapeToClose: false,
                 clickOutsideToClose: false,
                 fullscreen: true
-            }).then(function(loginInfo) {
-                loginInfo.account = loginInfo.user.account;
-                $cookies.putObject('credential', loginInfo);
-                $rootScope.$broadcast('BOSS_USER_LOGIN', loginInfo);
+            }).then(function(credential) {
+                $cookies.putObject('credential', credential);
+                $rootScope.$broadcast('BOSS_USER_LOGIN', credential);
                 $state.go('log.analyze');
             });
         };
@@ -48,15 +47,15 @@ define([
                 $scope.errorMessage = '请先输入用户名和密码。';
                 return;
             }
-            authApi.login($scope.loginInfo).$promise.then(function(result) {
-                if (result.data && result.data.success) {
-                    $mdDialog.hide(result.data);
-                } else {
-                    console.log(result);
-                    $scope.loginFailed = true;
-                    $scope.errorMessage = result.error.message;
-                }
-            });
+            authApi.login($scope.loginInfo).$promise
+                .then(function(result) {
+                    if (result.data && result.data.success) {
+                        $mdDialog.hide(result.data);
+                    } else {
+                        $scope.loginFailed = true;
+                        $scope.errorMessage = result.error.message;
+                    }
+                });
         }
 
         $scope.pressNext = function(evt) {

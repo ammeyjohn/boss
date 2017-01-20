@@ -6,21 +6,16 @@ define([
 
     apiModule.factory('boss.api.user', function($resource) {
         return $resource('user', {}, {
-            login: {
-                method: 'GET',
-                url: '/api/user/login',
-                params: {
-                    account: 'account',
-                    password: 'password'
-                }
-            },
-            getAll: {
+            get: {
                 method: 'GET',
                 url: '/api/user'
             },
-            getIP: {
+            getByAccount: {
                 method: 'GET',
-                url: '/api/user/ip'
+                url: '/api/user/:account',
+                params: {
+                    account: 'account'
+                }
             }
         });
     });

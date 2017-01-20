@@ -22,7 +22,7 @@ define([
             logType: 2,
             projectCode: null,
             departments: null,
-            users: [credential.account],
+            users: [credential.user.account],
             logStartTime: moment().startOf('month').format(DATE_FORMAT),
             logEndTime: moment().endOf('month').format(DATE_FORMAT),
             recordStartTime: null,
@@ -45,18 +45,18 @@ define([
         $scope.condition = _.cloneDeep(default_condition);
 
         // 加载用户列表
-        userApi.getAll().$promise.then(function(users) {
+        userApi.get().$promise.then(function(users) {
             $scope.users = users.data;
         });
 
         // 加载部门列表
-        deptApi.getAll().$promise.then(function(departments){
+        deptApi.get().$promise.then(function(departments){
             $scope.departments = departments.data;
         });
 
         // 加载常用项目编号列表
         prjApi.getProjectByUser({
-            user: credential.account
+            user: credential.user.account
         }).$promise.then(function(projects) {
             $scope.projects = projects.data;
         });

@@ -1,11 +1,16 @@
+var debug = require('debug')('boss:router:department');
 var express = require('express');
-var utils = require('../utils.js');
-var api = require('../api.js');
+var deptApi = require('../api/department');
 var router = express.Router();
 
 router.get('/', function(req, res) {
-    var departments = api.boss.user.getDepartments();
-    res.json(departments);
+    deptApi.getDepartments().then(function(departments) {
+    	debug(departments);
+        res.json({
+            code: 0,
+            data: departments
+        });
+    });
 });
 
 module.exports = router;
