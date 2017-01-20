@@ -89,6 +89,7 @@
 
             /* 资源脚本 */
             'boss.api': 'resources/boss.api.module',
+            'boss.api.auth': 'resources/boss.api.auth.resource',
             'boss.api.user': 'resources/boss.api.user.resource',
             'boss.api.department': 'resources/boss.api.department.resource',
             'boss.api.project': 'resources/boss.api.project.resource',
@@ -137,7 +138,7 @@
         deps: [],
 
         /* TODO：在正式上线前需要移除这行代码 */
-        urlArgs: 'v=1.0.0.0'
+        urlArgs: 'v=1.0.1.0'
     });
 
     /// 全局初始化 ///

@@ -2,6 +2,7 @@ var _ = require('lodash');
 var moment = require("moment");
 var utils = require('./utils.js');
 var request = require('./request.js');
+var userApi = require('./api/user.js');
 
 var convertArrayToWhereClause = function(array, field, withQuotes) {
     var clause = '';
@@ -23,56 +24,56 @@ exports.boss = {
     user: {
         /* 用户登录 */
         login: function(account, password, callback) {
-
-            var user = _.find(global.users, {
-                account: account
-            });
-
+            console.log(account);
             var data = {
                 success: false,
                 loginTime: null,
                 user: null
             };
 
-            if (!user) {
-                callback({
-                    code: -1,
-                    error: {
-                        message: '无法找到用户"' + account + '"。'
-                    },
-                    data: data
-                });
-            } else {
-                request.callplt("CheckPassword", {
-                    "account": account,
-                    "pws": password
-                }, function(result) {
-                    if (result.CheckPasswordResult) {
-                        data.success = true;
-                        data.loginTime = utils.now();
-                        data.user = user;
+            userApi.getUserByAccount(account)
+                .then(function(user) {
 
+                    if (!user) {
                         callback({
-                            code: 0,
+                            code: -1,
+                            error: {
+                                message: '无法找到用户"' + account + '"。'
+                            },
                             data: data
                         });
                     } else {
-                        callback({
-                            code: -1,
-                            data: data,
-                            error: {
-                                message: '用户名或密码不正确。'
+                        request.callplt("CheckPassword", {
+                            "account": account,
+                            "pws": password
+                        }, function(result) {
+                            if (result.CheckPasswordResult) {
+                                data.success = true;
+                                data.loginTime = utils.now();
+                                data.user = user;
+
+                                callback({
+                                    code: 0,
+                                    data: data
+                                });
+                            } else {
+                                callback({
+                                    code: -1,
+                                    data: data,
+                                    error: {
+                                        message: '用户名或密码不正确。'
+                                    }
+                                });
                             }
+                        }, function(error) {
+                            callback({
+                                code: -1,
+                                data: data,
+                                error: error
+                            });
                         });
                     }
-                }, function(error) {
-                    callback({
-                        code: -1,
-                        data: data,
-                        error: error
-                    });
                 });
-            }
         },
 
         /* 获取用户列表 */

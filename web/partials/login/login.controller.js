@@ -2,11 +2,12 @@ define([
     'angular',
     'lodash',
     'boss.login',
-    'boss.api.user'
+    'boss.api.user',
+    'boss.api.auth'
 ], function(ng, _, loginModule) {
     'use strict';
 
-    function LoginCtrl($scope, $rootScope, $state, $cookies, $mdDialog, userApi) {
+    function LoginCtrl($scope, $rootScope, $state, $cookies, $mdDialog, userApi, authApi) {
 
         $scope.showAdvanced = function(ev) {
             $mdDialog.show({
@@ -14,7 +15,8 @@ define([
                 templateUrl: 'partials/login/login.tmpl.html',
                 parent: angular.element(document.body),
                 locals: {
-                    "userApi": userApi
+                    'userApi': userApi,
+                    'authApi': authApi
                 },
                 targetEvent: ev,
                 escapeToClose: false,
@@ -31,7 +33,7 @@ define([
         $scope.showAdvanced();
     }
 
-    function LoginDialogCtrl($scope, $state, $mdDialog, userApi) {
+    function LoginDialogCtrl($scope, $state, $mdDialog, userApi, authApi) {
 
         $scope.loginFailed = false;
         $scope.loginInfo = {
@@ -46,7 +48,7 @@ define([
                 $scope.errorMessage = '请先输入用户名和密码。';
                 return;
             }
-            userApi.login($scope.loginInfo).$promise.then(function(result) {
+            authApi.login($scope.loginInfo).$promise.then(function(result) {
                 if (result.data && result.data.success) {
                     $mdDialog.hide(result.data);
                 } else {
@@ -77,6 +79,7 @@ define([
         '$cookies',
         '$mdDialog',
         'boss.api.user',
+        'boss.api.auth',
         LoginCtrl
     ]);
 });
