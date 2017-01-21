@@ -53,8 +53,33 @@ define([
 
         var search = function(condition) {
             logApi.queryLogs(condition).$promise.then(function(logs) {
-                var data = {}
+                var times = {},
+                    st = moment(condition.logStartTime),
+                    et = moment(condition.logEndTime);
+                if (st > moment()) {
+                    st = moment();
+                }
+                if (et > moment()) {
+                    et = moment();
+                }
+                while (st < et) {
+                    if (st.weekday() < 5) {
+                        var dt = st.format('YYYY-MM-DD');
+                        times[dt] = {
+                            date: dt,
+                            time: 0
+                        };
+                    }
+                    st = st.add(1, 'days');
+                }
+
+                var data = {};
+
                 _.each(logs.data, function(log, key) {
+
+                    var workTime = parseInt(log.workTime);
+
+                    // 按项目统计
                     if (!data[log.projectCode]) {
                         data[log.projectCode] = {
                             projectCode: log.projectCode,
@@ -62,18 +87,31 @@ define([
                             workTime: 0
                         };
                     }
-                    data[log.projectCode].workTime += parseInt(log.workTime);
+                    data[log.projectCode].workTime += workTime;
+
+                    // 按日期统计
+                    var dt = moment(log.logTime).format('YYYY-MM-DD');
+                    if (!times[dt]) {
+                        times[dt] = {
+                            date: dt,
+                            time: 0
+                        };
+                    }
+                    times[dt].time += workTime;
                 });
 
                 $scope.data = _.orderBy(_.each(_.values(data), function(d) {
                     d.duration = d.workTime / 480
                 }), ['workTime'], ['desc']);
+
                 $scope.option.series[0].data = _.map($scope.data, function(d) {
                     return {
                         value: d.duration,
                         name: d.projectCode
                     }
                 });
+
+                $scope.times = _.orderBy(times, ['date'], ['desc']);
             });
         }
 

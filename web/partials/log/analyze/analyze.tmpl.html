@@ -1,7 +1,7 @@
 <div ui-view></div>
 <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-6">
-        <div style="width: 100%; max-height: 300px; overflow-y: auto">
+    <div class="col-xs-12 col-sm-12 col-md-5">
+        <div style="width: 100%; height: 100%; overflow-y: auto">
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -20,9 +20,27 @@
             </table>
         </div>
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-6">
+    <div class="col-xs-12 col-sm-12 col-md-5">
         <div style="width: 100%; height: 350px;">
             <div id="main" echarts ec-option="option" style="width: 100%;height:100%;"></div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-2">
+        <div style="width: 100%; height: 600px; overflow-y: auto">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <td>日期</td>
+                        <td>工时（分钟）</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="row in times" ng-style="(row.time <= 0 || row.time > 480) && {'color': 'red'} || {'color': 'black'}">
+                        <td>{{row.date}}</td>
+                        <td>{{row.time}}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
