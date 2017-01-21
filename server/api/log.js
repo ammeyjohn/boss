@@ -100,12 +100,12 @@ exports.query = function(condition) {
     // 生成查询语句
     var clause = "";
     clause += "D_RiZhiSJ>='" + utils.formatDate(condition.logStartTime) + "'";
-    clause += " and D_RiZhiSJ<'" + utils.formatDate(condition.logEndTime) + "'";
+    clause += " and D_RiZhiSJ<='" + utils.formatDate(condition.logEndTime) + "'";
     if (condition.recordStartTime) {
         clause += " and D_DengJiSJ>='" + condition.recordStartTime + "'";
     }
     if (condition.recordEndTime) {
-        clause += " and D_DengJiSJ<'" + condition.recordEndTime + "'";
+        clause += " and D_DengJiSJ<='" + condition.recordEndTime + "'";
     }
     clause += convertArrayToWhereClause(condition.users, 'S_DengJiRAccount', true);
     clause += convertArrayToWhereClause(condition.projectCode, 'S_XiangMuBH', true);
