@@ -37,6 +37,7 @@
             /* 第三方组件 */
             'lodash': 'assets/vendor/lodash/dist/lodash.min',
             'moment': 'assets/vendor/moment/min/moment-with-locales.min',
+            'crossfilter': 'assets/vendor/crossfilter2/crossfilter.min',
 
             /* Bootstrap */
             'bootstrap': 'assets/vendor/bootstrap/dist/js/bootstrap.min',
@@ -79,7 +80,7 @@
 
             /* 定义系统服务 */
 
-            /* 定义模块文件夹 */            
+            /* 定义模块文件夹 */
             'boss.login': 'partials/login/login.module',
             'boss.log': 'partials/log/log.module',
 
@@ -113,7 +114,7 @@
             'angular-local-storage': ['angular'],
             'angular-bootstrap': ['angular', 'bootstrap'],
             'angular-material': [
-                'angular', 
+                'angular',
                 'angular-animate',
                 'angular-aria',
                 'angular-messages',
@@ -127,7 +128,11 @@
                 'bootstrap',
                 'moment',
                 'css!datetimepicker-css'
-            ]
+            ],
+
+            'crossfilter': {
+                exports: 'crossfilter'
+            }
         },
         packages: [],
         map: {
@@ -152,7 +157,7 @@
             'angular',
             'angular-ui-router',
             'oclazyload',
-            'bootstrap',            
+            'bootstrap',
             './partials/index/index.module',
             './partials/index/index.controller'
         ],
