@@ -80,7 +80,7 @@ define([
         var condition = {
             logType: 2,
             projectCode: '',
-            users: [credential.account],
+            users: [credential.user.account],
             logStartTime: moment().startOf('month').format('YYYY-MM-DD'),
             logEndTime: moment().endOf('month').format('YYYY-MM-DD'),
             recordStartTime: null,

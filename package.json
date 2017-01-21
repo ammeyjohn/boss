@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "start": "supervisor --harmony server.js"
+  },
   "author": "yuanjie <yuanjie@shanghai3h.com>",
   "license": "ISC",
   "dependencies": {
