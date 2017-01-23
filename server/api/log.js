@@ -45,15 +45,15 @@ exports.add = function(log) {
         };
         debug(_log);
 
-        // request.call("InsertOrUpdateLog", {
-        //     "_Log": _log
-        // }, function(result) {
-        //     log.logId = result.InsertOrUpdateLogResult;
-        //     log.recordTime = _log.D_DengJiSJ;
-        //     defered.resolve(log);
-        // }, function(error) {
-        //     defered.reject(error);
-        // });
+        request.call("InsertOrUpdateLog", {
+            "_Log": _log
+        }, function(result) {
+            log.logId = result.InsertOrUpdateLogResult;
+            log.recordTime = _log.D_DengJiSJ;
+            defered.resolve(log);
+        }, function(error) {
+            defered.reject(error);
+        });
 
     } else {
         defered.reject(null);
