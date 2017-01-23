@@ -23,7 +23,7 @@ var convertArrayToWhereClause = function(array, field, withQuotes) {
 }
 
 exports.add = function(log) {
-    var defered = Q.defer();
+    var defered = Q.defer();    
 
     if (log) {
 
@@ -36,7 +36,7 @@ exports.add = function(log) {
             D_DengJiSJ: moment().format('YYYY-MM-DDTHH:mm:ss'),
             D_RiZhiSJ: moment(log.logTime).format('YYYY-MM-DDTHH:mm:ss'),
             I_DengJiBM: log.departmentId,
-            S_DengJiRAccount: log.user,
+            S_DengJiRAccount: log.account,
             S_DengJiIP: log.ip,
             I_JiaBanBH: null,
             I_WeiHuBH: null,
@@ -45,15 +45,15 @@ exports.add = function(log) {
         };
         debug(_log);
 
-        request.call("InsertOrUpdateLog", {
-            "_Log": _log
-        }, function(result) {
-            log.logId = result.InsertOrUpdateLogResult;
-            log.recordTime = _log.D_DengJiSJ;
-            defered.resolve(log);
-        }, function(error) {
-            defered.reject(error);
-        });
+        // request.call("InsertOrUpdateLog", {
+        //     "_Log": _log
+        // }, function(result) {
+        //     log.logId = result.InsertOrUpdateLogResult;
+        //     log.recordTime = _log.D_DengJiSJ;
+        //     defered.resolve(log);
+        // }, function(error) {
+        //     defered.reject(error);
+        // });
 
     } else {
         defered.reject(null);

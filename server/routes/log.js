@@ -23,6 +23,7 @@ router.post('/', function(req, res) {
         .then(function(dept) {
             if (dept) {
                 log.departmentId = dept;
+                log.ip = utils.getClientIpAddr(req);
                 logApi.add(log).then(function(new_log) {
                         debug(new_log);
                         res.json({

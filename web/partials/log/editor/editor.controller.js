@@ -28,8 +28,8 @@ define([
         $scope.logTypes = settings.logTypes;
         $scope.projects = [];
 
-        prjApi.getProjectByUser({
-            user: credential.account
+        prjApi.getByAccount({
+            account: credential.user.account
         }).$promise.then(function(projects) {
             $scope.projects = projects.data;
         });
