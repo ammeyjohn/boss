@@ -30,7 +30,7 @@ Before you can do a build:
 
 ### Run the project
 
-Make sure that all steps in prerequisites has been completed.
+Make sure that all steps in prerequisites have been completed.
 
 - Locate to the root of the project and run
 
@@ -41,7 +41,7 @@ Make sure that all steps in prerequisites has been completed.
 
 ### Print the debug
 
-- The project embeded some DEBUG point to print verbos information. These debug info is disabled by default. That can be actived by below command
+- The project embeded some DEBUG point to print verbos information. These debug actions are disabled by default, but it can be actived by run the project with enviorments assgined.
   
   In Linux
   
