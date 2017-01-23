@@ -25,3 +25,32 @@ Before you can do a build:
   $ cd boss
   $ npm install
   ```
+## Run
+
+### Run the project
+
+Make sure that all steps in prerequisites has been completed.
+
+- Locate to the root of the project and run
+
+  ```
+  $ cd boss
+  $ npm start
+  ```
+
+### Print the debug
+
+- The project embeded some DEBUG point to print verbos information. These debug info is disabled by default. That can be actived by below command
+  
+  In Linux
+  
+  ```
+  $ cd boss
+  $ DEUBG=boss* npm start
+  ```
+  In Windows
+  
+  ```
+  > cd boss
+  > SET DEUBG=boss* & npm start
+  ```
