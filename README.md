@@ -25,6 +25,7 @@ Before you can do a build:
   $ cd boss
   $ npm install
   ```
+ 
 ## Run
 
 ### Run the project
