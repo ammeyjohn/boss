@@ -38,6 +38,7 @@
             'lodash': 'assets/vendor/lodash/dist/lodash.min',
             'moment': 'assets/vendor/moment/min/moment-with-locales.min',
             'crossfilter': 'assets/vendor/crossfilter2/crossfilter.min',
+            'ztree': 'assets/vendor/ztree_v3/js/jquery.ztree.all.min',
 
             /* Bootstrap */
             'bootstrap': 'assets/vendor/bootstrap/dist/js/bootstrap.min',
@@ -83,10 +84,12 @@
             /* 定义模块文件夹 */
             'boss.login': 'partials/login/login.module',
             'boss.log': 'partials/log/log.module',
+            'boss.kpi': 'partials/kpi/kpi.module',
 
             /* 定义其他组件 */
             'directive.datetimepicker': 'directives/datetimepicker.directive',
             'directive.echarts': 'directives/echarts.directive',
+            'directive.ztree': 'directives/ztree.directive',
 
             /* 资源脚本 */
             'boss.api': 'resources/boss.api.module',
@@ -132,7 +135,9 @@
 
             'crossfilter': {
                 exports: 'crossfilter'
-            }
+            },
+
+            'ztree': ['jquery']
         },
         packages: [],
         map: {
@@ -143,7 +148,7 @@
         deps: [],
 
         /* TODO：在正式上线前需要移除这行代码 */
-        urlArgs: 'v=1.0.1.1'
+        urlArgs: 'v=1.0.2.0'
     });
 
     /// 全局初始化 ///

@@ -62,7 +62,10 @@ define([
                                     return $ocLazyLoad.load({
                                         files: ['partials/log/condition/condition.controller.js']
                                     });
-                                }]
+                                }],
+                                mode: function() {
+                                    return 'advance';
+                                }
                             }
                         }
                     }
@@ -92,7 +95,10 @@ define([
                                     return $ocLazyLoad.load({
                                         files: ['partials/log/condition/condition.controller.js']
                                     });
-                                }]
+                                }],
+                                mode: function() {
+                                    return 'advance';
+                                }
                             }
                         }
                     }

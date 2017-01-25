@@ -3,7 +3,8 @@ define([
     'angular-cookies',
     'angular-material',
     'boss.login',
-    'boss.log'
+    'boss.log',
+    'boss.kpi'
 ], function(ng) {
     'use strict';
 
@@ -13,7 +14,8 @@ define([
         'ngCookies',
         'ngMaterial',
         'boss.login',
-        'boss.log'
+        'boss.log',
+        'boss.kpi'
     ]);
 
     indexModule

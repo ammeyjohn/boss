@@ -2,6 +2,7 @@
   {
     "account": "yuanjie",
     "name": "袁杰",
+    "sex": "MAN",
     "department": -2,
     "roles": [
       "root",
@@ -12,6 +13,7 @@
   {
     "account": "hujianing",
     "name": "胡嘉宁",
+    "sex": "WOMAN",
     "department": 25,
     "roles": [
       "admin",
@@ -21,6 +23,7 @@
   {
     "account": "shijianping",
     "name": "施剑平",
+    "sex": "MAN",
     "department": -1,
     "roles": [
       "admin",
@@ -30,6 +33,7 @@
   {
     "account": "qiweiwei",
     "name": "齐巍巍",
+    "sex": "MAN",
     "department": -3,
     "roles": [
       "admin",
@@ -39,6 +43,7 @@
   {
     "account": "chenhaifan",
     "name": "陈海帆",
+    "sex": "WOMAN",
     "department": -1,
     "roles": [
       "staff"
@@ -47,6 +52,7 @@
   {
     "account": "dengzhimin",
     "name": "邓志敏",
+    "sex": "MAN",
     "department": -1,
     "roles": [
       "staff"
@@ -55,6 +61,7 @@
   {
     "account": "fangyun",
     "name": "方芸",
+    "sex": "WOMAN",
     "department": -2,
     "roles": [
       "staff"
@@ -63,6 +70,7 @@
   {
     "account": "he.ping",
     "name": "何平",
+    "sex": "MAN",
     "department": -1,
     "roles": [
       "staff"
@@ -71,6 +79,7 @@
   {
     "account": "huangxixi",
     "name": "黄茜茜",
+    "sex": "WOMAN",
     "department": -3,
     "roles": [
       "staff"
@@ -79,6 +88,7 @@
   {
     "account": "limeng",
     "name": "李猛",
+    "sex": "MAN",
     "department": -1,
     "roles": [
       "staff"
@@ -87,6 +97,7 @@
   {
     "account": "lishiduo",
     "name": "李士朵",
+    "sex": "WOMAN",
     "department": -3,
     "roles": [
       "staff"
@@ -95,6 +106,7 @@
   {
     "account": "liudongmeng",
     "name": "刘冬萌",
+    "sex": "MAN",
     "department": -2,
     "roles": [
       "staff"
@@ -103,6 +115,7 @@
   {
     "account": "nimin",
     "name": "倪民",
+    "sex": "MAN",
     "department": -3,
     "roles": [
       "staff"
@@ -111,6 +124,7 @@
   {
     "account": "panshihu",
     "name": "潘石虎",
+    "sex": "MAN",
     "department": -3,
     "roles": [
       "staff"
@@ -119,6 +133,7 @@
   {
     "account": "pengyang",
     "name": "彭洋",
+    "sex": "WOMAN",
     "department": -2,
     "roles": [
       "staff"
@@ -127,6 +142,7 @@
   {
     "account": "shaoyunpeng",
     "name": "邵云鹏",
+    "sex": "MAN",
     "department": -1,
     "roles": [
       "staff"
@@ -135,6 +151,7 @@
   {
     "account": "shichunyan",
     "name": "施春燕",
+    "sex": "WOMAN",
     "department": -2,
     "roles": [
       "staff"
@@ -143,6 +160,7 @@
   {
     "account": "songshanxia",
     "name": "宋姗霞",
+    "sex": "WOMAN",
     "department": -2,
     "roles": [
       "staff"
@@ -151,6 +169,7 @@
   {
     "account": "tanghuijuan",
     "name": "唐慧娟",
+    "sex": "WOMAN",
     "department": -1,
     "roles": [
       "staff"
@@ -159,6 +178,7 @@
   {
     "account": "wang.lei",
     "name": "王磊",
+    "sex": "MAN",
     "department": -3,
     "roles": [
       "staff"
@@ -167,6 +187,7 @@
   {
     "account": "wanghu",
     "name": "王虎",
+    "sex": "MAN",
     "department": -3,
     "roles": [
       "staff"
@@ -175,6 +196,7 @@
   {
     "account": "weijianyu",
     "name": "魏建雨",
+    "sex": "MAN",
     "department": -1,
     "roles": [
       "staff"
@@ -183,6 +205,7 @@
   {
     "account": "yaokui",
     "name": "姚奎",
+    "sex": "MAN",
     "department": -1,
     "roles": [
       "staff"
@@ -191,6 +214,7 @@
   {
     "account": "yuxiaozhou",
     "name": "俞晓舟",
+    "sex": "MAN",
     "department": -1,
     "roles": [
       "staff"
@@ -199,6 +223,7 @@
   {
     "account": "zangwei",
     "name": "臧伟",
+    "sex": "MAN",
     "department": -1,
     "roles": [
       "staff"
@@ -207,6 +232,7 @@
   {
     "account": "zhanggaojiong",
     "name": "张高炯",
+    "sex": "MAN",
     "department": -3,
     "roles": [
       "staff"
@@ -215,6 +241,7 @@
   {
     "account": "zhangjing",
     "name": "张静",
+    "sex": "WOMAN",
     "department": -1,
     "roles": [
       "staff"
@@ -223,6 +250,7 @@
   {
     "account": "zhangxiaoyu",
     "name": "张晓宇",
+    "sex": "MAN",
     "department": -3,
     "roles": [
       "staff"
@@ -231,6 +259,7 @@
   {
     "account": "zhangyang",
     "name": "张洋",
+    "sex": "MAN",
     "department": -3,
     "roles": [
       "staff"
@@ -239,6 +268,7 @@
   {
     "account": "zhouzhenxing",
     "name": "周振兴",
+    "sex": "MAN",
     "department": -3,
     "roles": [
       "staff"
@@ -247,6 +277,7 @@
   {
     "account": "zhucong",
     "name": "朱聪",
+    "sex": "MAN",
     "department": -2,
     "roles": [
       "staff"
@@ -255,6 +286,7 @@
   {
     "account": "yangyang",
     "name": "杨阳",
+    "sex": "MAN",
     "department": -2,
     "roles": [
       "staff"

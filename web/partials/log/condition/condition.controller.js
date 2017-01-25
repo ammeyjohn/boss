@@ -11,7 +11,7 @@ define([
 ], function(ng, moment, _, settings, logModule) {
     'use strict';
 
-    function LogConditionCtrl($scope, $rootScope, $cookies, userApi, prjApi, deptApi) {
+    function LogConditionCtrl($scope, $rootScope, $cookies, userApi, prjApi, deptApi, mode) {
 
         var DATE_FORMAT = 'YYYY-MM-DD';
 
@@ -28,6 +28,11 @@ define([
             recordStartTime: null,
             recordEndTime: null
         }
+
+        // 查询条件模式
+        // simple: 不包含用户和部门
+        // advance: 包含用户和部门
+        $scope.mode = mode || 'simple';
 
         // 常用项目列表
         $scope.projects = null;
@@ -129,6 +134,7 @@ define([
         'boss.api.user',
         'boss.api.project',
         'boss.api.department',
+        'mode',
         LogConditionCtrl
     ]);
 });
