@@ -11,7 +11,7 @@ define([
 ], function(ng, moment, _, settings, logModule) {
     'use strict';
 
-    function LogConditionCtrl($scope, $rootScope, $cookies, userApi, prjApi, deptApi, mode) {
+    function LogConditionCtrl($scope, $rootScope, $cookies, $q, userApi, prjApi, deptApi, mode) {
 
         var DATE_FORMAT = 'YYYY-MM-DD';
 
@@ -34,9 +34,6 @@ define([
         // advance: 包含用户和部门
         $scope.mode = mode || 'simple';
 
-        // 常用项目列表
-        $scope.projects = null;
-
         // 用户列表        
         $scope.users = null;
 
@@ -44,7 +41,7 @@ define([
         $scope.departments = null;
 
         // 日志类型
-        $scope.logTypes = settings.logTypes;        
+        $scope.logTypes = settings.logTypes;
 
         // 条件对象
         $scope.condition = _.cloneDeep(default_condition);
@@ -55,16 +52,29 @@ define([
         });
 
         // 加载部门列表
-        deptApi.get().$promise.then(function(departments){
+        deptApi.get().$promise.then(function(departments) {
             $scope.departments = departments.data;
         });
 
         // 加载常用项目编号列表
+        var projects = null;
+        $scope.searchProjects = null;
         prjApi.getByAccount({
             account: credential.user.account
-        }).$promise.then(function(projects) {
-            $scope.projects = projects.data;
+        }).$promise.then(function(results) {
+            projects = results.data;
+            $scope.searchProjects = _.orderBy(_.take(projects, 50), ['projectCode'], ['desc']);
         });
+
+        $scope.refreshProjects = function(searchText) {
+            if (searchText) {
+                var matches = _.filter(projects, function(prj) {
+                    return prj.projectCode.indexOf(searchText) >= 0 ||
+                        prj.projectName.indexOf(searchText) >= 0;
+                });
+                $scope.searchProjects = _.orderBy(_.take(matches, 50), ['projectCode'], ['desc']);
+            }
+        }
 
         $scope.quickSearch = function(timeSpan) {
             var st, et;
@@ -131,6 +141,7 @@ define([
         '$scope',
         '$rootScope',
         '$cookies',
+        '$q',
         'boss.api.user',
         'boss.api.project',
         'boss.api.department',
