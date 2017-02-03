@@ -39,6 +39,7 @@
             'moment': 'assets/vendor/moment/min/moment-with-locales.min',
             'crossfilter': 'assets/vendor/crossfilter2/crossfilter.min',
             'ztree': 'assets/vendor/ztree_v3/js/jquery.ztree.all.min',
+            'ztree-css': 'assets/vendor/ztree_v3/css/zTreeStyle/zTreeStyle',
 
             /* Bootstrap */
             'bootstrap': 'assets/vendor/bootstrap/dist/js/bootstrap.min',
@@ -138,7 +139,7 @@
                 exports: 'crossfilter'
             },
 
-            'ztree': ['jquery']
+            'ztree': ['jquery', 'css!ztree-css']
         },
         packages: [],
         map: {
