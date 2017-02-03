@@ -90,6 +90,7 @@
             'directive.datetimepicker': 'directives/datetimepicker.directive',
             'directive.echarts': 'directives/echarts.directive',
             'directive.ztree': 'directives/ztree.directive',
+            'directive.projects.select': 'partials/log/directives/projects.select.directive',
 
             /* 资源脚本 */
             'boss.api': 'resources/boss.api.module',

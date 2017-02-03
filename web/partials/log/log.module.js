@@ -19,9 +19,10 @@ define([
     ]);
 
     logModule
-        .config(['$controllerProvider', '$filterProvider',
-            function($controllerProvider, $filterProvider) {
+        .config(['$controllerProvider', '$filterProvider', '$compileProvider',
+            function($controllerProvider, $filterProvider, $compileProvider) {
                 logModule.controller = $controllerProvider.register;
+                logModule.directive = $compileProvider.directive;
                 logModule.filter = $filterProvider.register;
             }
         ]);

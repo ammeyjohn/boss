@@ -7,7 +7,8 @@ define([
     'boss.api.user',
     'boss.api.project',
     'boss.api.department',
-    'directive.datetimepicker'
+    'directive.datetimepicker',
+    'directive.projects.select'
 ], function(ng, moment, _, settings, logModule) {
     'use strict';
 
@@ -20,7 +21,7 @@ define([
 
         var default_condition = {
             logType: 2,
-            projectCode: null,
+            projectCode: [],
             departments: null,
             users: [credential.user.account],
             logStartTime: moment().startOf('month').format(DATE_FORMAT),
@@ -28,6 +29,13 @@ define([
             recordStartTime: null,
             recordEndTime: null
         }
+
+        // 条件对象
+        $scope.condition = _.cloneDeep(default_condition);
+
+        $scope.$watch('condition', function(cond){
+            console.log(cond);
+        }, true);
 
         // 查询条件模式
         // simple: 不包含用户和部门
@@ -42,9 +50,6 @@ define([
 
         // 日志类型
         $scope.logTypes = settings.logTypes;
-
-        // 条件对象
-        $scope.condition = _.cloneDeep(default_condition);
 
         // 加载用户列表
         userApi.get().$promise.then(function(users) {
