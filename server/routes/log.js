@@ -25,7 +25,6 @@ router.post('/', function(req, res) {
                 log.departmentId = dept;
                 log.ip = utils.getClientIpAddr(req);
                 logApi.add(log).then(function(new_log) {
-                        debug(new_log);
                         res.json({
                             code: 0,
                             data: new_log
@@ -47,7 +46,6 @@ router.post('/', function(req, res) {
 router.post('/query', function(req, res) {
     debug(req.body);
     logApi.query(req.body).then(function(logs) {
-        debug(logs);
         res.json({
             code: 0,
             data: logs

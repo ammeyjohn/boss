@@ -50,6 +50,7 @@ exports.add = function(log) {
         }, function(result) {
             log.logId = result.InsertOrUpdateLogResult;
             log.recordTime = _log.D_DengJiSJ;
+            debug(log);
             defered.resolve(log);
         }, function(error) {
             defered.reject(error);
@@ -133,6 +134,7 @@ exports.query = function(condition) {
                 userName: row.UserName
             });
         });
+        debug(rows);
         defered.resolve(rows);
     }, function(error) {
         defered.reject(error);

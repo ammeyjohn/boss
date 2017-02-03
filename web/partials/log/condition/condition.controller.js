@@ -33,10 +33,6 @@ define([
         // 条件对象
         $scope.condition = _.cloneDeep(default_condition);
 
-        $scope.$watch('condition', function(cond){
-            console.log(cond);
-        }, true);
-
         // 查询条件模式
         // simple: 不包含用户和部门
         // advance: 包含用户和部门

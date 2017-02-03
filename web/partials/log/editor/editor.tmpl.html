@@ -15,9 +15,9 @@
                     <div class="col-xs-12 col-sm-6 col-md-6">
                         <div class="form-group" ng-class="{'has-error': logForm.$dirty && logForm.projectCode.$invalid}">
                             <label class="control-label" for="projectCode">项目编号</label>
-                            <ui-select ng-model="log.projectCode" theme="bootstrap">
-                                <ui-select-match placeholder="请输入项目编号">{{$select.selected.projectCode}} {{$select.selected.projectName}}</ui-select-match>
-                                <ui-select-choices repeat="project.projectCode as project in projects | propsFilter: {projectCode: $select.search, projectName: $select.search}">
+                            <ui-select ng-model="log.projectCode" theme="bootstrap" close-on-select="true">
+                                <ui-select-match placeholder="请选择项目编号">{{$select.selected.projectCode}}</ui-select-match>
+                                <ui-select-choices repeat="project.projectCode as project in searchProjects | propsFilter: {projectCode: $select.search, projectName: $select.search}" refresh="refreshProjects($select.search)" refresh-delay="100">
                                     <div ng-bind-html="project.projectCode + ' ' + project.projectName | highlight: $select.search"></div>
                                 </ui-select-choices>
                             </ui-select>
@@ -37,9 +37,9 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6">
-                        <div class="form-group" ng-class="{'has-error': logForm.$dirty && logForm.logTime.$invalid}">                        
+                        <div class="form-group" ng-class="{'has-error': logForm.$dirty && logForm.logTime.$invalid}">
                             <label class="control-label" for="logTime">日志时间</label>
-                            <input type="text" class="form-control" name="logTime" datetimepicker ng-model="log.logTime" required>                            
+                            <input type="text" class="form-control" name="logTime" datetimepicker ng-model="log.logTime" required>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
@@ -47,7 +47,7 @@
                             <label class="control-label" for="content">日志内容</label>
                             <textarea class="form-control" rows="12" name="content" ng-model="log.content" required maxlength=1000></textarea>
                         </div>
-                    </div>                    
+                    </div>
                 </div>
             </div>
         </md-dialog-content>

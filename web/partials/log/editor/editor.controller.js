@@ -28,13 +28,27 @@ define([
         $scope.logTypes = settings.logTypes;
         $scope.projects = [];
 
+        // 加载常用项目编号列表
+        var projects = null;
+        $scope.searchProjects = null;
         prjApi.getByAccount({
             account: credential.user.account
-        }).$promise.then(function(projects) {
-            $scope.projects = projects.data;
+        }).$promise.then(function(results) {
+            projects = results.data;
+            $scope.searchProjects = _.orderBy(_.take(projects, 50), ['projectCode'], ['desc']);
         });
 
-        $scope.save = function(close) {            
+        $scope.refreshProjects = function(searchText) {
+            if (searchText) {
+                var matches = _.filter(projects, function(prj) {
+                    return prj.projectCode.indexOf(searchText) >= 0 ||
+                        prj.projectName.indexOf(searchText) >= 0;
+                });
+                $scope.searchProjects = _.orderBy(_.take(matches, 50), ['projectCode'], ['desc']);
+            }
+        }
+
+        $scope.save = function(close) {
             logApi.add($scope.log).$promise.then(function(log) {
 
                 $mdToast.show(
