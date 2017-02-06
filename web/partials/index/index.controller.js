@@ -3,7 +3,7 @@ require([
     'moment',
     'lodash',
     './partials/index/index.module',
-    'css!./partials/index/style'
+    'css!partials/index/style'
 ], function(ng, moment, _, indexModule) {
     'use strict';
 

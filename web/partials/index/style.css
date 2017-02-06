@@ -1,20 +1,17 @@
 body {
 	overflow: hidden;
 }
-
-.page-content {
+.boss-page-content {
 	padding-top: 10px;
-	padding-left: 15px;    
+	padding-left: 15px;
 	padding-right: 15px;
 	padding-bottom: 10px;
-    overflow: auto;
+	overflow: auto;
 }
-
-.page-view {
-    width: 98%;
-    height: 100%;
+.boss-page-view {
+	width: 98%;
+	height: 100%;
 }
-
 .page-toolbar {
 	position: fixed;
 	left: 0;
@@ -23,20 +20,16 @@ body {
 	opacity: 0.1;
 	z-index: 0;
 }
-
 .md-fab .md-fab-toolbar-background {
 	left: 0;
 }
-
 .glyphicon {
 	font-size: 18px;
 }
-
 .md-fab .glyphicon {
 	left: 1px;
 	top: 2px;
 }
-
 input[type=search] {
 	-webkit-appearance: inherit;
 	box-sizing: inherit;

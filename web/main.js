@@ -67,6 +67,7 @@
             'oclazyload': 'assets/vendor/oclazyload/dist/ocLazyLoad.require.min',
 
             /* 定义CSS样式库 */
+            'metronic-style': 'assets/plugin/metronic/style',
             'font-awesome': 'assets/vendor/font-awesome/css/font-awesome.min',
 
             /* Echarts */

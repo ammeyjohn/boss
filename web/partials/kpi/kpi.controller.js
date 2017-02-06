@@ -8,7 +8,8 @@ define([
     'boss.api.department',
     'boss.api.project',
     'boss.api.log',
-    'directive.datetimepicker'
+    'directive.datetimepicker',
+    'css!metronic-style',
 ], function(ng, moment, _, settings, kpiModule) {
     'use strict';
 
