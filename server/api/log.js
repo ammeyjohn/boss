@@ -127,7 +127,7 @@ exports.query = function(condition) {
                 content: row.S_LogComment,
                 projectCode: row.S_XiangMuBH,
                 projectName: row.S_XiangMuMC,
-                workTime: row.I_LogGongShi,
+                workTime: parseInt(row.I_LogGongShi),
                 recordTime: row.D_DengJiSJ,
                 recordUser: row.S_DengJiRAccount,
                 department: row.S_DengJiBM,

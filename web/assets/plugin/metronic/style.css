@@ -2880,7 +2880,7 @@ Dashboard stats
 
 .dashboard-stat .more > i {
   display: inline-block;
-  margin-top: 1px;
+  font-size: 14px;
   float: right;
 }
 
