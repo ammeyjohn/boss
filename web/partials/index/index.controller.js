@@ -25,7 +25,7 @@ require([
                 width: $(window).width(),
                 height: $(window).height() - 84
             }
-            $('.page-content').height(size.height);
+            $('.boss-page-content').height(size.height);
             $rootScope.$broadcast("BOSS_WINDOWS_RESIZED", size);
         }
 

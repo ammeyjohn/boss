@@ -63,11 +63,12 @@ define([
             },
             tooltip: {
                 formatter: function(params, ticket, callback) {
-                    var format = params.name;
+                    var project = sumOfProjectGroup[params.name];
+                    var format = params.name + ' ' + project.projectName;
                     format += '<br />';
                     format += '工时: ' + params.value.toFixed(2) + ' 人日';
                     return format;
-                }           
+                }
             },
             xAxis: {
                 type: 'category',
@@ -109,6 +110,8 @@ define([
             recordEndTime: null
         }
 
+        var sumOfProjectGroup = {};
+
         logApi.queryLogs(condition).$promise.then(function(logs) {
 
             // 工时统计            
@@ -116,17 +119,29 @@ define([
 
             // 项目统计
             var projectGroup = _.groupBy(logs.data, 'projectCode');
-            var projectCodes = _.keys(projectGroup);
-            $scope.dashboard.projectCount = projectCodes.length;
+            $scope.dashboard.projectCount = _.keys(projectGroup).length;
 
             // 统计各项目工时
-            var sumOfProjectGroup = {};
             _.reduce(projectGroup, function(result, log, key) {
-                result[key] = _.sumBy(log, 'workTime') / 480;
+                result[key] = {
+                    taskTime: _.sumBy(log, 'workTime') / 480,
+                    projectCode: log[0].projectCode,
+                    projectName: log[0].projectName
+                }
                 return result;
             }, sumOfProjectGroup);
-            $scope.option.xAxis.data = projectCodes;
-            $scope.option.series[0].data = _.values(sumOfProjectGroup);
+            var orderedProjectGroup = _.orderBy(_.values(sumOfProjectGroup), ['taskTime'], ['desc']);
+            $scope.option.xAxis.data =
+                _.flatMap(orderedProjectGroup, function(d) {
+                    return d.projectCode
+                });
+            $scope.option.series[0].data =
+                _.flatMap(orderedProjectGroup, function(d) {
+                    return d.taskTime
+                });
+
+            // 项目工期Top5
+            $scope.top5Projects = _.take(orderedProjectGroup, 10);
 
         });
 
