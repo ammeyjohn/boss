@@ -69,8 +69,7 @@ define([
             },
             tooltip: {
                 formatter: function(params, ticket, callback) {
-                    var project = sumOfProjectGroup[params.name];
-                    var format = params.name + ' ' + project.projectName;
+                    var format = params.name;
                     format += '<br />';
                     format += '工时: ' + params.value.toFixed(2) + ' 人日';
                     return format;

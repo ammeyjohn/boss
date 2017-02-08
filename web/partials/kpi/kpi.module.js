@@ -57,7 +57,7 @@ define([
                                     });
                                 }],
                                 mode: function() {
-                                    return 'simple';
+                                    return 'advance';
                                 }
                             }
                         }
