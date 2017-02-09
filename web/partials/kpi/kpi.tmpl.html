@@ -1,182 +1,219 @@
-<div class="row">
-    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        <div class="dashboard-stat blue">
-            <div class="visual">
-                <i class="fa fa-shopping-cart"></i>
+<style>
+.search-panel {
+    border-bottom: 1px solid #e7ecf1;
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+
+
+/*.search-panel .toggler {
+    top: 70px;
+    right: 30px;
+    padding: 10px 12px;
+    cursor: pointer;
+    position: absolute;
+    z-index: 10;
+    background: #9c9c9c;
+    opacity: 0.6;
+}
+
+.search-panel .toggler:hover{
+    opacity: 1;
+}
+
+.search-panel .toggle > i {
+    font-size: 18px;
+}*/
+</style>
+<div class="search-panel">
+    <div class="toggler" style="display: block;">
+        <div class="row">
+            <div class="col-md-6">
+                <input date-range-picker class="form-control date-picker" type="text" 
+                ng-model="datePicker.date" min="'2014-02-23'" max="'2015-02-25'"/>
             </div>
-            <div class="details">
-                <div class="number">
-                    {{dashboard.taskTime | number: 2}} 人日
-                </div>
-                <div class="desc">
-                    工时统计
-                </div>
+            <div>
             </div>
-            <a class="more" href="#">
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="dashboard-stat blue">
+                    <div class="visual">
+                        <i class="fa fa-shopping-cart"></i>
+                    </div>
+                    <div class="details">
+                        <div class="number">
+                            {{dashboard.taskTime | number: 2}} 人日
+                        </div>
+                        <div class="desc">
+                            工时统计
+                        </div>
+                    </div>
+                    <a class="more" href="#">
                  显示详细 <i class="glyphicon glyphicon-circle-arrow-right"></i>
             </a>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        <div class="dashboard-stat purple">
-            <div class="visual">
-                <i class="fa fa-bar-chart-o"></i>
-            </div>
-            <div class="details">
-                <div class="number">
-                    {{dashboard.projectCount}} 个
-                </div>
-                <div class="desc">
-                    项目统计
                 </div>
             </div>
-            <a class="more" href="#">
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="dashboard-stat purple">
+                    <div class="visual">
+                        <i class="fa fa-bar-chart-o"></i>
+                    </div>
+                    <div class="details">
+                        <div class="number">
+                            {{dashboard.projectCount}} 个
+                        </div>
+                        <div class="desc">
+                            项目统计
+                        </div>
+                    </div>
+                    <a class="more" href="#">
                  显示详细 <i class="glyphicon glyphicon-circle-arrow-right"></i>
             </a>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        <div class="dashboard-stat yellow">
-            <div class="visual">
-                <i class="fa fa-globe"></i>
-            </div>
-            <div class="details">
-                <div class="number">
-                    {{dashboard.overTime}} 天
-                </div>
-                <div class="desc">
-                    加班统计
                 </div>
             </div>
-            <a class="more" href="#">
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="dashboard-stat yellow">
+                    <div class="visual">
+                        <i class="fa fa-globe"></i>
+                    </div>
+                    <div class="details">
+                        <div class="number">
+                            {{dashboard.overTime}} 天
+                        </div>
+                        <div class="desc">
+                            加班统计
+                        </div>
+                    </div>
+                    <a class="more" href="#">
                  显示详细 <i class="glyphicon glyphicon-circle-arrow-right"></i>
             </a>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        <div class="dashboard-stat green">
-            <div class="visual">
-                <i class="fa fa-bar-chart-o"></i>
-            </div>
-            <div class="details">
-                <div class="number">
-                    {{dashboard.travelTime}} 天
-                </div>
-                <div class="desc">
-                    差旅统计
                 </div>
             </div>
-            <a class="more" href="#">
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="dashboard-stat green">
+                    <div class="visual">
+                        <i class="fa fa-bar-chart-o"></i>
+                    </div>
+                    <div class="details">
+                        <div class="number">
+                            {{dashboard.travelTime}} 天
+                        </div>
+                        <div class="desc">
+                            差旅统计
+                        </div>
+                    </div>
+                    <a class="more" href="#">
                  显示详细 <i class="glyphicon glyphicon-circle-arrow-right"></i>
             </a>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-8">
-        <div class="portlet box grey">
-            <div class="portlet-title">
-                <div class="caption">
-                    <i class="fa fa-reorder"></i>项目工期统计
-                </div>
-            </div>
-            <div class="portlet-body">
-                <div style="width: 100%; height: 405px;">
-                    <div id="main" echarts ec-option="option[0]" style="width: 100%;height:100%;"></div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-md-4">
-        <div class="portlet box grey">
-            <div class="portlet-title">
-                <div class="caption">
-                    <i class="fa fa-reorder"></i>Top10
+        <div class="row">
+            <div class="col-md-8">
+                <div class="portlet box grey">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="fa fa-reorder"></i>项目工期统计
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div style="width: 100%; height: 405px;">
+                            <div id="main" echarts ec-option="option[0]" style="width: 100%;height:100%;"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="portlet-body table-responsive">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <td>项目编号</td>
-                            <td>项目名称</td>
-                            <td>工时（人日）</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="row in top10Projects">
-                            <td>{{row.projectCode}}</td>
-                            <td>{{row.projectName}}</td>
-                            <td>{{row.taskTime | number: 2}}</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="col-md-4">
+                <div class="portlet box grey">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="fa fa-reorder"></i>Top 10
+                        </div>
+                    </div>
+                    <div class="portlet-body table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <td>项目编号</td>
+                                    <td>项目名称</td>
+                                    <td>工时（人日）</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="row in top10Projects">
+                                    <td>{{row.projectCode}}</td>
+                                    <td>{{row.projectName}}</td>
+                                    <td>{{row.taskTime | number: 2}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-8">
-        <div class="portlet box grey">
-            <div class="portlet-title">
-                <div class="caption">
-                    <i class="fa fa-reorder"></i>人员工期统计
+        <div class="row">
+            <div class="col-md-8">
+                <div class="portlet box grey">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="fa fa-reorder"></i>人员工期统计
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div style="width: 100%; height: 350px;">
+                            <div id="main" echarts ec-option="option[1]" style="width: 100%;height:100%;"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="portlet-body">
-                <div style="width: 100%; height: 350px;">
-                    <div id="main" echarts ec-option="option[1]" style="width: 100%;height:100%;"></div>
+            <div class="col-md-2">
+                <div class="portlet box grey">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="fa fa-reorder"></i>Top 5
+                        </div>
+                    </div>
+                    <div class="portlet-body table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <td>姓名</td>
+                                    <td>工时（人日）</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="row in top10Users">
+                                    <td>{{row.userName}}</td>
+                                    <td>{{row.taskTime | number: 2}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="col-md-2">
-        <div class="portlet box grey">
-            <div class="portlet-title">
-                <div class="caption">
-                    <i class="fa fa-reorder"></i>Top5
+            <div class="col-md-2">
+                <div class="portlet box grey">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="fa fa-reorder"></i>Last 5
+                        </div>
+                    </div>
+                    <div class="portlet-body table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <td>姓名</td>
+                                    <td>工时（人日）</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="row in last10Users">
+                                    <td>{{row.userName}}</td>
+                                    <td>{{row.taskTime | number: 2}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
-            <div class="portlet-body table-responsive">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <td>姓名</td>
-                            <td>工时（人日）</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="row in top10Users">
-                            <td>{{row.userName}}</td>
-                            <td>{{row.taskTime | number: 2}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-2">
-        <div class="portlet box grey">
-            <div class="portlet-title">
-                <div class="caption">
-                    <i class="fa fa-reorder"></i>Last10
-                </div>
-            </div>
-            <div class="portlet-body table-responsive">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <td>姓名</td>
-                            <td>工时（人日）</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="row in last10Users">
-                            <td>{{row.userName}}</td>
-                            <td>{{row.taskTime | number: 2}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>

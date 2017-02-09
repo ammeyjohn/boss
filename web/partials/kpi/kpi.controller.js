@@ -9,6 +9,7 @@ define([
     'boss.api.project',
     'boss.api.log',
     'directive.datetimepicker',
+    'angular-daterangepicker',
     'css!metronic-style',
 ], function(ng, moment, _, settings, kpiModule) {
     'use strict';
@@ -79,6 +80,7 @@ define([
                 type: 'category',
                 data: null,
                 axisLabel: {
+                    rotate: 90,
                     interval: 0
                 }
             },
@@ -113,17 +115,17 @@ define([
 
         var sumOfProjectGroup = {};
 
-        logApi.queryLogs(condition).$promise.then(function(logs) {
+        // logApi.queryLogs(condition).$promise.then(function(logs) {
 
-            // 总工时统计            
-            $scope.dashboard.taskTime = _.sumBy(logs.data, 'workTime') / 480;
+        //     // 总工时统计            
+        //     $scope.dashboard.taskTime = _.sumBy(logs.data, 'workTime') / 480;
 
-            // 项目分组统计
-            processProjectGroup(logs);
+        //     // 项目分组统计
+        //     processProjectGroup(logs);
 
-            // 人员分组统计
-            processUserGroup(logs);
-        });
+        //     // 人员分组统计
+        //     processUserGroup(logs);
+        // });
 
         var processProjectGroup = function(logs) {
 

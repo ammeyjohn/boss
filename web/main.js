@@ -46,6 +46,7 @@
             'bootstrap-css': 'assets/vendor/bootstrap/dist/css/bootstrap.min',
             'datetimepicker': 'assets/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min',
             'datetimepicker-css': 'assets/vendor/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min',
+            'daterangepicker': 'assets/vendor/bootstrap-daterangepicker/daterangepicker',
 
             /* AngularJS */
             'angular': 'assets/vendor/angular/angular.min',
@@ -62,6 +63,7 @@
             'angular-local-storage': 'assets/vendor/angular-local-storage/dist/angular-local-storage.min',
             'angular-bootstrap': 'assets/vendor/angular-bootstrap/ui-bootstrap-tpls.min',
             'angular-material': 'assets/vendor/angular-material/angular-material.min',
+            'angular-daterangepicker': 'assets/vendor/angular-daterangepicker/js/angular-daterangepicker.min',
 
             /* AngularJS Directives */
             'oclazyload': 'assets/vendor/oclazyload/dist/ocLazyLoad.require.min',
@@ -126,6 +128,9 @@
                 'angular-messages',
                 'css!angular-material'
             ],
+            'angular-daterangepicker': [
+                'daterangepicker'
+            ],
             'oclazyload': ['angular'],
 
             /* 第三方组件 */
@@ -134,6 +139,11 @@
                 'bootstrap',
                 'moment',
                 'css!datetimepicker-css'
+            ],
+
+            'daterangepicker': [
+                'bootstrap',
+                'css!daterangepicker'
             ],
 
             'crossfilter': {
@@ -157,6 +167,7 @@
     /// 全局初始化 ///
     require(['moment'],
         function(moment) {
+            window.moment = moment;
             moment.locale('zh-cn');
         });
 

@@ -4,6 +4,7 @@ define([
     'angular-cookies',
     'angular-bootstrap',
     'angular-ui-select',
+    'angular-daterangepicker',
     'directive.echarts',
     'directive.ztree',
     'boss.api'
@@ -15,6 +16,7 @@ define([
         'ngSanitize',
         'ui.bootstrap',
         'ui.select',
+        'daterangepicker',
         'echarts',
         'ztree',
         'boss.api'
