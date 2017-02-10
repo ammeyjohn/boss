@@ -23,6 +23,24 @@ define([
             projectCount: 0
         }
 
+        $scope.drOption = {
+            ranges: {
+                '本周': [moment().day(0).add(1, 'days'), moment().day(7)],
+                '上周': [moment().day(0).subtract(6, 'days'), moment().day(7).subtract(7, 'days')],
+                '本月': [moment().startOf('month'), moment().endOf('month')],
+                '上月': [moment().startOf('month').subtract(1, 'months'), moment().endOf('month').subtract(1, 'months')],
+                '今年': [moment().startOf('year'), moment().endOf('year')],
+                '去年': [moment().startOf('year').subtract(1, 'years'), moment().endOf('year').subtract(1, 'years')],
+                '最近30天': [moment().subtract(30, 'days'), moment()]
+            },
+            opens: 'left'
+        }
+
+        $scope.daterange = {
+            startDate: moment().startOf('month'),
+            endDate: moment().endOf('month'),
+        };
+
         $scope.option = [{
             grid: {
                 top: 10,
@@ -99,33 +117,34 @@ define([
             }]
         }];
 
-
-        var DATE_FORMAT = 'YYYY-MM-DD';
-
-        var condition = {
-            logType: null,
-            projectCode: [],
-            departments: [25],
-            users: [],
-            logStartTime: moment().startOf('year').format(DATE_FORMAT),
-            logEndTime: moment().endOf('year').format(DATE_FORMAT),
-            recordStartTime: null,
-            recordEndTime: null
-        }
-
         var sumOfProjectGroup = {};
 
-        // logApi.queryLogs(condition).$promise.then(function(logs) {
+        $scope.$watch('daterange', function(daterange) {
+            if (daterange) {
+                var condition = {
+                    logType: null,
+                    projectCode: [],
+                    departments: [25],
+                    users: [],
+                    logStartTime: daterange.startDate,
+                    logEndTime: daterange.endDate,
+                    recordStartTime: null,
+                    recordEndTime: null
+                }
 
-        //     // 总工时统计            
-        //     $scope.dashboard.taskTime = _.sumBy(logs.data, 'workTime') / 480;
+                logApi.queryLogs(condition).$promise.then(function(logs) {
 
-        //     // 项目分组统计
-        //     processProjectGroup(logs);
+                    // 总工时统计            
+                    $scope.dashboard.taskTime = _.sumBy(logs.data, 'workTime') / 480;
 
-        //     // 人员分组统计
-        //     processUserGroup(logs);
-        // });
+                    // 项目分组统计
+                    processProjectGroup(logs);
+
+                    // 人员分组统计
+                    processUserGroup(logs);
+                });                
+            }
+        }, true);
 
         var processProjectGroup = function(logs) {
 
