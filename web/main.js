@@ -64,6 +64,7 @@
             'angular-bootstrap': 'assets/vendor/angular-bootstrap/ui-bootstrap-tpls.min',
             'angular-material': 'assets/vendor/angular-material/angular-material.min',
             'angular-daterangepicker': 'assets/vendor/angular-daterangepicker/js/angular-daterangepicker.min',
+            'angular-block-ui': 'assets/vendor/angular-block-ui/dist/angular-block-ui.min',
 
             /* AngularJS Directives */
             'oclazyload': 'assets/vendor/oclazyload/dist/ocLazyLoad.require.min',
@@ -130,6 +131,9 @@
             ],
             'angular-daterangepicker': [
                 'daterangepicker'
+            ],
+            'angular-block-ui': [
+                'css!angular-block-ui'
             ],
             'oclazyload': ['angular'],
 

@@ -29,7 +29,7 @@
                 <md-tooltip md-delay="500">日志分析</md-tooltip>
                 <md-icon class="glyphicon glyphicon-stats"></md-icon>
             </md-button>
-            <md-button aria-label="kpi" class="md-icon-button" ng-click="goto('kpi')" ng-if="authorize(['root'])">
+            <md-button aria-label="kpi" class="md-icon-button" ng-click="goto('kpi')" ng-if="authorize(['root','admin','manager'])">
                 <md-tooltip md-delay="500">部门分析</md-tooltip>
                 <md-icon class="glyphicon glyphicon-dashboard"></md-icon>
             </md-button>                     
