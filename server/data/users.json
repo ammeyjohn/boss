@@ -323,5 +323,15 @@
     "roles": [
       "staff"
     ]
+  },
+  {
+    "id": 34,
+    "account": "chensiyuan",
+    "name": "陈思远",
+    "sex": "MAN",
+    "department": 4,
+    "roles": [
+      "staff"
+    ]
   }
 ]
