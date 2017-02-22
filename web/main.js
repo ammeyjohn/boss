@@ -130,9 +130,11 @@
                 'css!angular-material'
             ],
             'angular-daterangepicker': [
+                'angular',
                 'daterangepicker'
             ],
             'angular-block-ui': [
+                'angular',
                 'css!angular-block-ui'
             ],
             'oclazyload': ['angular'],
