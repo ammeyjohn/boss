@@ -343,5 +343,15 @@
     "roles": [
       "staff"
     ]
-  }
+  },
+  {
+    "id": 36,
+    "account": "buliwei",
+    "name": "卜立伟",
+    "sex": "MAN",
+    "department": 34,
+    "roles": [
+      "staff"
+    ]
+  }  
 ]
