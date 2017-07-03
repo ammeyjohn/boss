@@ -533,5 +533,76 @@
     "roles": [
         "staff"
     ]
+  },
+  {
+    "id": 54,
+    "account": "qiantongjing",
+    "name": "钱通菁",
+    "sex": "WOMAN",
+    "department": 2,
+    "roles": [
+        "staff"
+    ]
+  },
+  {
+    "id": 55,
+    "account": "xiewei",
+    "name": "谢伟",
+    "sex": "WOMAN",
+    "department": 2,
+    "roles": [
+        "staff"
+    ]
+  },
+  {
+    "id": 56,
+    "account": "luojun",
+    "name": "罗俊",
+    "sex": "MAN",
+    "department": 2,
+    "roles": [
+        "staff",
+        "manager"
+    ]
+  },
+  {
+    "id": 57,
+    "account": "zhuliangliang",
+    "name": "朱亮亮",
+    "sex": "MAN",
+    "department": 2,
+    "roles": [
+        "staff"
+    ]
+  },
+  {
+    "id": 58,
+    "account": "shifengxia",
+    "name": "师凤霞",
+    "sex": "WOMAN",
+    "department": 2,
+    "roles": [
+        "staff"
+    ]
+  },
+  {
+    "id": 59,
+    "account": "xiahongxia",
+    "name": "夏红霞",
+    "sex": "WOMAN",
+    "department": 2,
+    "roles": [
+        "staff"
+    ]
+  },
+  {
+    "id": 60,
+    "account": "wufangxing",
+    "name": "吴方兴",
+    "sex": "MAN",
+    "department": 2,
+    "roles": [
+        "staff"
+    ]
   }
 ]

@@ -6,6 +6,12 @@
     "name": "软件研发部"
   },
   {
+    "id": 2,
+    "parent": null,
+    "code": "YHTYB",
+    "name": "用户体验部"
+  },
+  {
     "id": -1,
     "parent": 25,
     "code": "UAP",
