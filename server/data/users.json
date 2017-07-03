@@ -514,4 +514,24 @@
         "staff"
     ]
   },
+  {
+    "id": 52,
+    "account": "qiuguochao",
+    "name": "邱国超",
+    "sex": "MAN",
+    "department": -4,
+    "roles": [
+        "staff"
+    ]
+  },
+  {
+    "id": 53,
+    "account": "pengtao",
+    "name": "彭涛",
+    "sex": "MAN",
+    "department": -4,
+    "roles": [
+        "staff"
+    ]
+  }
 ]
