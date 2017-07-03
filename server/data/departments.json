@@ -22,5 +22,11 @@
     "parent": 25,
     "code": "CM",
     "name": "软件研发客服组"
+  },
+  {
+    "id": -4,
+    "parent": 25,
+    "code": "WuXi",
+    "name": "软件研发无锡分中心"
   }
 ]
