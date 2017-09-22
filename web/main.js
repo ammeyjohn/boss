@@ -90,6 +90,7 @@
             'boss.login': 'partials/login/login.module',
             'boss.log': 'partials/log/log.module',
             'boss.kpi': 'partials/kpi/kpi.module',
+            'boss.otwork': 'partials/otwork/otwork.module',
 
             /* 定义其他组件 */
             'directive.datetimepicker': 'directives/datetimepicker.directive',
@@ -103,7 +104,8 @@
             'boss.api.user': 'resources/boss.api.user.resource',
             'boss.api.department': 'resources/boss.api.department.resource',
             'boss.api.project': 'resources/boss.api.project.resource',
-            'boss.api.log': 'resources/boss.api.log.resource'
+            'boss.api.log': 'resources/boss.api.log.resource',
+            'boss.api.otwork': 'resources/boss.api.otwork.resource'
         },
         shim: {
             'bootstrap': ['jquery', 'css!bootstrap-css'],
@@ -167,7 +169,7 @@
         deps: [],
 
         /* TODO：在正式上线前需要移除这行代码 */
-        urlArgs: 'v=1.0.3.0'
+        urlArgs: 'v=1.0.4.0'
     });
 
     /// 全局初始化 ///

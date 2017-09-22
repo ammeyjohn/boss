@@ -9,6 +9,7 @@ var user = require('./server/routes/user');
 var department = require('./server/routes/department');
 var project = require('./server/routes/project');
 var log = require('./server/routes/log');
+var otwork = require('./server/routes/otwork');
 
 var app = express();
 
@@ -35,6 +36,7 @@ app.use('/api/user', user);
 app.use('/api/department', department);
 app.use('/api/project', project);
 app.use('/api/log', log);
+app.use('/api/otwork', otwork);
 
 app.use(express.static(path.join(__dirname, 'web')));
 app.get('*', function(req, res) {

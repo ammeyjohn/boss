@@ -5,7 +5,8 @@ define([
     'angular-block-ui',
     'boss.login',
     'boss.log',
-    'boss.kpi'
+    'boss.kpi',
+    'boss.otwork'
 ], function(ng) {
     'use strict';
 
@@ -17,7 +18,8 @@ define([
         'blockUI',
         'boss.login',
         'boss.log',
-        'boss.kpi'
+        'boss.kpi',
+        'boss.otwork'
     ]);
 
     indexModule

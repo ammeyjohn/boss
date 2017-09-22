@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "supervisor --harmony server.js"
+    "start": "supervisor --harmony server.js",
+    "dev": "node server.js"
   },
   "author": "yuanjie <yuanjie@shanghai3h.com>",
   "license": "ISC",
