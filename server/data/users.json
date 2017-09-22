@@ -174,7 +174,7 @@
         "name": "唐慧娟",
         "sex": "WOMAN",
         "department": -1,
-        "notifier": ["hujianing", "shijianping"],
+        "notifier": ["hujianing", "shijianping", "zhangwei"],
         "roles": [
             "staff"
         ]
@@ -251,7 +251,7 @@
         "name": "张静",
         "sex": "WOMAN",
         "department": -1,
-        "notifier": ["hujianing", "shijianping"],
+        "notifier": ["hujianing", "shijianping", "zhangwei"],
         "roles": [
             "staff"
         ]
@@ -306,7 +306,7 @@
         "name": "陈思远",
         "sex": "MAN",
         "department": 4,
-        "notifier": [],
+        "notifier": ["houjinxia"],
         "roles": [
             "staff"
         ]
@@ -317,7 +317,7 @@
         "name": "彭江义",
         "sex": "MAN",
         "department": 4,
-        "notifier": [],
+        "notifier": ["houjinxia"],
         "roles": [
             "staff"
         ]
@@ -328,7 +328,7 @@
         "name": "卜立伟",
         "sex": "MAN",
         "department": 34,
-        "notifier": [],
+        "notifier": ["luojun"],
         "roles": [
             "staff"
         ]
@@ -605,6 +605,62 @@
         "sex": "MAN",
         "department": 2,
         "notifier": ["luojun"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 61,
+        "account": "fenglujian",
+        "name": "冯路建",
+        "sex": "MAN",
+        "department": 31,
+        "notifier": [],
+        "roles": [
+            "staff",
+            "manager"
+        ]
+    },
+    {
+        "id": 62,
+        "account": "hanfushuai",
+        "name": "韩福帅",
+        "sex": "MAN",
+        "department": -4,
+        "notifier": ["hujianing"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 63,
+        "account": "zhoujingyi",
+        "name": "周静怡",
+        "sex": "WOMAN",
+        "department": -4,
+        "notifier": ["hujianing"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 64,
+        "account": "zhoubaoguang",
+        "name": "周保光",
+        "sex": "MAN",
+        "department": -4,
+        "notifier": ["hujianing"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 65,
+        "account": "zhangyu",
+        "name": "张宇",
+        "sex": "MAN",
+        "department": -4,
+        "notifier": ["hujianing"],
         "roles": [
             "staff"
         ]
