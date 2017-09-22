@@ -1,54 +1,54 @@
 <md-dialog aria-label="新建加班记录" flex="60">
     <form name="otForm" role="form" novalidate>
         <md-toolbar>
-        <div class="md-toolbar-tools">
-            <h2>新建加班记录</h2>
-            <span flex></span>
-            <md-button class="md-icon-button" ng-click="cancel()" aria-label="Close">
-            <md-icon class="glyphicon glyphicon-remove" aria-hidden="true"></md-icon>
-            </md-button>
-        </div>
+            <div class="md-toolbar-tools">
+                <h2>新建加班记录</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()" aria-label="Close">
+                    <md-icon class="glyphicon glyphicon-remove" aria-hidden="true"></md-icon>
+                </md-button>
+            </div>
         </md-toolbar>
         <md-dialog-content>
-        <div class="md-dialog-content">
-            <div class="row">
-                <div class="col-xs-12 col-sm-6 col-md-6">
-                    <div class="form-group">
-                        <label for="otStartTime" class="control-label">工作开始时间</label>
-                        <input type="text" class="form-control" id="otStartTime" datetimepicker format="YYYY-MM-DD HH:mm" ng-model="otwork.startTime">
+            <div class="md-dialog-content">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <label for="otStartTime" class="control-label">工作开始时间</label>
+                            <input type="text" class="form-control" id="otStartTime" datetimepicker format="YYYY-MM-DD HH:mm" ng-model="otwork.startTime">
+                        </div>
                     </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-6">
-                    <div class="form-group">
-                        <label for="otEndTime" class="control-label">工作结束时间</label>
-                        <input type="text" class="form-control" id="otEndTime" datetimepicker format="YYYY-MM-DD HH:mm" ng-model="otwork.endTime">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <label for="otEndTime" class="control-label">工作结束时间</label>
+                            <input type="text" class="form-control" id="otEndTime" datetimepicker format="YYYY-MM-DD HH:mm" ng-model="otwork.endTime">
+                        </div>
                     </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-6">
-                    <div class="form-group" ng-class="{'has-error': otForm.$dirty && otForm.mealCount.$invalid}">
-                        <label class="control-label" for="mealCount">餐补数</label>
-                        <input type="number" class="form-control" id="mealCount" name="mealCount" ng-model="otwork.mealCount" required min=0 max=2>
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="form-group" ng-class="{'has-error': otForm.$dirty && otForm.mealCount.$invalid}">
+                            <label class="control-label" for="mealCount">餐补数</label>
+                            <input type="number" class="form-control" id="mealCount" name="mealCount" ng-model="otwork.mealCount" required min=0 max=2>
+                        </div>
                     </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-6">
-                    <div class="form-group" ng-class="{'has-error': otForm.$dirty && otForm.notifier.$invalid}">
-                        <label class="control-label" for="notifier">通知人</label>
-                        <input type="text" class="form-control" id="notifier" name="notifier" ng-model="otwork.notifier" required>
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="form-group" ng-class="{'has-error': otForm.$dirty && otForm.notifier.$invalid}">
+                            <label class="control-label" for="notifier">通知人</label>
+                            <input type="text" class="form-control" id="notifier" name="notifier" ng-model="otwork.notifier" required>
+                        </div>
                     </div>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="form-group" ng-class="{'has-error': otForm.$dirty && otForm.content.$invalid}">
-                        <label class="control-label" for="content">日志内容</label>
-                        <textarea class="form-control" rows="12" name="content" ng-model="otwork.content" required maxlength=1000></textarea>
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group" ng-class="{'has-error': otForm.$dirty && otForm.content.$dirty && otForm.content.$invalid}">
+                            <label class="control-label" for="content">日志内容</label>
+                            <textarea class="form-control" rows="12" name="content" ng-model="otwork.content" required maxlength=1000></textarea>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         </md-dialog-content>
         <md-dialog-actions layout="row">
             <div ng-if="otForm.$valid">
                 <md-button class="md-raised md-primary" ng-click="save(true)">
-                保存记录
+                    保存记录
                 </md-button>
             </div>
         </md-dialog-actions>

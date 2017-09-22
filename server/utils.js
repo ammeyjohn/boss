@@ -21,7 +21,6 @@ var utils = {
     getClientIpAddr: function(req) {
         var ip = req.ip;
         if (ip) {
-            console.log(ip);
             var ipParts = ip.split(':');
             if (ipParts.length == 4) {
                 return ipParts[3];
@@ -44,7 +43,7 @@ var utils = {
 
     today: function() {
         return moment().format("YYYY-MM-DD");
-    }    
+    }
 }
 
 _.each(utils, function(value, key) {

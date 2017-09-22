@@ -1,608 +1,612 @@
-[
-  {
-    "id": 4,
-    "account": "yuanjie",
-    "name": "袁杰",
-    "sex": "MAN",
-    "department": -2,
-    "roles": [
-      "root",
-      "admin",
-      "manager"
-    ]
-  },
-  {
-    "id": 1,
-    "account": "hujianing",
-    "name": "胡嘉宁",
-    "sex": "WOMAN",
-    "department": 25,
-    "roles": [
-      "admin",
-      "manager"
-    ]
-  },
-  {
-    "id": 2,
-    "account": "shijianping",
-    "name": "施剑平",
-    "sex": "MAN",
-    "department": -1,
-    "roles": [
-      "admin",
-      "manager"
-    ]
-  },
-  {
-    "id": 3,
-    "account": "qiweiwei",
-    "name": "齐巍巍",
-    "sex": "MAN",
-    "department": -3,
-    "roles": [
-      "admin",
-      "manager"
-    ]
-  },
-  {
-    "id": 5,
-    "account": "chenhaifan",
-    "name": "陈海帆",
-    "sex": "WOMAN",
-    "department": -1,
-    "roles": [
-      "staff"
-    ]
-  },
-  {
-    "id": 6,
-    "account": "dengzhimin",
-    "name": "邓志敏",
-    "sex": "MAN",
-    "department": -1,
-    "roles": [
-      "staff"
-    ]
-  },
-  {
-    "id": 7,
-    "account": "fangyun",
-    "name": "方芸",
-    "sex": "WOMAN",
-    "department": -2,
-    "roles": [
-      "staff"
-    ]
-  },
-  {
-    "id": 8,
-    "account": "he.ping",
-    "name": "何平",
-    "sex": "MAN",
-    "department": -1,
-    "roles": [
-      "staff"
-    ]
-  },
-  {
-    "id": 9,
-    "account": "huangxixi",
-    "name": "黄茜茜",
-    "sex": "WOMAN",
-    "department": -3,
-    "roles": [
-      "staff"
-    ]
-  },
-  {
-    "id": 10,
-    "account": "limeng",
-    "name": "李猛",
-    "sex": "MAN",
-    "department": -1,
-    "roles": [
-      "staff"
-    ]
-  },
-  {
-    "id": 11,
-    "account": "lishiduo",
-    "name": "李士朵",
-    "sex": "WOMAN",
-    "department": -3,
-    "roles": [
-      "staff"
-    ]
-  },
-  {
-    "id": 12,
-    "account": "liudongmeng",
-    "name": "刘冬萌",
-    "sex": "MAN",
-    "department": -2,
-    "roles": [
-      "staff"
-    ]
-  },
-  {
-    "id": 13,
-    "account": "nimin",
-    "name": "倪民",
-    "sex": "MAN",
-    "department": -3,
-    "roles": [
-      "staff"
-    ]
-  },
-  {
-    "id": 14,
-    "account": "panshihu",
-    "name": "潘石虎",
-    "sex": "MAN",
-    "department": -3,
-    "roles": [
-      "staff"
-    ]
-  },
-  {
-    "id": 15,
-    "account": "pengyang",
-    "name": "彭洋",
-    "sex": "WOMAN",
-    "department": -2,
-    "roles": [
-      "staff"
-    ]
-  },
-  {
-    "id": 16,
-    "account": "shaoyunpeng",
-    "name": "邵云鹏",
-    "sex": "MAN",
-    "department": -1,
-    "roles": [
-      "staff"
-    ]
-  },
-  {
-    "id": 17,
-    "account": "shichunyan",
-    "name": "施春燕",
-    "sex": "WOMAN",
-    "department": -2,
-    "roles": [
-      "staff"
-    ]
-  },
-  {
-    "id": 18,
-    "account": "songshanxia",
-    "name": "宋姗霞",
-    "sex": "WOMAN",
-    "department": -2,
-    "roles": [
-      "staff"
-    ]
-  },
-  {
-    "id": 19,
-    "account": "tanghuijuan",
-    "name": "唐慧娟",
-    "sex": "WOMAN",
-    "department": -1,
-    "roles": [
-      "staff"
-    ]
-  },
-  {
-    "id": 21,
-    "account": "wang.lei",
-    "name": "王磊",
-    "sex": "MAN",
-    "department": -3,
-    "roles": [
-      "staff"
-    ]
-  },
-  {
-    "id": 22,
-    "account": "wanghu",
-    "name": "王虎",
-    "sex": "MAN",
-    "department": -3,
-    "roles": [
-      "staff"
-    ]
-  },
-  {
-    "id": 23,
-    "account": "weijianyu",
-    "name": "魏建雨",
-    "sex": "MAN",
-    "department": -1,
-    "roles": [
-      "staff"
-    ]
-  },
-  {
-    "id": 24,
-    "account": "yaokui",
-    "name": "姚奎",
-    "sex": "MAN",
-    "department": -1,
-    "roles": [
-      "staff"
-    ]
-  },
-  {
-    "id": 25,
-    "account": "yuxiaozhou",
-    "name": "俞晓舟",
-    "sex": "MAN",
-    "department": -1,
-    "roles": [
-      "staff"
-    ]
-  },
-  {
-    "id": 26,
-    "account": "zangwei",
-    "name": "臧伟",
-    "sex": "MAN",
-    "department": -1,
-    "roles": [
-      "staff"
-    ]
-  },
-  {
-    "id": 27,
-    "account": "zhanggaojiong",
-    "name": "张高炯",
-    "sex": "MAN",
-    "department": -3,
-    "roles": [
-      "staff"
-    ]
-  },
-  {
-    "id": 28,
-    "account": "zhangjing",
-    "name": "张静",
-    "sex": "WOMAN",
-    "department": -1,
-    "roles": [
-      "staff"
-    ]
-  },
-  {
-    "id": 29,
-    "account": "zhangxiaoyu",
-    "name": "张晓宇",
-    "sex": "MAN",
-    "department": -3,
-    "roles": [
-      "staff"
-    ]
-  },
-  {
-    "id": 30,
-    "account": "zhangyang",
-    "name": "张洋",
-    "sex": "MAN",
-    "department": -3,
-    "roles": [
-      "staff"
-    ]
-  },
-  {
-    "id": 31,
-    "account": "zhouzhenxing",
-    "name": "周振兴",
-    "sex": "MAN",
-    "department": -3,
-    "roles": [
-      "staff"
-    ]
-  },
-  {
-    "id": 32,
-    "account": "zhucong",
-    "name": "朱聪",
-    "sex": "MAN",
-    "department": -2,
-    "roles": [
-      "staff"
-    ]
-  },
-  {
-    "id": 33,
-    "account": "yangyang",
-    "name": "杨阳",
-    "sex": "MAN",
-    "department": -2,
-    "roles": [
-      "staff"
-    ]
-  },
-  {
-    "id": 34,
-    "account": "chensiyuan",
-    "name": "陈思远",
-    "sex": "MAN",
-    "department": 4,
-    "roles": [
-      "staff"
-    ]
-  },
-  {
-    "id": 35,
-    "account": "pengjiangyi",
-    "name": "彭江义",
-    "sex": "MAN",
-    "department": 4,
-    "roles": [
-      "staff"
-    ]
-  },
-  {
-    "id": 36,
-    "account": "buliwei",
-    "name": "卜立伟",
-    "sex": "MAN",
-    "department": 34,
-    "roles": [
-      "staff"
-    ]
-  },
-  {
-    "id": 37,
-    "account": "wangyifei",
-    "name": "王一飞",
-    "sex": "MAN",
-    "department": 19,
-    "roles": [
-        "staff"
-    ]
-  },
-  {
-    "id": 38,
-    "account": "aitingting",
-    "name": "艾婷婷",
-    "sex": "WOMAN",
-    "department": -4,
-    "roles": [
-        "staff"
-    ]
-  },
-  {
-    "id": 39,
-    "account": "tengzhende",
-    "name": "腾振德",
-    "sex": "MAN",
-    "department": -4,
-    "roles": [
-        "staff"
-    ]
-  },
-  {
-    "id": 40,
-    "account": "shanzhiming",
-    "name": "单志明",
-    "sex": "MAN",
-    "department": -4,
-    "roles": [
-        "staff"
-    ]
-  },
-  {
-    "id": 41,
-    "account": "xuchangqing",
-    "name": "徐常青",
-    "sex": "MAN",
-    "department": -4,
-    "roles": [
-        "staff"
-    ]
-  },
-  {
-    "id": 42,
-    "account": "zhangxiaochuan",
-    "name": "张晓川",
-    "sex": "MAN",
-    "department": -4,
-    "roles": [
-        "staff"
-    ]
-  },
-  {
-    "id": 43,
-    "account": "caohongwei",
-    "name": "曹鸿伟",
-    "sex": "MAN",
-    "department": -4,
-    "roles": [
-        "staff"
-    ]
-  },
-  {
-    "id": 44,
-    "account": "yangxuchu",
-    "name": "杨旭初",
-    "sex": "MAN",
-    "department": -4,
-    "roles": [
-        "staff"
-    ]
-  },
-  {
-    "id": 45,
-    "account": "zhangyunyun",
-    "name": "张云云",
-    "sex": "WOMAN",
-    "department": -4,
-    "roles": [
-        "staff"
-    ]
-  },
-  {
-    "id": 46,
-    "account": "shenchangyi",
-    "name": "申昌义",
-    "sex": "MAN",
-    "department": -4,
-    "roles": [
-        "staff"
-    ]
-  },
-  {
-    "id": 47,
-    "account": "banyu",
-    "name": "班雨",
-    "sex": "MAN",
-    "department": -4,
-    "roles": [
-        "staff"
-    ]
-  },
-  {
-    "id": 48,
-    "account": "limuhua",
-    "name": "李慕华",
-    "sex": "MAN",
-    "department": -4,
-    "roles": [
-        "staff"
-    ]
-  },
-  {
-    "id": 49,
-    "account": "yangzhuangzhuang",
-    "name": "杨撞撞",
-    "sex": "MAN",
-    "department": -4,
-    "roles": [
-        "staff"
-    ]
-  },
-  {
-    "id": 50,
-    "account": "wangjinquan",
-    "name": "王金权",
-    "sex": "MAN",
-    "department": -4,
-    "roles": [
-        "staff"
-    ]
-  },
-  {
-    "id": 50,
-    "account": "guochao",
-    "name": "郭超",
-    "sex": "MAN",
-    "department": -4,
-    "roles": [
-        "staff"
-    ]
-  },
-  {
-    "id": 51,
-    "account": "zhangxiang",
-    "name": "张享",
-    "sex": "MAN",
-    "department": -4,
-    "roles": [
-        "staff"
-    ]
-  },
-  {
-    "id": 52,
-    "account": "qiuguochao",
-    "name": "邱国超",
-    "sex": "MAN",
-    "department": -4,
-    "roles": [
-        "staff"
-    ]
-  },
-  {
-    "id": 53,
-    "account": "pengtao",
-    "name": "彭涛",
-    "sex": "MAN",
-    "department": -4,
-    "roles": [
-        "staff"
-    ]
-  },
-  {
-    "id": 54,
-    "account": "qiantongjing",
-    "name": "钱通菁",
-    "sex": "WOMAN",
-    "department": 2,
-    "roles": [
-        "staff"
-    ]
-  },
-  {
-    "id": 55,
-    "account": "xiewei",
-    "name": "谢伟",
-    "sex": "WOMAN",
-    "department": 2,
-    "roles": [
-        "staff"
-    ]
-  },
-  {
-    "id": 56,
-    "account": "luojun",
-    "name": "罗俊",
-    "sex": "MAN",
-    "department": 2,
-    "roles": [
-        "staff",
-        "manager"
-    ]
-  },
-  {
-    "id": 57,
-    "account": "zhuliangliang",
-    "name": "朱亮亮",
-    "sex": "MAN",
-    "department": 2,
-    "roles": [
-        "staff"
-    ]
-  },
-  {
-    "id": 58,
-    "account": "shifengxia",
-    "name": "师凤霞",
-    "sex": "WOMAN",
-    "department": 2,
-    "roles": [
-        "staff"
-    ]
-  },
-  {
-    "id": 59,
-    "account": "xiahongxia",
-    "name": "夏红霞",
-    "sex": "WOMAN",
-    "department": 2,
-    "roles": [
-        "staff"
-    ]
-  },
-  {
-    "id": 60,
-    "account": "wufangxing",
-    "name": "吴方兴",
-    "sex": "MAN",
-    "department": 2,
-    "roles": [
-        "staff"
-    ]
-  }
+[{
+        "id": 4,
+        "account": "yuanjie",
+        "name": "袁杰",
+        "sex": "MAN",
+        "department": -2,
+        "notifier": ["hujianing"],
+        "roles": [
+            "root",
+            "admin",
+            "manager"
+        ]
+    },
+    {
+        "id": 1,
+        "account": "hujianing",
+        "name": "胡嘉宁",
+        "sex": "WOMAN",
+        "department": 25,
+        "notifier": [],
+        "roles": [
+            "admin",
+            "manager"
+        ]
+    },
+    {
+        "id": 2,
+        "account": "shijianping",
+        "name": "施剑平",
+        "sex": "MAN",
+        "department": -1,
+        "notifier": ["hujianing"],
+        "roles": [
+            "admin",
+            "manager"
+        ]
+    },
+    {
+        "id": 3,
+        "account": "qiweiwei",
+        "name": "齐巍巍",
+        "sex": "MAN",
+        "department": -3,
+        "notifier": ["hujianing"],
+        "roles": [
+            "admin",
+            "manager"
+        ]
+    },
+    {
+        "id": 5,
+        "account": "chenhaifan",
+        "name": "陈海帆",
+        "sex": "WOMAN",
+        "department": -1,
+        "notifier": ["hujianing", "shijianping"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 6,
+        "account": "dengzhimin",
+        "name": "邓志敏",
+        "sex": "MAN",
+        "department": -1,
+        "notifier": ["hujianing", "shijianping"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 7,
+        "account": "fangyun",
+        "name": "方芸",
+        "sex": "WOMAN",
+        "department": -2,
+        "notifier": ["hujianing", "yuanjie"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 8,
+        "account": "he.ping",
+        "name": "何平",
+        "sex": "MAN",
+        "department": -1,
+        "notifier": ["hujianing", "shijianping"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 9,
+        "account": "huangxixi",
+        "name": "黄茜茜",
+        "sex": "WOMAN",
+        "department": -3,
+        "notifier": ["hujianing", "qiweiwei"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 10,
+        "account": "limeng",
+        "name": "李猛",
+        "sex": "MAN",
+        "department": -1,
+        "notifier": ["hujianing", "shijianping"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 12,
+        "account": "liudongmeng",
+        "name": "刘冬萌",
+        "sex": "MAN",
+        "department": -2,
+        "notifier": ["hujianing", "yuanjie"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 14,
+        "account": "panshihu",
+        "name": "潘石虎",
+        "sex": "MAN",
+        "department": -3,
+        "notifier": ["hujianing", "qiweiwei"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 15,
+        "account": "pengyang",
+        "name": "彭洋",
+        "sex": "WOMAN",
+        "department": -2,
+        "notifier": ["hujianing", "yuanjie"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 17,
+        "account": "shichunyan",
+        "name": "施春燕",
+        "sex": "WOMAN",
+        "department": -2,
+        "notifier": ["hujianing", "yuanjie"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 18,
+        "account": "songshanxia",
+        "name": "宋姗霞",
+        "sex": "WOMAN",
+        "department": -2,
+        "notifier": ["hujianing", "yuanjie"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 19,
+        "account": "tanghuijuan",
+        "name": "唐慧娟",
+        "sex": "WOMAN",
+        "department": -1,
+        "notifier": ["hujianing", "shijianping"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 21,
+        "account": "wang.lei",
+        "name": "王磊",
+        "sex": "MAN",
+        "department": -3,
+        "notifier": ["hujianing", "qiweiwei"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 22,
+        "account": "wanghu",
+        "name": "王虎",
+        "sex": "MAN",
+        "department": -3,
+        "notifier": ["hujianing", "qiweiwei"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 24,
+        "account": "yaokui",
+        "name": "姚奎",
+        "sex": "MAN",
+        "department": -1,
+        "notifier": ["hujianing", "shijianping"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 25,
+        "account": "yuxiaozhou",
+        "name": "俞晓舟",
+        "sex": "MAN",
+        "department": -1,
+        "notifier": ["hujianing", "shijianping"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 26,
+        "account": "zangwei",
+        "name": "臧伟",
+        "sex": "MAN",
+        "department": -1,
+        "notifier": ["hujianing", "shijianping"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 27,
+        "account": "zhanggaojiong",
+        "name": "张高炯",
+        "sex": "MAN",
+        "department": -3,
+        "notifier": ["hujianing", "qiweiwei"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 28,
+        "account": "zhangjing",
+        "name": "张静",
+        "sex": "WOMAN",
+        "department": -1,
+        "notifier": ["hujianing", "shijianping"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 29,
+        "account": "zhangxiaoyu",
+        "name": "张晓宇",
+        "sex": "MAN",
+        "department": -3,
+        "notifier": ["hujianing", "qiweiwei"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 31,
+        "account": "zhouzhenxing",
+        "name": "周振兴",
+        "sex": "MAN",
+        "department": -3,
+        "notifier": ["hujianing", "qiweiwei"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 32,
+        "account": "zhucong",
+        "name": "朱聪",
+        "sex": "MAN",
+        "department": -2,
+        "notifier": ["hujianing", "yuanjie"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 33,
+        "account": "yangyang",
+        "name": "杨阳",
+        "sex": "MAN",
+        "department": -2,
+        "notifier": ["hujianing", "yuanjie"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 34,
+        "account": "chensiyuan",
+        "name": "陈思远",
+        "sex": "MAN",
+        "department": 4,
+        "notifier": [],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 35,
+        "account": "pengjiangyi",
+        "name": "彭江义",
+        "sex": "MAN",
+        "department": 4,
+        "notifier": [],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 36,
+        "account": "buliwei",
+        "name": "卜立伟",
+        "sex": "MAN",
+        "department": 34,
+        "notifier": [],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 37,
+        "account": "wangyifei",
+        "name": "王一飞",
+        "sex": "MAN",
+        "department": 19,
+        "notifier": [],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 38,
+        "account": "aitingting",
+        "name": "艾婷婷",
+        "sex": "WOMAN",
+        "department": -4,
+        "notifier": ["hujianing"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 39,
+        "account": "tengzhende",
+        "name": "腾振德",
+        "sex": "MAN",
+        "department": -4,
+        "notifier": ["hujianing"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 40,
+        "account": "shanzhiming",
+        "name": "单志明",
+        "sex": "MAN",
+        "department": -4,
+        "notifier": ["hujianing"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 41,
+        "account": "xuchangqing",
+        "name": "徐常青",
+        "sex": "MAN",
+        "department": -4,
+        "notifier": ["hujianing"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 42,
+        "account": "zhangxiaochuan",
+        "name": "张晓川",
+        "sex": "MAN",
+        "department": -4,
+        "notifier": ["hujianing"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 43,
+        "account": "caohongwei",
+        "name": "曹鸿伟",
+        "sex": "MAN",
+        "department": -4,
+        "notifier": ["hujianing"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 44,
+        "account": "yangxuchu",
+        "name": "杨旭初",
+        "sex": "MAN",
+        "department": -4,
+        "notifier": ["hujianing"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 45,
+        "account": "zhangyunyun",
+        "name": "张云云",
+        "sex": "WOMAN",
+        "department": -4,
+        "notifier": ["hujianing"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 46,
+        "account": "shenchangyi",
+        "name": "申昌义",
+        "sex": "MAN",
+        "department": -4,
+        "notifier": ["hujianing"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 47,
+        "account": "banyu",
+        "name": "班雨",
+        "sex": "MAN",
+        "department": -4,
+        "notifier": ["hujianing"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 48,
+        "account": "limuhua",
+        "name": "李慕华",
+        "sex": "MAN",
+        "department": -4,
+        "notifier": ["hujianing"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 49,
+        "account": "yangzhuangzhuang",
+        "name": "杨撞撞",
+        "sex": "MAN",
+        "department": -4,
+        "notifier": ["hujianing"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 50,
+        "account": "wangjinquan",
+        "name": "王金权",
+        "sex": "MAN",
+        "department": -4,
+        "notifier": ["hujianing"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 50,
+        "account": "guochao",
+        "name": "郭超",
+        "sex": "MAN",
+        "department": -4,
+        "notifier": ["hujianing"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 51,
+        "account": "zhangxiang",
+        "name": "张享",
+        "sex": "MAN",
+        "department": -4,
+        "notifier": ["hujianing"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 52,
+        "account": "qiuguochao",
+        "name": "邱国超",
+        "sex": "MAN",
+        "department": -4,
+        "notifier": ["hujianing"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 53,
+        "account": "pengtao",
+        "name": "彭涛",
+        "sex": "MAN",
+        "department": -4,
+        "notifier": ["hujianing"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 54,
+        "account": "qiantongjing",
+        "name": "钱通菁",
+        "sex": "WOMAN",
+        "department": 2,
+        "notifier": ["luojun"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 55,
+        "account": "xiewei",
+        "name": "谢伟",
+        "sex": "WOMAN",
+        "department": 2,
+        "notifier": ["luojun"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 56,
+        "account": "luojun",
+        "name": "罗俊",
+        "sex": "MAN",
+        "department": 2,
+        "notifier": [],
+        "roles": [
+            "staff",
+            "manager"
+        ]
+    },
+    {
+        "id": 57,
+        "account": "zhuliangliang",
+        "name": "朱亮亮",
+        "sex": "MAN",
+        "department": 2,
+        "notifier": ["luojun"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 58,
+        "account": "shifengxia",
+        "name": "师凤霞",
+        "sex": "WOMAN",
+        "department": 2,
+        "notifier": ["luojun"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 59,
+        "account": "xiahongxia",
+        "name": "夏红霞",
+        "sex": "WOMAN",
+        "department": 2,
+        "notifier": ["luojun"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 60,
+        "account": "wufangxing",
+        "name": "吴方兴",
+        "sex": "MAN",
+        "department": 2,
+        "notifier": ["luojun"],
+        "roles": [
+            "staff"
+        ]
+    }
 ]

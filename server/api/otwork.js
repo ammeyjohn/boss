@@ -41,7 +41,7 @@ exports.add = function(otwork) {
             "ot": entity
         }, function(result) {
             var cloned = _.cloneDeep(otwork);
-            cloned.otid = result.AddOTWorkResult;
+            cloned.id = result.AddOTWorkResult;
             cloned.recordTime = entity.D_DengJiSJ;
             defered.resolve(cloned);
         });
@@ -51,4 +51,12 @@ exports.add = function(otwork) {
     }
 
     return defered.promise;
+}
+
+/* 发送加班确认邮件 */
+exports.sendMail = function(id, notifier) {
+    request.call("SendOTConfirmdEmail", {
+        "otID": id,
+        "emailTo": notifier
+    }, function(result) {});
 }

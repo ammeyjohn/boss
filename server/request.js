@@ -41,9 +41,15 @@ var _call = function(wsdl, method, params, resolve, reject) {
 }
 
 exports.call = function(method, params, resolve, reject) {
+    if (!resolve) {
+        resolve = function(result) {}
+    }
     _call(boss, method, params, resolve, reject);
 }
 
 exports.callplt = function(method, params, resolve, reject) {
+    if (!resolve) {
+        resolve = function(result) {}
+    }
     _call(platform, method, params, resolve, reject);
 }

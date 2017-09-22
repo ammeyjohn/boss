@@ -26,6 +26,10 @@ router.post('/', function(req, res) {
                 otwork.departmentId = dept;
                 otwork.ip = utils.getClientIpAddr(req);
                 otApi.add(otwork).then(function(new_otwork) {
+
+                        // 发送加班确认邮件
+                        otApi.sendMail(new_otwork.id, new_otwork.notifier);
+
                         res.json({
                             code: 0,
                             data: new_otwork

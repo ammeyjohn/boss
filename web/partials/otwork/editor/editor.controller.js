@@ -19,7 +19,7 @@ define([
             endTime: moment().format('YYYY-MM-DD HH:mm:ss'),
             departmentId: credential.user.department,
             account: credential.user.account,
-            notifier: credential.user.account,
+            notifier: credential.user.account + ";" + credential.user.notifier.join(";"),
             mealCount: 0
         };
 
@@ -39,7 +39,7 @@ define([
                     $mdDialog.hide();
                 }
             });
-        }                
+        }
 
         $scope.cancel = function() {
             $mdDialog.cancel();
