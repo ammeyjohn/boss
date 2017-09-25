@@ -39,7 +39,14 @@
             </md-button>
             <span flex></span>
             <h5>
-                <span>{{credential.user.name}}</span>
+                <table>
+                    <tr>
+                        <td style="height: 30px; text-align: center;">{{credential.user.name}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{credential.department.name}}</td>
+                    </tr>
+                </table>
             </h5>
             <md-button aria-label="logout" class="md-icon-button" ng-click="logout()">
                 <md-icon class="glyphicon glyphicon-off"></md-icon>

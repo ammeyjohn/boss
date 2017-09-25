@@ -3,11 +3,12 @@ define([
     'lodash',
     'boss.login',
     'boss.api.user',
+    'boss.api.department',
     'boss.api.auth'
 ], function(ng, _, loginModule) {
     'use strict';
 
-    function LoginCtrl($scope, $rootScope, $state, $cookies, $mdDialog, userApi, authApi) {
+    function LoginCtrl($scope, $rootScope, $state, $cookies, $mdDialog, userApi, deptApi, authApi) {
 
         $scope.showAdvanced = function(ev) {
             $mdDialog.show({
@@ -23,9 +24,13 @@ define([
                 clickOutsideToClose: false,
                 fullscreen: true
             }).then(function(credential) {
-                $cookies.putObject('credential', credential);
-                $rootScope.$broadcast('BOSS_USER_LOGIN', credential);
-                $state.go('log.analyze');
+                deptApi.getById({ 'id': credential.user.department }).$promise
+                    .then(function(department) {
+                        credential.department = department.data;
+                        $cookies.putObject('credential', credential);
+                        $rootScope.$broadcast('BOSS_USER_LOGIN', credential);
+                        $state.go('log.analyze');
+                    });
             });
         };
 
@@ -45,7 +50,7 @@ define([
                 $scope.errorMessage = '请先输入用户名和密码。';
                 return;
             }
-            
+
             $scope.loginning = true;
             authApi.login($scope.loginInfo).$promise
                 .then(function(result) {
@@ -81,6 +86,7 @@ define([
         '$cookies',
         '$mdDialog',
         'boss.api.user',
+        'boss.api.department',
         'boss.api.auth',
         LoginCtrl
     ]);

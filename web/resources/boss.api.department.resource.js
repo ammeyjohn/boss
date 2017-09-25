@@ -9,6 +9,13 @@ define([
             get: {
                 method: 'GET',
                 url: '/api/department'
+            },
+            getById: {
+                method: 'GET',
+                url: '/api/department/:id',
+                params: {
+                    id: 'id'
+                }
             }
         });
     });
