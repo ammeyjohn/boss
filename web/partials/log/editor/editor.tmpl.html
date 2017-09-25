@@ -16,7 +16,7 @@
                         <div class="form-group" ng-class="{'has-error': logForm.$dirty && logForm.projectCode.$invalid}">
                             <label class="control-label" for="projectCode">项目编号</label>
                             <ui-select ng-model="log.projectCode" theme="bootstrap" close-on-select="true">
-                                <ui-select-match placeholder="请选择项目编号">{{$select.selected.projectCode}}</ui-select-match>
+                                <ui-select-match placeholder="请选择项目编号">{{$select.selected.projectCode + ' ' + $select.selected.projectName}}</ui-select-match>
                                 <ui-select-choices repeat="project.projectCode as project in searchProjects | propsFilter: {projectCode: $select.search, projectName: $select.search}" refresh="refreshProjects($select.search)" refresh-delay="100">
                                     <div ng-bind-html="project.projectCode + ' ' + project.projectName | highlight: $select.search"></div>
                                 </ui-select-choices>
