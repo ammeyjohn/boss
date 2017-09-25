@@ -4,12 +4,13 @@ define([
     'lodash',
     'settings',
     'boss.otwork',
+    'boss.api.user',
     'boss.api.otwork',
     'directive.datetimepicker'
 ], function(ng, moment, _, settings, otModule) {
     'use strict';
 
-    function OTWorkEditorCtrl($scope, $rootScope, $cookies, $mdToast, $mdDialog, otApi) {
+    function OTWorkEditorCtrl($scope, $rootScope, $cookies, $mdToast, $mdDialog, otApi, userApi) {
 
         var credential = $cookies.getObject('credential');
         var default_otwork = {
@@ -22,8 +23,20 @@ define([
             notifier: credential.user.account + ";" + credential.user.notifier.join(";"),
             mealCount: 0
         };
-
         $scope.otwork = _.cloneDeep(default_otwork);
+
+        // 用户列表
+        $scope.users = null;
+
+        // 加载用户列表
+        userApi.get().$promise.then(function(users) {
+            $scope.users = users.data;
+        });
+
+        // 绑定用户选择事件
+        $scope.user_selected = function(item) {
+            $scope.otwork.notifier = item.account + ";" + item.notifier.join(";");
+        }
 
         $scope.save = function(close) {
             otApi.add($scope.otwork).$promise.then(function(otwork) {
@@ -53,6 +66,7 @@ define([
         '$mdToast',
         '$mdDialog',
         'boss.api.otwork',
+        'boss.api.user',
         OTWorkEditorCtrl
     ]);
 });

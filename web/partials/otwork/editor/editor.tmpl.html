@@ -14,26 +14,35 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 col-md-6">
                         <div class="form-group">
-                            <label for="otStartTime" class="control-label">工作开始时间</label>
-                            <input type="text" class="form-control" id="otStartTime" datetimepicker format="YYYY-MM-DD HH:mm" ng-model="otwork.startTime">
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-6">
-                        <div class="form-group">
-                            <label for="otEndTime" class="control-label">工作结束时间</label>
-                            <input type="text" class="form-control" id="otEndTime" datetimepicker format="YYYY-MM-DD HH:mm" ng-model="otwork.endTime">
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-6">
-                        <div class="form-group" ng-class="{'has-error': otForm.$dirty && otForm.mealCount.$invalid}">
-                            <label class="control-label" for="mealCount">餐补数</label>
-                            <input type="number" class="form-control" id="mealCount" name="mealCount" ng-model="otwork.mealCount" required min=0 max=2>
+                            <label for="recordUser" class="control-label">登记人员</label>
+                            <ui-select id="recordUser" ng-model="otwork.account" theme="bootstrap" close-on-select="true" on-select="user_selected($item, $model)">
+                                <ui-select-match placeholder="请选择登记人员">{{$select.selected.name}}</ui-select-match>
+                                <ui-select-choices repeat="user.account as user in users | propsFilter: {name: $select.search, account: $select.search}">
+                                    <div ng-bind-html="user.name | highlight: $select.search"></div>
+                                </ui-select-choices>
+                            </ui-select>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6">
                         <div class="form-group" ng-class="{'has-error': otForm.$dirty && otForm.notifier.$invalid}">
                             <label class="control-label" for="notifier">通知人</label>
                             <input type="text" class="form-control" id="notifier" name="notifier" ng-model="otwork.notifier" required>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <label for="otStartTime" class="control-label">工作时间</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="otStartTime" datetimepicker format="YYYY-MM-DD HH:mm" ng-model="otwork.startTime">
+                                <span class="input-group-addon">-</span>
+                                <input type="text" class="form-control" id="otEndTime" datetimepicker format="YYYY-MM-DD HH:mm" ng-model="otwork.endTime">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="form-group" ng-class="{'has-error': otForm.$dirty && otForm.mealCount.$invalid}">
+                            <label class="control-label" for="mealCount">餐补数</label>
+                            <input type="number" class="form-control" id="mealCount" name="mealCount" ng-model="otwork.mealCount" required min=0 max=2>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
