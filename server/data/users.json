@@ -334,23 +334,12 @@
         ]
     },
     {
-        "id": 37,
-        "account": "wangyifei",
-        "name": "王一飞",
-        "sex": "MAN",
-        "department": 19,
-        "notifier": [],
-        "roles": [
-            "staff"
-        ]
-    },
-    {
         "id": 38,
         "account": "aitingting",
         "name": "艾婷婷",
         "sex": "WOMAN",
         "department": -4,
-        "notifier": ["hujianing"],
+        "notifier": ["hujianing", "shijianping"],
         "roles": [
             "staff"
         ]
@@ -361,7 +350,7 @@
         "name": "腾振德",
         "sex": "MAN",
         "department": -4,
-        "notifier": ["hujianing"],
+        "notifier": ["hujianing", "shijianping"],
         "roles": [
             "staff"
         ]
@@ -372,18 +361,7 @@
         "name": "单志明",
         "sex": "MAN",
         "department": -4,
-        "notifier": ["hujianing"],
-        "roles": [
-            "staff"
-        ]
-    },
-    {
-        "id": 41,
-        "account": "xuchangqing",
-        "name": "徐常青",
-        "sex": "MAN",
-        "department": -4,
-        "notifier": ["hujianing"],
+        "notifier": ["hujianing", "shijianping"],
         "roles": [
             "staff"
         ]
@@ -394,7 +372,7 @@
         "name": "张晓川",
         "sex": "MAN",
         "department": -4,
-        "notifier": ["hujianing"],
+        "notifier": ["hujianing", "shijianping"],
         "roles": [
             "staff"
         ]
@@ -405,7 +383,7 @@
         "name": "曹鸿伟",
         "sex": "MAN",
         "department": -4,
-        "notifier": ["hujianing"],
+        "notifier": ["hujianing", "shijianping"],
         "roles": [
             "staff"
         ]
@@ -416,7 +394,7 @@
         "name": "杨旭初",
         "sex": "MAN",
         "department": -4,
-        "notifier": ["hujianing"],
+        "notifier": ["hujianing", "shijianping"],
         "roles": [
             "staff"
         ]
@@ -427,7 +405,7 @@
         "name": "张云云",
         "sex": "WOMAN",
         "department": -4,
-        "notifier": ["hujianing"],
+        "notifier": ["hujianing", "qiweiwei"],
         "roles": [
             "staff"
         ]
@@ -438,7 +416,7 @@
         "name": "申昌义",
         "sex": "MAN",
         "department": -4,
-        "notifier": ["hujianing"],
+        "notifier": ["hujianing", "qiweiwei"],
         "roles": [
             "staff"
         ]
@@ -449,7 +427,7 @@
         "name": "班雨",
         "sex": "MAN",
         "department": -4,
-        "notifier": ["hujianing"],
+        "notifier": ["hujianing", "qiweiwei"],
         "roles": [
             "staff"
         ]
@@ -460,7 +438,7 @@
         "name": "李慕华",
         "sex": "MAN",
         "department": -4,
-        "notifier": ["hujianing"],
+        "notifier": ["hujianing", "qiweiwei"],
         "roles": [
             "staff"
         ]
@@ -471,18 +449,7 @@
         "name": "杨撞撞",
         "sex": "MAN",
         "department": -4,
-        "notifier": ["hujianing"],
-        "roles": [
-            "staff"
-        ]
-    },
-    {
-        "id": 50,
-        "account": "wangjinquan",
-        "name": "王金权",
-        "sex": "MAN",
-        "department": -4,
-        "notifier": ["hujianing"],
+        "notifier": ["hujianing", "qiweiwei"],
         "roles": [
             "staff"
         ]
@@ -493,42 +460,21 @@
         "name": "郭超",
         "sex": "MAN",
         "department": -4,
-        "notifier": ["hujianing"],
-        "roles": [
-            "staff"
-        ]
-    },
-    {
-        "id": 51,
-        "account": "zhangxiang",
-        "name": "张享",
-        "sex": "MAN",
-        "department": -4,
-        "notifier": ["hujianing"],
-        "roles": [
-            "staff"
-        ]
-    },
-    {
-        "id": 52,
-        "account": "qiuguochao",
-        "name": "邱国超",
-        "sex": "MAN",
-        "department": -4,
-        "notifier": ["hujianing"],
+        "notifier": ["hujianing", "qiweiwei"],
         "roles": [
             "staff"
         ]
     },
     {
         "id": 53,
-        "account": "pengtao",
-        "name": "彭涛",
+        "account": "luojun",
+        "name": "罗俊",
         "sex": "MAN",
-        "department": -4,
-        "notifier": ["hujianing"],
+        "department": 2,
+        "notifier": [],
         "roles": [
-            "staff"
+            "staff",
+            "manager"
         ]
     },
     {
@@ -551,18 +497,6 @@
         "notifier": ["luojun"],
         "roles": [
             "staff"
-        ]
-    },
-    {
-        "id": 56,
-        "account": "luojun",
-        "name": "罗俊",
-        "sex": "MAN",
-        "department": 2,
-        "notifier": [],
-        "roles": [
-            "staff",
-            "manager"
         ]
     },
     {
@@ -607,18 +541,6 @@
         "notifier": ["luojun"],
         "roles": [
             "staff"
-        ]
-    },
-    {
-        "id": 61,
-        "account": "fenglujian",
-        "name": "冯路建",
-        "sex": "MAN",
-        "department": 31,
-        "notifier": [],
-        "roles": [
-            "staff",
-            "manager"
         ]
     },
     {
