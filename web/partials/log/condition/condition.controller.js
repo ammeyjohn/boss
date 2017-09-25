@@ -101,16 +101,16 @@ define([
                     et = moment().endOf('month');
                     break;
                 case 'PreMonth':
-                    st = moment().startOf('month').subtract(1, 'months');
-                    et = moment().endOf('month').subtract(1, 'months');
+                    st = moment().subtract(1, 'months').startOf('month');
+                    et = moment().subtract(1, 'months').endOf('month');
                     break;
                 case 'CurYear':
                     st = moment().startOf('year');
                     et = moment().endOf('year');
                     break;
                 case 'PreYear':
-                    st = moment().startOf('year').subtract(1, 'years');
-                    et = moment().endOf('year').subtract(1, 'years');
+                    st = moment().subtract(1, 'years').startOf('year');
+                    et = moment().subtract(1, 'years').endOf('year');
                     break;
             }
 

@@ -23,7 +23,7 @@ var convertArrayToWhereClause = function(array, field, withQuotes) {
 }
 
 exports.add = function(log) {
-    var defered = Q.defer();    
+    var defered = Q.defer();
 
     if (log) {
 
@@ -75,6 +75,7 @@ exports.query = function(condition) {
         !condition.recordEndTime) {
         condition.logEndTime = moment().endOf('month').format('YYYY-MM-DD');
     }
+    condition.logEndTime = moment(condition.logEndTime).add(1, 'days').format('YYYY-MM-DD');
 
     // 处理部门查询条件
     if (condition.departments &&

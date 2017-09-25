@@ -56,13 +56,13 @@ define([
                 var times = {},
                     st = moment(condition.logStartTime),
                     et = moment(condition.logEndTime);
-                if (st > moment()) {
+                if (st >= moment()) {
                     st = moment();
                 }
-                if (et > moment()) {
+                if (et >= moment()) {
                     et = moment();
                 }
-                while (st < et) {
+                while (st <= et) {
                     if (st.weekday() < 5) {
                         var dt = st.format('YYYY-MM-DD');
                         times[dt] = {
