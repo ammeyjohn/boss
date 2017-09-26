@@ -28,7 +28,7 @@ router.get('/:account', function(req, res) {
 
 
 router.get('/department/:department', function(req, res) {
-    var department = parseInt(req.params.department);
+    var department = req.params.department;
     debug('params:department=%s', department);
     userApi.getUsersByDeparment(department)
         .then(function(users) {

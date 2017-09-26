@@ -3,6 +3,7 @@ var path = require('path');
 var fs = require("fs");
 var _ = require('lodash');
 var Q = require('q');
+var deptApi = require('./department.js');
 
 const file = path.join(__dirname, '../data/users.json');
 var __users = null;
@@ -36,9 +37,10 @@ exports.getUserByAccount = function(account) {
 
 // 获取特定指定部门的用户
 exports.getUsersByDeparment = function(department) {
+    var departmentIds = _.split(department, ',');
     return exports.getUsers().then(function(users) {
-        return _.filter(users, {
-            'department': department
+        return _.filter(users, function(user) {
+            return departmentIds.includes(user.department.toString());
         });
     });
 }

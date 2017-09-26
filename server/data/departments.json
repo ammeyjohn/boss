@@ -1,38 +1,37 @@
-[
-  {
-    "id": 25,
-    "parent": null,
-    "code": "RD",
-    "name": "软件研发部"
-  },
-  {
-    "id": 2,
-    "parent": null,
-    "code": "YHTYB",
-    "name": "用户体验部"
-  },
-  {
-    "id": -1,
-    "parent": 25,
-    "code": "UAP",
-    "name": "软件研发平台组"
-  },
-  {
-    "id": -2,
-    "parent": 25,
-    "code": "PD",
-    "name": "软件研发生产组"
-  },
-  {
-    "id": -3,
-    "parent": 25,
-    "code": "CM",
-    "name": "软件研发客服组"
-  },
-  {
-    "id": -4,
-    "parent": 25,
-    "code": "WuXi",
-    "name": "软件研发无锡分中心"
-  }
+[{
+        "id": 2,
+        "parent": null,
+        "code": "YHTYB",
+        "name": "用户体验部"
+    },
+    {
+        "id": 25,
+        "parent": null,
+        "code": "RD",
+        "name": "软件研发部"
+    },
+    {
+        "id": -1,
+        "parent": 25,
+        "code": "UAP",
+        "name": "软件研发平台组"
+    },
+    {
+        "id": -2,
+        "parent": 25,
+        "code": "PD",
+        "name": "软件研发生产组"
+    },
+    {
+        "id": -3,
+        "parent": 25,
+        "code": "CM",
+        "name": "软件研发客服组"
+    },
+    {
+        "id": -4,
+        "parent": 25,
+        "code": "WuXi",
+        "name": "软件研发无锡分中心"
+    }
 ]

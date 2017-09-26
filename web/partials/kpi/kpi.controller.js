@@ -142,7 +142,7 @@ define([
 
                     // 人员分组统计
                     processUserGroup(logs);
-                });                
+                });
             }
         }, true);
 
@@ -184,18 +184,40 @@ define([
                     return result;
                 }, []);
             var orderedUserGroup = _.orderBy(sumOfUserGroup, ['taskTime'], ['desc']);
-            $scope.option[1].xAxis.data =
-                _.flatMap(orderedUserGroup, function(d) {
-                    return d.userName
-                });
-            $scope.option[1].series[0].data =
-                _.flatMap(orderedUserGroup, function(d) {
-                    return d.taskTime
-                });
 
-            // 人员工期Top10
-            $scope.top10Users = _.take(orderedUserGroup, 5);
-            $scope.last10Users = _.takeRight(orderedUserGroup, 5);
+            userApi.getByDept({ 'department': '25,-1,-2,-3,-4' }).$promise
+                .then(function(result) {
+                    var users = result.data;
+                    for (var idx in users) {
+                        var user = users[idx];
+
+                        // 排除所有经理级别的用户
+                        if (user.roles.includes('manager')) {
+                            _.remove(orderedUserGroup, { 'userName': user.name });
+                        } else {
+                            // 将未填写日志的用户加入
+                            if (_.isNil(_.find(orderedUserGroup, { 'userName': user.name }))) {
+                                orderedUserGroup.push({
+                                    userName: user.name,
+                                    taskTime: 0
+                                });
+                            }
+                        }
+                    }
+
+                    $scope.option[1].xAxis.data =
+                        _.flatMap(orderedUserGroup, function(d) {
+                            return d.userName
+                        });
+                    $scope.option[1].series[0].data =
+                        _.flatMap(orderedUserGroup, function(d) {
+                            return d.taskTime
+                        });
+
+                    // 人员工期Top10
+                    $scope.top10Users = _.take(orderedUserGroup, 5);
+                    $scope.last10Users = _.takeRight(orderedUserGroup, 5);
+                });
         }
     }
 

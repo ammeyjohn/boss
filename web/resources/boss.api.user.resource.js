@@ -16,6 +16,13 @@ define([
                 params: {
                     account: 'account'
                 }
+            },
+            getByDept: {
+                method: 'GET',
+                url: '/api/user/department/:department',
+                params: {
+                    department: 'department'
+                }
             }
         });
     });
