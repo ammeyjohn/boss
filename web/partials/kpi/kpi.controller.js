@@ -8,13 +8,15 @@ define([
     'boss.api.department',
     'boss.api.project',
     'boss.api.log',
+    'boss.api.otwork',
     'directive.datetimepicker',
     'angular-daterangepicker',
     'css!metronic-style',
+    'css!font-awesome'
 ], function(ng, moment, _, settings, kpiModule) {
     'use strict';
 
-    function KpiCtrl($scope, $rootScope, $q, $cookies, userApi, deptApi, prjApi, logApi) {
+    function KpiCtrl($scope, $rootScope, $q, $cookies, userApi, deptApi, prjApi, logApi, otApi) {
 
         $scope.dashboard = {
             taskTime: 0,
@@ -121,7 +123,9 @@ define([
 
         $scope.$watch('daterange', function(daterange) {
             if (daterange) {
-                var condition = {
+
+                // 根据日志统计
+                logApi.queryLogs({
                     logType: null,
                     projectCode: [],
                     departments: [25],
@@ -130,9 +134,7 @@ define([
                     logEndTime: daterange.endDate,
                     recordStartTime: null,
                     recordEndTime: null
-                }
-
-                logApi.queryLogs(condition).$promise.then(function(logs) {
+                }).$promise.then(function(logs) {
 
                     // 总工时统计            
                     $scope.dashboard.taskTime = _.sumBy(logs.data, 'workTime') / 480;
@@ -143,11 +145,24 @@ define([
                     // 人员分组统计
                     processUserGroup(logs);
                 });
+
+                // 根据加班记录统计
+                otApi.query({
+                        departments: [25],
+                        recordStartTime: daterange.startDate,
+                        recordEndTime: daterange.endDate
+                    }).$promise
+                    .then(function(result) {
+                        var otworks = result.data;
+
+                        // 总加班时长统计
+                        $scope.dashboard.overTime = _.sumBy(otworks, 'duration') / 60;
+                    });
             }
         }, true);
 
         var processProjectGroup = function(logs) {
-
+            sumOfProjectGroup = {};
             var logGroupByProject = _.groupBy(logs.data, 'projectCode');
             $scope.dashboard.projectCount = _.keys(logGroupByProject).length;
 
@@ -230,6 +245,7 @@ define([
         'boss.api.department',
         'boss.api.project',
         'boss.api.log',
+        'boss.api.otwork',
         KpiCtrl
     ]);
 });

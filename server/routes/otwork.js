@@ -49,4 +49,16 @@ router.post('/', function(req, res) {
 
 });
 
+router.post('/query', function(req, res) {
+    debug(req.body);
+    otApi.query(req.body).then(function(otworks) {
+        res.json({
+            code: 0,
+            data: otworks
+        });
+    }, function(error) {
+        res.status(500).send(error);
+    });
+});
+
 module.exports = router;

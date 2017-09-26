@@ -1,9 +1,9 @@
 <style>
-.search-panel {
-    border-bottom: 1px solid #e7ecf1;
-    padding: 10px 0;
-    margin-bottom: 20px;
-}
+    .search-panel {
+        border-bottom: 1px solid #e7ecf1;
+        padding: 10px 0;
+        margin-bottom: 20px;
+    }
 </style>
 <div class="search-panel">
     <div class="toggler" style="display: block;">
@@ -23,7 +23,7 @@
     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
         <div class="dashboard-stat blue">
             <div class="visual">
-                <i class="fa fa-shopping-cart"></i>
+                <i class="fa fa-users"></i>
             </div>
             <div class="details">
                 <div class="number">
@@ -41,7 +41,7 @@
     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
         <div class="dashboard-stat purple">
             <div class="visual">
-                <i class="fa fa-bar-chart-o"></i>
+                <i class="fa fa-archive"></i>
             </div>
             <div class="details">
                 <div class="number">
@@ -59,11 +59,11 @@
     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
         <div class="dashboard-stat yellow">
             <div class="visual">
-                <i class="fa fa-globe"></i>
+                <i class="fa fa-clock-o"></i>
             </div>
             <div class="details">
                 <div class="number">
-                    {{dashboard.overTime}} 天
+                    {{dashboard.overTime | number: 0}} 小时
                 </div>
                 <div class="desc">
                     加班统计
@@ -77,7 +77,7 @@
     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
         <div class="dashboard-stat green">
             <div class="visual">
-                <i class="fa fa-bar-chart-o"></i>
+                <i class="fa fa-plane"></i>
             </div>
             <div class="details">
                 <div class="number">
@@ -141,7 +141,7 @@
         <div class="portlet box grey">
             <div class="portlet-title">
                 <div class="caption">
-                    <i class="fa fa-reorder"></i>人员工期统计
+                    <i class="fa fa-reorder"></i>人员工时统计
                 </div>
             </div>
             <div class="portlet-body">

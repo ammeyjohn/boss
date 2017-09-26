@@ -61,3 +61,52 @@ exports.sendMail = function(id, notifier) {
         "emailTo": notifier
     }, function(result) {});
 }
+
+/* 查询加班记录 */
+exports.query = function(condition) {
+    var defered = Q.defer();
+
+    if (!condition.recordStartTime) {
+        condition.recordStartTime = moment().startOf('month').format('YYYY-MM-DD');
+    }
+    if (!condition.recordEndTime) {
+        condition.recordEndTime = moment().endOf('month').format('YYYY-MM-DD');
+    }
+    condition.logEndTime = moment(condition.recordEndTime).add(1, 'days').format('YYYY-MM-DD');
+
+    // 生成查询语句
+    var clause = "";
+    clause += " and I_JLZT=1";
+    clause += " and D_DengJiSJ>='" + utils.formatDate(condition.recordStartTime) + "'";
+    clause += " and D_DengJiSJ<='" + utils.formatDate(condition.recordEndTime) + "'";
+    clause += utils.convertArrayToWhereClause(condition.departments, 'I_DengJiRBM', false);
+    debug(clause);
+    console.log(clause)
+
+    request.call("SelectOTWork", {
+        "where": clause,
+        "order": " OTID DESC"
+    }, function(result) {
+        var table = utils.getTable(result, "SelectOTWorkResult");
+        var rows = [];
+        _.each(table, function(row) {
+            rows.push({
+                id: row.OTID,
+                content: row.S_JiaBanComment,
+                startTime: row.D_JiaBanKaiShiSJ,
+                endTime: row.D_JiaBanJieShuSJ,
+                recordTime: row.D_DengJiSJ,
+                duration: moment(row.D_JiaBanJieShuSJ).diff(moment(row.D_JiaBanKaiShiSJ), 'minutes'),
+                departmentId: row.I_DengJiRBM,
+                account: row.S_DengJiRAccount,
+                mealCount: row.I_MealAllowanceNum
+            });
+        });
+        debug(rows);
+        defered.resolve(rows);
+    }, function(error) {
+        defered.reject(error);
+    });
+
+    return defered.promise;
+}

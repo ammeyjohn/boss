@@ -12,6 +12,13 @@ define([
                 params: {
                     otwork: '@otwork'
                 }
+            },
+            query: {
+                method: 'POST',
+                url: '/api/otwork/query',
+                params: {
+                    condition: '@condition'
+                }
             }
         });
     });

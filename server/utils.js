@@ -43,6 +43,22 @@ var utils = {
 
     today: function() {
         return moment().format("YYYY-MM-DD");
+    },
+
+    convertArrayToWhereClause: function(array, field, withQuotes) {
+        var clause = '';
+        if (array && array.length > 0) {
+            var quotes = withQuotes ? "'" : "";
+            if (array.length === 1) {
+                clause = ' and ' + field + '=' + quotes + array[0] + quotes;
+            } else {
+                _.each(array, function(item) {
+                    clause += ',' + quotes + item + quotes;
+                });
+                clause = ' and ' + field + ' in (' + clause.substring(1) + ')';
+            }
+        }
+        return clause;
     }
 }
 
