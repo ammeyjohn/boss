@@ -4,7 +4,7 @@
         "name": "袁杰",
         "sex": "MAN",
         "department": -2,
-        "notifier": ["hujianing"],
+        "notifier": ["jianinghu"],
         "roles": [
             "root",
             "admin",
@@ -13,7 +13,7 @@
     },
     {
         "id": 1,
-        "account": "hujianing",
+        "account": "jianinghu",
         "name": "胡嘉宁",
         "sex": "WOMAN",
         "department": 25,
@@ -29,7 +29,7 @@
         "name": "施剑平",
         "sex": "MAN",
         "department": -1,
-        "notifier": ["hujianing"],
+        "notifier": ["jianinghu"],
         "roles": [
             "admin",
             "manager"
@@ -41,7 +41,7 @@
         "name": "齐巍巍",
         "sex": "MAN",
         "department": -3,
-        "notifier": ["hujianing"],
+        "notifier": ["jianinghu"],
         "roles": [
             "admin",
             "manager"
@@ -53,7 +53,7 @@
         "name": "陈海帆",
         "sex": "WOMAN",
         "department": -1,
-        "notifier": ["hujianing", "shijianping"],
+        "notifier": ["jianinghu", "shijianping"],
         "roles": [
             "staff"
         ]
@@ -64,7 +64,7 @@
         "name": "邓志敏",
         "sex": "MAN",
         "department": -1,
-        "notifier": ["hujianing", "shijianping"],
+        "notifier": ["jianinghu", "shijianping"],
         "roles": [
             "staff"
         ]
@@ -75,7 +75,7 @@
         "name": "方芸",
         "sex": "WOMAN",
         "department": -2,
-        "notifier": ["hujianing", "yuanjie"],
+        "notifier": ["jianinghu", "yuanjie"],
         "roles": [
             "staff"
         ]
@@ -86,7 +86,7 @@
         "name": "何平",
         "sex": "MAN",
         "department": -1,
-        "notifier": ["hujianing", "shijianping"],
+        "notifier": ["jianinghu", "shijianping"],
         "roles": [
             "staff"
         ]
@@ -97,7 +97,7 @@
         "name": "黄茜茜",
         "sex": "WOMAN",
         "department": -3,
-        "notifier": ["hujianing", "qiweiwei"],
+        "notifier": ["jianinghu", "qiweiwei"],
         "roles": [
             "staff"
         ]
@@ -108,7 +108,7 @@
         "name": "李猛",
         "sex": "MAN",
         "department": -1,
-        "notifier": ["hujianing", "shijianping"],
+        "notifier": ["jianinghu", "shijianping"],
         "roles": [
             "staff"
         ]
@@ -119,7 +119,7 @@
         "name": "刘冬萌",
         "sex": "MAN",
         "department": -2,
-        "notifier": ["hujianing", "yuanjie"],
+        "notifier": ["jianinghu", "yuanjie"],
         "roles": [
             "staff"
         ]
@@ -130,7 +130,7 @@
         "name": "潘石虎",
         "sex": "MAN",
         "department": -3,
-        "notifier": ["hujianing", "qiweiwei"],
+        "notifier": ["jianinghu", "qiweiwei"],
         "roles": [
             "staff"
         ]
@@ -141,7 +141,7 @@
         "name": "彭洋",
         "sex": "WOMAN",
         "department": -2,
-        "notifier": ["hujianing", "yuanjie"],
+        "notifier": ["jianinghu", "yuanjie"],
         "roles": [
             "staff"
         ]
@@ -152,7 +152,7 @@
         "name": "施春燕",
         "sex": "WOMAN",
         "department": -2,
-        "notifier": ["hujianing", "yuanjie"],
+        "notifier": ["jianinghu", "yuanjie"],
         "roles": [
             "staff"
         ]
@@ -163,7 +163,7 @@
         "name": "宋姗霞",
         "sex": "WOMAN",
         "department": -2,
-        "notifier": ["hujianing", "yuanjie"],
+        "notifier": ["jianinghu", "yuanjie"],
         "roles": [
             "staff"
         ]
@@ -174,7 +174,7 @@
         "name": "唐慧娟",
         "sex": "WOMAN",
         "department": -1,
-        "notifier": ["hujianing", "shijianping", "zhangwei"],
+        "notifier": ["jianinghu", "shijianping", "zhangwei"],
         "roles": [
             "staff"
         ]
@@ -185,7 +185,7 @@
         "name": "王磊",
         "sex": "MAN",
         "department": -3,
-        "notifier": ["hujianing", "qiweiwei"],
+        "notifier": ["jianinghu", "qiweiwei"],
         "roles": [
             "staff"
         ]
@@ -196,7 +196,7 @@
         "name": "王虎",
         "sex": "MAN",
         "department": -3,
-        "notifier": ["hujianing", "qiweiwei"],
+        "notifier": ["jianinghu", "qiweiwei"],
         "roles": [
             "staff"
         ]
@@ -207,7 +207,7 @@
         "name": "姚奎",
         "sex": "MAN",
         "department": -1,
-        "notifier": ["hujianing", "shijianping"],
+        "notifier": ["jianinghu", "shijianping"],
         "roles": [
             "staff"
         ]
@@ -218,7 +218,7 @@
         "name": "俞晓舟",
         "sex": "MAN",
         "department": -1,
-        "notifier": ["hujianing", "shijianping"],
+        "notifier": ["jianinghu", "shijianping"],
         "roles": [
             "staff"
         ]
@@ -229,7 +229,7 @@
         "name": "臧伟",
         "sex": "MAN",
         "department": -1,
-        "notifier": ["hujianing", "shijianping"],
+        "notifier": ["jianinghu", "shijianping"],
         "roles": [
             "staff"
         ]
@@ -240,7 +240,7 @@
         "name": "张高炯",
         "sex": "MAN",
         "department": -3,
-        "notifier": ["hujianing", "qiweiwei"],
+        "notifier": ["jianinghu", "qiweiwei"],
         "roles": [
             "staff"
         ]
@@ -251,7 +251,7 @@
         "name": "张静",
         "sex": "WOMAN",
         "department": -1,
-        "notifier": ["hujianing", "shijianping", "zhangwei"],
+        "notifier": ["jianinghu", "shijianping", "zhangwei"],
         "roles": [
             "staff"
         ]
@@ -262,7 +262,7 @@
         "name": "张晓宇",
         "sex": "MAN",
         "department": -3,
-        "notifier": ["hujianing", "qiweiwei"],
+        "notifier": ["jianinghu", "qiweiwei"],
         "roles": [
             "staff"
         ]
@@ -273,7 +273,7 @@
         "name": "周振兴",
         "sex": "MAN",
         "department": -3,
-        "notifier": ["hujianing", "qiweiwei"],
+        "notifier": ["jianinghu", "qiweiwei"],
         "roles": [
             "staff"
         ]
@@ -284,7 +284,7 @@
         "name": "朱聪",
         "sex": "MAN",
         "department": -2,
-        "notifier": ["hujianing", "yuanjie"],
+        "notifier": ["jianinghu", "yuanjie"],
         "roles": [
             "staff"
         ]
@@ -295,7 +295,7 @@
         "name": "杨阳",
         "sex": "MAN",
         "department": -2,
-        "notifier": ["hujianing", "yuanjie"],
+        "notifier": ["jianinghu", "yuanjie"],
         "roles": [
             "staff"
         ]
@@ -339,7 +339,7 @@
         "name": "艾婷婷",
         "sex": "WOMAN",
         "department": -4,
-        "notifier": ["hujianing", "shijianping"],
+        "notifier": ["jianinghu", "shijianping"],
         "roles": [
             "staff"
         ]
@@ -350,7 +350,7 @@
         "name": "腾振德",
         "sex": "MAN",
         "department": -4,
-        "notifier": ["hujianing", "shijianping"],
+        "notifier": ["jianinghu", "shijianping"],
         "roles": [
             "staff"
         ]
@@ -361,7 +361,7 @@
         "name": "单志明",
         "sex": "MAN",
         "department": -4,
-        "notifier": ["hujianing", "shijianping"],
+        "notifier": ["jianinghu", "shijianping"],
         "roles": [
             "staff"
         ]
@@ -372,7 +372,7 @@
         "name": "张晓川",
         "sex": "MAN",
         "department": -4,
-        "notifier": ["hujianing", "shijianping"],
+        "notifier": ["jianinghu", "shijianping"],
         "roles": [
             "staff"
         ]
@@ -383,7 +383,7 @@
         "name": "曹鸿伟",
         "sex": "MAN",
         "department": -4,
-        "notifier": ["hujianing", "shijianping"],
+        "notifier": ["jianinghu", "shijianping"],
         "roles": [
             "staff"
         ]
@@ -394,7 +394,7 @@
         "name": "杨旭初",
         "sex": "MAN",
         "department": -4,
-        "notifier": ["hujianing", "shijianping"],
+        "notifier": ["jianinghu", "shijianping"],
         "roles": [
             "staff"
         ]
@@ -405,7 +405,7 @@
         "name": "张云云",
         "sex": "WOMAN",
         "department": -4,
-        "notifier": ["hujianing", "qiweiwei"],
+        "notifier": ["jianinghu", "qiweiwei"],
         "roles": [
             "staff"
         ]
@@ -416,7 +416,7 @@
         "name": "申昌义",
         "sex": "MAN",
         "department": -4,
-        "notifier": ["hujianing", "qiweiwei"],
+        "notifier": ["jianinghu", "qiweiwei"],
         "roles": [
             "staff"
         ]
@@ -427,7 +427,7 @@
         "name": "班雨",
         "sex": "MAN",
         "department": -4,
-        "notifier": ["hujianing", "qiweiwei"],
+        "notifier": ["jianinghu", "qiweiwei"],
         "roles": [
             "staff"
         ]
@@ -438,7 +438,7 @@
         "name": "李慕华",
         "sex": "MAN",
         "department": -4,
-        "notifier": ["hujianing", "qiweiwei"],
+        "notifier": ["jianinghu", "qiweiwei"],
         "roles": [
             "staff"
         ]
@@ -449,7 +449,7 @@
         "name": "杨撞撞",
         "sex": "MAN",
         "department": -4,
-        "notifier": ["hujianing", "qiweiwei"],
+        "notifier": ["jianinghu", "qiweiwei"],
         "roles": [
             "staff"
         ]
@@ -460,7 +460,7 @@
         "name": "郭超",
         "sex": "MAN",
         "department": -4,
-        "notifier": ["hujianing", "qiweiwei"],
+        "notifier": ["jianinghu", "qiweiwei"],
         "roles": [
             "staff"
         ]
@@ -549,7 +549,7 @@
         "name": "韩福帅",
         "sex": "MAN",
         "department": -4,
-        "notifier": ["hujianing"],
+        "notifier": ["jianinghu"],
         "roles": [
             "staff"
         ]
@@ -560,7 +560,7 @@
         "name": "周静怡",
         "sex": "WOMAN",
         "department": -4,
-        "notifier": ["hujianing"],
+        "notifier": ["jianinghu"],
         "roles": [
             "staff"
         ]
@@ -571,7 +571,7 @@
         "name": "周保光",
         "sex": "MAN",
         "department": -4,
-        "notifier": ["hujianing"],
+        "notifier": ["jianinghu"],
         "roles": [
             "staff"
         ]
@@ -582,7 +582,7 @@
         "name": "张宇",
         "sex": "MAN",
         "department": -4,
-        "notifier": ["hujianing"],
+        "notifier": ["jianinghu"],
         "roles": [
             "staff"
         ]
