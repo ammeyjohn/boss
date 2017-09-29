@@ -268,6 +268,17 @@
         ]
     },
     {
+        "id": 30,
+        "account": "pengtao",
+        "name": "彭涛",
+        "sex": "MAN",
+        "department": -3,
+        "notifier": ["jianinghu", "qiweiwei"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
         "id": 31,
         "account": "zhouzhenxing",
         "name": "周振兴",
@@ -367,6 +378,17 @@
         ]
     },
     {
+        "id": 41,
+        "account": "qirongcan",
+        "name": "戚荣灿",
+        "sex": "MAN",
+        "department": -4,
+        "notifier": ["jianinghu", "shijianping"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
         "id": 42,
         "account": "zhangxiaochuan",
         "name": "张晓川",
@@ -458,6 +480,17 @@
         "id": 50,
         "account": "guochao",
         "name": "郭超",
+        "sex": "MAN",
+        "department": -4,
+        "notifier": ["jianinghu", "qiweiwei"],
+        "roles": [
+            "staff"
+        ]
+    },
+    {
+        "id": 51,
+        "account": "qiuguochao",
+        "name": "邱国超",
         "sex": "MAN",
         "department": -4,
         "notifier": ["jianinghu", "qiweiwei"],
