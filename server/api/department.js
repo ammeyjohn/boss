@@ -1,36 +1,25 @@
 var debug = require('debug')('boss:api:department');
 var path = require('path');
-var fs = require('fs');
 var _ = require('lodash');
 var Q = require('q');
-var request = require('../request');
+var request = require('../request.js');
+var mongo = require('../mongo.js');
 
-const file = path.join(__dirname, '../data/departments.json');
-var __departments = null;
+// Defines mongodb collection name
+var DEPARTMENTS = "departments";
 
 // 获取部门列表
 exports.getDepartments = function() {
-    var defered = Q.defer();
-    if (__departments !== null) {
-        defered.resolve(__departments);
-    } else {
-        fs.readFile(file, function(err, data) {
-            if (err) {
-                debug('%O', err);
-                defered.resolve(null);
-            }
-            __departments = JSON.parse(data.toString());
-            defered.resolve(__departments);
-        });
-    }
-    return defered.promise;
+    return mongo.query(DEPARTMENTS, null);
 }
 
 // 根据部门编号获取部门
 exports.getDepartmentById = function(id) {
-    return exports.getDepartments().then(function(departments) {
-        return _.find(departments, { id: id });
-    })
+    return mongo.query(DEPARTMENTS, {
+        id: id
+    }).then(function(depts) {
+        return _.head(depts);
+    });
 }
 
 // 根据用户账号获取部门编号
