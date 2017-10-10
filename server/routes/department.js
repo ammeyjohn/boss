@@ -14,13 +14,14 @@ router.get('/', function(req, res) {
 });
 
 router.get('/:id', function(req, res) {
-    deptApi.getDepartmentById(req.body).then(function(department) {
-        debug(department);
-        res.json({
-            code: 0,
-            data: department
+    deptApi.getDepartmentById(parseInt(req.params.id))
+        .then(function(department) {
+            debug(department);
+            res.json({
+                code: 0,
+                data: department
+            });
         });
-    });
 });
 
 module.exports = router;

@@ -15,13 +15,14 @@ exports.getUsers = function() {
 exports.getUserByAccount = function(account) {
     return mongo.query(USERS, {
         account: account
+    }).then(function(users) {
+        return _.head(users);
     });
 }
 
 // 获取特定指定部门的用户
 exports.getUsersByDeparment = function(department) {
     var departmentIds = _.map(_.split(department, ','), function(str) { return parseInt(str) });
-    console.log(departmentIds);
     return mongo.query(USERS, {
         department: {
             $in: departmentIds

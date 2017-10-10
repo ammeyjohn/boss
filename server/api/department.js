@@ -29,7 +29,7 @@ exports.getDepartments = function() {
 // 根据部门编号获取部门
 exports.getDepartmentById = function(id) {
     return exports.getDepartments().then(function(departments) {
-        return _.find(departments, id);
+        return _.find(departments, { id: id });
     })
 }
 
@@ -40,7 +40,7 @@ exports.getDepartmentByAccount = function(account) {
         'account': account
     }, function(result) {
         defered.resolve(result.GetDepartmentIdByAccountResult);
-    }, function(error){
+    }, function(error) {
         defered.reject(error);
     });
     return defered.promise;
