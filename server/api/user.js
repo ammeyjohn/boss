@@ -1,46 +1,78 @@
 var debug = require('debug')('boss:api:user');
 var path = require('path');
-var fs = require("fs");
 var _ = require('lodash');
 var Q = require('q');
+var settings = require('../settings.js');
+var mongo = require('mongodb').MongoClient;
 var deptApi = require('./department.js');
-
-const file = path.join(__dirname, '../data/users.json');
-var __users = null;
 
 // 获取用户列表
 exports.getUsers = function() {
     var defered = Q.defer();
-    if (__users !== null) {
-        defered.resolve(__users);
-    } else {
-        fs.readFile(file, function(err, data) {
-            if (err) {
-                debug('%O', err);
-                defered.resolve(null);
-            }
-            __users = JSON.parse(data.toString());
-            defered.resolve(__users);
+    try {
+        mongo.connect(settings.DB_ADDR, function(err, db) {
+            console.log("Connected correctly to server", settings.DB_ADDR);
+
+            var collection = db.collection('users');
+            collection.find().toArray(function(err, docs) {
+                defered.resolve(docs);
+            });
+
+            db.close();
         });
+    } catch (err) {
+        console.error(err);
+        defered.reject(err);
     }
     return defered.promise;
 }
 
 // 获取指定账号的用户
 exports.getUserByAccount = function(account) {
-    return exports.getUsers().then(function(users) {
-        return _.find(users, {
-            'account': account
-        }) || null;
-    });
+    var defered = Q.defer();
+    try {
+        mongo.connect(settings.DB_ADDR, function(err, db) {
+            console.log("Connected correctly to server", settings.DB_ADDR);
+
+            var collection = db.collection('users');
+            collection.find({
+                account: account
+            }).toArray(function(err, docs) {
+                defered.resolve(docs);
+            });
+
+            db.close();
+        });
+    } catch (err) {
+        console.error(err);
+        defered.reject(err);
+    }
+    return defered.promise;
 }
 
 // 获取特定指定部门的用户
 exports.getUsersByDeparment = function(department) {
-    var departmentIds = _.split(department, ',');
-    return exports.getUsers().then(function(users) {
-        return _.filter(users, function(user) {
-            return departmentIds.includes(user.department.toString());
+    var departmentIds = _.map(_.split(department, ','), parseInt);    
+
+    var defered = Q.defer();
+    try {
+        mongo.connect(settings.DB_ADDR, function(err, db) {
+            console.log("Connected correctly to server", settings.DB_ADDR);
+
+            var collection = db.collection('users');
+            collection.find({
+                department: {
+                    $in: departmentIds
+                }
+            }).toArray(function(err, docs) {
+                defered.resolve(docs);
+            });
+
+            db.close();
         });
-    });
+    } catch (err) {
+        console.error(err);
+        defered.reject(err);
+    }
+    return defered.promise;
 }
