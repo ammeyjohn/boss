@@ -10,7 +10,7 @@ define([
 ], function(ng, moment, _, settings, optionModule) {
     'use strict';
 
-    function UserOptionCtrl($scope, $rootScope, $q, $cookies, userApi, deptApi) {
+    function UserOptionCtrl($scope, $rootScope, $q, $cookies, $mdDialog, userApi, deptApi) {
 
         $scope.users = [];
         $scope.pagination = {
@@ -39,6 +39,23 @@ define([
                 });
             });
         });
+
+        $scope.showNewUserDialog = function() {
+            $mdDialog.show({
+                templateUrl: 'partials/option/user/editor/editor.tmpl.html',
+                parent: angular.element(document.body),
+                fullscreen: true,
+                clickOutsideToClose: true,
+                controller: 'UserEditorCtrl',
+                resolve: {
+                    loadModule: ['$ocLazyLoad', function($ocLazyLoad) {
+                        return $ocLazyLoad.load({
+                            files: ['partials/option/user/editor/editor.controller.js']
+                        });
+                    }]
+                }
+            });
+        };
     }
 
     optionModule.controller('UserOptionCtrl', [
@@ -46,6 +63,7 @@ define([
         '$rootScope',
         '$q',
         '$cookies',
+        '$mdDialog',
         'boss.api.user',
         'boss.api.department',
         UserOptionCtrl

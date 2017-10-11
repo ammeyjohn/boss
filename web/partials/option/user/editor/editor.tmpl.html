@@ -1,0 +1,72 @@
+<md-dialog aria-label="新建用户" flex="60">
+    <form name="userForm" role="form" novalidate>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>新建用户</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()" aria-label="Close">
+                    <md-icon class="glyphicon glyphicon-remove" aria-hidden="true"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="form-group" ng-class="{'has-error': userForm.userName.$dirty && userForm.userName.$invalid}">
+                            <label class="control-label" for="userName">姓名</label>
+                            <input type="text" class="form-control" name="userName" ng-model="user.userName" required>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="form-group" ng-class="{'has-error': userForm.department.$dirty && userForm.department.$invalid}">
+                            <label class="control-label" for="department">所属部门</label>
+                            <ui-select id="department" ng-model="user.department" theme="bootstrap" close-on-select="true">
+                                <ui-select-match placeholder="请选择所属部门">{{$select.selected.name}}</ui-select-match>
+                                <ui-select-choices repeat="dept.id as dept in departments | propsFilter: {name: $select.search, code: $select.search}">
+                                    <div ng-bind-html="dept.name | highlight: $select.search"></div>
+                                </ui-select-choices>
+                            </ui-select>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <label class="control-label" for="sex">性别</label>
+                            <select ng-options="sex for sex in ['男', '女']" ng-model="user.sex" class="form-control"></select>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="form-group" ng-class="{'has-error': userForm.account.$dirty && userForm.account.$invalid}">
+                            <label class="control-label" for="account">帐号</label>
+                            <input type="text" class="form-control" id="account" name="account" ng-model="user.account" required ng-minlength="4" ng-maxlength="20">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group" ng-class="{'has-error': userForm.$dirty && userForm.dept.$invalid}">
+                            <label class="control-label" for="notifier">通知人</label>
+                            <ui-select multiple id="notifier" ng-model="user.notifier" theme="bootstrap" close-on-select="false">
+                                <ui-select-match placeholder="请选择需要接收通知的用户">{{$item.name}}</ui-select-match>
+                                <ui-select-choices repeat="user.account as user in users | propsFilter: {name: $select.search, account: $select.search}">
+                                    <div ng-bind-html="user.name | highlight: $select.search"></div>
+                                </ui-select-choices>
+                            </ui-select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <div>
+                <md-button class="md-raised md-primary" ng-click="save(true)">
+                    添加
+                </md-button>
+            </div>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

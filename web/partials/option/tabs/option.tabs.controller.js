@@ -9,11 +9,8 @@ define([
 ], function(ng, moment, _, settings, optionModule) {
     'use strict';
 
-    function OptionCtrl($scope, $rootScope, $q, $cookies, $mdSidenav, userApi, deptApi) {
+    function OptionCtrl($scope, $rootScope, $q, $cookies) {
 
-        setTimeout(function() {
-            $mdSidenav('user_prop').toggle();
-        }, 5000);
     }
 
     optionModule.controller('OptionCtrl', [
@@ -21,9 +18,6 @@ define([
         '$rootScope',
         '$q',
         '$cookies',
-        '$mdSidenav',
-        'boss.api.user',
-        'boss.api.department',
         OptionCtrl
     ]);
 });
