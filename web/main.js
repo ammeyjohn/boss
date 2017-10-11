@@ -70,7 +70,7 @@
             'oclazyload': 'assets/vendor/oclazyload/dist/ocLazyLoad.require.min',
 
             /* 定义CSS样式库 */
-            'metronic-style': 'assets/plugin/metronic/style',
+            'metronic': 'assets/plugin/metronic/metronic',
             'font-awesome': 'assets/vendor/font-awesome/css/font-awesome.min',
 
             /* Echarts */
@@ -91,6 +91,7 @@
             'boss.log': 'partials/log/log.module',
             'boss.kpi': 'partials/kpi/kpi.module',
             'boss.otwork': 'partials/otwork/otwork.module',
+            'boss.option': 'partials/option/option.module',
 
             /* 定义其他组件 */
             'directive.datetimepicker': 'directives/datetimepicker.directive',
@@ -158,7 +159,16 @@
                 exports: 'crossfilter'
             },
 
-            'ztree': ['jquery', 'css!ztree-css']
+            'ztree': ['jquery', 'css!ztree-css'],
+
+            /* 样式 */
+            'metronic': [
+                'jquery',
+                'bootstrap',
+                'css!assets/plugin/metronic/style',
+                'css!assets/plugin/metronic/style-metronic',
+                'css!font-awesome'
+            ]
         },
         packages: [],
         map: {
@@ -169,7 +179,7 @@
         deps: [],
 
         /* TODO：在正式上线前需要移除这行代码 */
-        urlArgs: 'v=1.0.4.3'
+        urlArgs: 'v=1.0.5.1'
     });
 
     /// 全局初始化 ///

@@ -37,6 +37,10 @@
                 <md-tooltip md-delay="500">部门分析</md-tooltip>
                 <md-icon class="glyphicon glyphicon-dashboard"></md-icon>
             </md-button>
+            <md-button aria-label="option" class="md-icon-button" ng-click="goto('option')" ng-if="authorize(['root','admin','manager'])">
+                <md-tooltip md-delay="500">系统设置</md-tooltip>
+                <md-icon class="glyphicon glyphicon-cog"></md-icon>
+            </md-button>
             <span flex></span>
             <h5>
                 <table>

@@ -6,7 +6,8 @@ define([
     'boss.login',
     'boss.log',
     'boss.kpi',
-    'boss.otwork'
+    'boss.otwork',
+    'boss.option'
 ], function(ng) {
     'use strict';
 
@@ -19,7 +20,8 @@ define([
         'boss.login',
         'boss.log',
         'boss.kpi',
-        'boss.otwork'
+        'boss.otwork',
+        'boss.option'
     ]);
 
     indexModule
