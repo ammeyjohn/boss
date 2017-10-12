@@ -1,4 +1,4 @@
-<md-dialog aria-label="新建用户" flex="60">
+<md-dialog aria-label="新建用户" flex="50">
     <form name="userForm" role="form" novalidate>
         <md-toolbar>
             <div class="md-toolbar-tools">
@@ -52,7 +52,7 @@
                             <label class="control-label" for="notifier">通知人</label>
                             <ui-select multiple id="notifier" ng-model="user.notifier" theme="bootstrap" close-on-select="false">
                                 <ui-select-match placeholder="请选择需要接收通知的用户">{{$item.name}}</ui-select-match>
-                                <ui-select-choices repeat="user.account as user in users | propsFilter: {name: $select.search, account: $select.search}">
+                                <ui-select-choices position='up' repeat="user.account as user in users | propsFilter: {name: $select.search, account: $select.search}">
                                     <div ng-bind-html="user.name | highlight: $select.search"></div>
                                 </ui-select-choices>
                             </ui-select>
