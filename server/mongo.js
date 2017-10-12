@@ -30,7 +30,7 @@ helper.insert = function(collection, item) {
         c.insert(item, function(err, docs) {
             debug(docs);
             if (!err) {
-                defered.resolve(doc);
+                defered.resolve(docs);
             } else {
                 defered.reject(err);
             }

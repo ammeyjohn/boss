@@ -23,6 +23,13 @@ define([
                 params: {
                     department: 'department'
                 }
+            },
+            add: {
+                method: 'POST',
+                url: '/api/user',
+                params: {
+                    user: '@user'
+                }
             }
         });
     });

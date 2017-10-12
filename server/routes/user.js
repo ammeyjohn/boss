@@ -41,14 +41,14 @@ router.get('/department/:department', function(req, res) {
 });
 
 router.post('/', function(req, res) {
-    var user = req.body;
+    var user = req.body.user;
     debug(user);
     userApi.addUser(user)
-        .then(function(res) {
-            debug(res);
+        .then(function(ret) {
+            debug(ret);
             res.json({
                 code: 0,
-                data: res
+                data: ret
             });
         });
 });

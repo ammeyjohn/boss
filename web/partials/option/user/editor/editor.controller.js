@@ -9,14 +9,24 @@ define([
 ], function (ng, moment, _, settings, optionModule) {
     'use strict';
 
+
     function UserEditorCtrl($scope, $rootScope, $cookies, $mdToast, $mdDialog, userApi, deptApi) {
         $scope.user = {
             name: null,
             account: null,
-            sex: '男',
+            sex: 'MAN',
             department: 25,
             notifier: []
         }
+
+        // requirejs(['../node_modules/pinyin/lib/pinyin'],
+        //     function (pinyin) {
+        //         $scope.$watch($scope.user.name, function (name) {
+        //             if (name) {
+        //                 $scope.account = pinyin($scope.name);
+        //             }
+        //         });
+        //     });
 
         // 部门列表
         $scope.departments = null;
@@ -35,8 +45,25 @@ define([
         });
 
         $scope.save = function () {
-            console.log($scope.user);
+            userApi.add(null, {
+                    user: $scope.user
+                }).$promise
+                .then(function (res) {
+                    console.log(res);
+                    $mdToast.show(
+                        $mdToast.simple()
+                        .textContent('用户添加成功!')
+                        .position('bottom right')
+                        .hideDelay(3000)
+                    );
+                    $rootScope.$broadcast('USERS_RELOAD');
+                    $mdDialog.hide();
+                });
         }
+
+        $scope.cancel = function () {
+            $mdDialog.cancel();
+        };
     }
 
     optionModule.controller('UserEditorCtrl', [
