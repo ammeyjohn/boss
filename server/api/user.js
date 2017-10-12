@@ -29,3 +29,16 @@ exports.getUsersByDeparment = function(department) {
         }
     });
 }
+
+// 添加用户
+exports.addUser = function(user) {
+    var promise = mongo.getNextSequence('user_id')
+        .then(function(id) {
+            user.id = id.value.seq;
+            mongo.insert(USERS, user)
+                .then(function(res) {
+                    promise.resolve(user);
+                });
+        });
+    return promise;
+}

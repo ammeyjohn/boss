@@ -40,4 +40,17 @@ router.get('/department/:department', function(req, res) {
         });
 });
 
+router.post('/', function(req, res) {
+    var user = req.body;
+    debug(user);
+    userApi.addUser(user)
+        .then(function(res) {
+            debug(res);
+            res.json({
+                code: 0,
+                data: res
+            });
+        });
+});
+
 module.exports = router;

@@ -23,6 +23,22 @@ var connect = function() {
     return defered.promise;
 }
 
+helper.insert = function(collection, item) {
+    return connect().then(function(db) {
+        var defered = Q.defer();
+        var c = db.collection(collection);
+        c.insert(item, function(err, docs) {
+            debug(docs);
+            if (!err) {
+                defered.resolve(doc);
+            } else {
+                defered.reject(err);
+            }
+        });
+        return defered.promise;
+    });
+}
+
 helper.query = function(collection, condition) {
     return connect().then(function(db) {
         var defered = Q.defer();
@@ -31,6 +47,23 @@ helper.query = function(collection, condition) {
             debug(docs);
             defered.resolve(docs);
         });
+        return defered.promise;
+    });
+}
+
+helper.getNextSequence = function(name) {
+    return connect().then(function(db) {
+        var defered = Q.defer();
+        var c = db.collection('sequence');
+        c.findAndModify({ _id: name }, [], { $inc: { seq: 1 } }, { new: true },
+            function(err, doc) {
+                debug(doc);
+                if (!err) {
+                    defered.resolve(doc);
+                } else {
+                    defered.reject(err);
+                }
+            });
         return defered.promise;
     });
 }
