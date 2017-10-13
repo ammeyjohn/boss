@@ -17,27 +17,27 @@
             <h2>
                 <span>BOSS</span>
             </h2>
-            <md-button aria-label="new_log" class="md-icon-button" ng-click="toolbarClick('BOSS_NEW_LOG')">
+            <md-button aria-label="new_log" class="md-icon-button" ng-click="toolbarClick('BOSS_NEW_LOG')" ng-if="authorize(['staff', 'manager'])">
                 <md-tooltip md-delay="500">新建日志</md-tooltip>
                 <md-icon class="glyphicon glyphicon-file"></md-icon>
             </md-button>
-            <md-button aria-label="new_otwork" class="md-icon-button" ng-click="toolbarClick('BOSS_NEW_OTWORK')" ng-if="authorize(['root','admin','manager'])">
+            <md-button aria-label="new_otwork" class="md-icon-button" ng-click="toolbarClick('BOSS_NEW_OTWORK')" ng-if="authorize(['manager'])">
                 <md-tooltip md-delay="500">新建加班记录</md-tooltip>
                 <md-icon class="glyphicon glyphicon-time"></md-icon>
             </md-button>
-            <md-button aria-label="log_search" class="md-icon-button" ng-click="goto('log.search')">
+            <md-button aria-label="log_search" class="md-icon-button" ng-click="goto('log.search')" ng-if="authorize(['staff', 'manager'])">
                 <md-tooltip md-delay="500">日志查询</md-tooltip>
                 <md-icon class="glyphicon glyphicon-search"></md-icon>
             </md-button>
-            <md-button aria-label="new_analyze" class="md-icon-button" ng-click="goto('log.analyze')">
+            <md-button aria-label="new_analyze" class="md-icon-button" ng-click="goto('log.analyze')" ng-if="authorize(['manager'])">
                 <md-tooltip md-delay="500">日志分析</md-tooltip>
                 <md-icon class="glyphicon glyphicon-stats"></md-icon>
             </md-button>
-            <md-button aria-label="kpi" class="md-icon-button" ng-click="goto('kpi')" ng-if="authorize(['root','admin','manager'])">
+            <md-button aria-label="kpi" class="md-icon-button" ng-click="goto('kpi')" ng-if="authorize(['manager'])">
                 <md-tooltip md-delay="500">部门分析</md-tooltip>
                 <md-icon class="glyphicon glyphicon-dashboard"></md-icon>
             </md-button>
-            <md-button aria-label="option" class="md-icon-button" ng-click="goto('option')" ng-if="authorize(['root','admin','manager'])">
+            <md-button aria-label="option" class="md-icon-button" ng-click="goto('option')" ng-if="authorize(['admin'])">
                 <md-tooltip md-delay="500">系统设置</md-tooltip>
                 <md-icon class="glyphicon glyphicon-cog"></md-icon>
             </md-button>
