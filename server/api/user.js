@@ -8,22 +8,22 @@ var mongo = require('../mongo.js');
 var USERS = 'users';
 
 // 获取用户列表
-exports.getUsers = function () {
+exports.getUsers = function() {
     return mongo.query(USERS, null);
 }
 
 // 获取指定账号的用户
-exports.getUserByAccount = function (account) {
+exports.getUserByAccount = function(account) {
     return mongo.query(USERS, {
         account: account
-    }).then(function (users) {
+    }).then(function(users) {
         return _.head(users);
     });
 }
 
 // 获取特定指定部门的用户
-exports.getUsersByDeparment = function (department) {
-    var departmentIds = _.map(_.split(department, ','), function (str) {
+exports.getUsersByDeparment = function(department) {
+    var departmentIds = _.map(_.split(department, ','), function(str) {
         return parseInt(str)
     });
     return mongo.query(USERS, {
@@ -34,15 +34,20 @@ exports.getUsersByDeparment = function (department) {
 }
 
 // 添加用户
-exports.addUser = function (user) {
+exports.addUser = function(user) {
     var defered = Q.defer();
     mongo.getNextSequence('user_id')
-        .then(function (id) {
+        .then(function(id) {
             user.id = id.value.seq;
             mongo.insert(USERS, user)
-                .then(function (res) {
+                .then(function(res) {
                     defered.resolve(user);
                 });
         });
     return defered.promise;
+}
+
+// 删除用户
+exports.removeUser = function(id) {
+    return mongo.delete(USERS, { id: id });
 }

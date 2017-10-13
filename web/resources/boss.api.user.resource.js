@@ -30,6 +30,13 @@ define([
                 params: {
                     user: '@user'
                 }
+            },
+            remove: {
+                method: 'DELETE',
+                url: '/api/user/:id',
+                params: {
+                    id: 'id'
+                }
             }
         });
     });

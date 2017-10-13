@@ -39,13 +39,33 @@ helper.insert = function(collection, item) {
     });
 }
 
+helper.delete = function(collection, condition) {
+    return connect().then(function(db) {
+        var defered = Q.defer();
+        var c = db.collection(collection);
+        c.deleteOne(condition, function(err, docs) {
+            debug(docs);
+            if (!err) {
+                defered.resolve(doc);
+            } else {
+                defered.reject(err);
+            }
+        });
+        return defered.promise;
+    });
+}
+
 helper.query = function(collection, condition) {
     return connect().then(function(db) {
         var defered = Q.defer();
         var c = db.collection(collection);
         c.find(condition).toArray(function(err, docs) {
             debug(docs);
-            defered.resolve(docs);
+            if (!err) {
+                defered.resolve(doc);
+            } else {
+                defered.reject(err);
+            }
         });
         return defered.promise;
     });

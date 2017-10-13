@@ -53,4 +53,16 @@ router.post('/', function(req, res) {
         });
 });
 
+router.delete('/:id', function(req, res) {
+    var id = parseInt(req.params.id);
+    debug('params:id=%s', id);
+    userApi.removeUser(id)
+        .then(function(ret) {
+            res.json({
+                code: 0,
+                data: ret
+            });
+        });
+});
+
 module.exports = router;

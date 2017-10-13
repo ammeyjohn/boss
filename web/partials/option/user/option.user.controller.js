@@ -10,7 +10,7 @@ define([
 ], function(ng, moment, _, settings, optionModule) {
     'use strict';
 
-    function UserOptionCtrl($scope, $rootScope, $q, $cookies, $mdDialog, userApi, deptApi) {
+    function UserOptionCtrl($scope, $rootScope, $q, $cookies, $mdDialog, $mdToast, userApi, deptApi) {
 
         $scope.raw_users = [];
         $scope.users = [];
@@ -30,7 +30,7 @@ define([
             userApi.get().$promise.then(function(users) {
                 $scope.raw_users = _.sortBy(users.data, ['id']);
                 $scope.pagination.totalItems = $scope.raw_users.length;
-                $scope.pagination.currentPage = 1;
+                //$scope.pagination.currentPage = 1;
                 $scope.pageChanged();
 
                 deptApi.get().$promise.then(function(depts) {
@@ -42,6 +42,30 @@ define([
                     });
                 });
             });
+        }
+
+        $scope.remove = function(user) {
+            (function() {
+                var confirm = $mdDialog.confirm()
+                    .title('是否删除用户"' + user.name + '"?')
+                    .ariaLabel('用户删除确认对话框')
+                    .ok('删除')
+                    .cancel('取消');
+
+                $mdDialog.show(confirm)
+                    .then(function() {
+                        userApi.remove({ id: user.id }).$promise
+                            .then(function(ret) {
+                                $mdToast.show(
+                                    $mdToast.simple()
+                                    .textContent('用户"' + user.name + '"已删除!')
+                                    .position('bottom right')
+                                    .hideDelay(3000)
+                                );
+                                refresh();
+                            });
+                    });
+            })();
         }
 
         $scope.$on('USERS_RELOAD', function() {
@@ -102,6 +126,7 @@ define([
         '$q',
         '$cookies',
         '$mdDialog',
+        '$mdToast',
         'boss.api.user',
         'boss.api.department',
         UserOptionCtrl
