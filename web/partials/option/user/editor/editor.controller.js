@@ -16,8 +16,13 @@ define([
             account: null,
             sex: 'MAN',
             department: 25,
-            notifier: []
+            notifier: [],
+            roles: ['staff']
         }
+
+        $scope.$watch('user', function(user) {
+            console.log(user);
+        }, true);
 
         $scope.toPinyin = function() {
             $scope.user.account = pinyin.getPinyin($scope.user.name, '', false, false);
@@ -38,6 +43,19 @@ define([
         deptApi.get().$promise.then(function(departments) {
             $scope.departments = departments.data;
         });
+
+        $scope.exists = function(item, list) {
+            return list.indexOf(item) > -1;
+        };
+
+        $scope.toggle = function(item, list) {
+            var idx = list.indexOf(item);
+            if (idx > -1) {
+                list.splice(idx, 1);
+            } else {
+                list.push(item);
+            }
+        };
 
         $scope.save = function() {
             userApi.add(null, {

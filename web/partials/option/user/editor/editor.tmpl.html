@@ -59,10 +59,23 @@
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <label>角色</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <md-checkbox ng-checked="exists('admin', user.roles)" ng-click="toggle('admin', user.roles)" class="md-warn md-align-top-left" flex> 管理员</md-checkbox>
+                        <md-checkbox ng-checked="exists('director', user.roles)" ng-click="toggle('director', user.roles)" class="md-warn md-align-top-left" flex> 部门总监</md-checkbox>
+                        <md-checkbox ng-checked="exists('manager', user.roles)" ng-click="toggle('manager', user.roles)" class="md-warn md-align-top-left" flex> 部门经理</md-checkbox>
+                        <md-checkbox ng-checked="exists('staff', user.roles)" ng-click="toggle('staff', user.roles)" class="md-warn md-align-top-left" flex> 员工</md-checkbox>
+                    </div>
+                </div>
             </div>
         </md-dialog-content>
         <md-dialog-actions layout="row">
-            <div>
+            <div ng-if="userForm.$valid">
                 <md-button class="md-raised md-primary" ng-click="save(true)">
                     添加
                 </md-button>
