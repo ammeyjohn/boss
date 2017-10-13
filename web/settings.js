@@ -1,5 +1,4 @@
-define([
-], function() {
+define([], function() {
     'use strict';
 
     var settings = {
@@ -41,8 +40,28 @@ define([
             id: 8,
             code: 'XT',
             name: '协调'
-        }]
+        }],
+
+        roles: {
+            root: {
+                name: "超级管理员"
+            },
+            admin: {
+                name: "管理员"
+            },
+            director: {
+                name: "总监"
+            },
+            manager: {
+                name: "部门经理"
+            },
+            staff: {
+                name: "员工"
+            }
+        }
     }
+
+
 
     return settings;
 });
