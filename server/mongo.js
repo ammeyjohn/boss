@@ -39,6 +39,22 @@ helper.insert = function(collection, item) {
     });
 }
 
+helper.update = function(collection, condition, item) {
+    return connect().then(function(db) {
+        var defered = Q.defer();
+        var c = db.collection(collection);
+        c.update(condition, item, function(err, docs) {
+            debug(docs);
+            if (!err) {
+                defered.resolve(docs);
+            } else {
+                defered.reject(err);
+            }
+        });
+        return defered.promise;
+    });
+}
+
 helper.delete = function(collection, condition) {
     return connect().then(function(db) {
         var defered = Q.defer();
@@ -62,7 +78,7 @@ helper.query = function(collection, condition) {
         c.find(condition).toArray(function(err, docs) {
             debug(docs);
             if (!err) {
-                defered.resolve(doc);
+                defered.resolve(docs);
             } else {
                 defered.reject(err);
             }

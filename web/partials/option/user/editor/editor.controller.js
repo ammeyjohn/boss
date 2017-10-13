@@ -10,8 +10,9 @@ define([
 ], function(ng, moment, _, pinyin, settings, optionModule) {
     'use strict';
 
-    function UserEditorCtrl($scope, $rootScope, $cookies, $mdToast, $mdDialog, userApi, deptApi) {
-        $scope.user = {
+    function UserEditorCtrl($scope, $rootScope, $cookies, $mdToast, $mdDialog, userApi, deptApi, user) {
+
+        $scope.user = user || {
             name: null,
             account: null,
             sex: 'MAN',
@@ -57,7 +58,7 @@ define([
             }
         };
 
-        $scope.save = function() {
+        var add = function() {
             userApi.add(null, {
                     user: $scope.user
                 }).$promise
@@ -74,6 +75,31 @@ define([
                 });
         }
 
+        var modify = function() {
+            userApi.modify({ id: $scope.user.id }, {
+                    user: $scope.user
+                }).$promise
+                .then(function(res) {
+                    console.log(res);
+                    $mdToast.show(
+                        $mdToast.simple()
+                        .textContent('用户修改成功!')
+                        .position('bottom right')
+                        .hideDelay(3000)
+                    );
+                    $rootScope.$broadcast('USERS_RELOAD');
+                    $mdDialog.hide();
+                });
+        }
+
+        $scope.save = function() {
+            if (user) {
+                modify();
+            } else {
+                add();
+            }
+        }
+
         $scope.cancel = function() {
             $mdDialog.cancel();
         };
@@ -87,6 +113,7 @@ define([
         '$mdDialog',
         'boss.api.user',
         'boss.api.department',
+        'user',
         UserEditorCtrl
     ]);
 });

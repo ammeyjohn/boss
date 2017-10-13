@@ -23,15 +23,12 @@
                     <td>{{row.id}}</td>
                     <td>{{row.name}}</td>
                     <td>{{row.account}}</td>
-                    <td>{{row.sex}}</td>
+                    <td>{{row.sex | SexRender}}</td>
                     <td>{{row.department.name}}</td>
                     <td>{{row.notifier | UserRender:raw_users}}</td>
                     <td>{{row.roles | RoleRender}}</td>
                     <td>
-                        <a href="#" class="btn btn-xs blue">
-                            <i class="fa fa-users"></i>
-                        </a>
-                        <a href="#" class="btn btn-xs green">
+                        <a href="#" class="btn btn-xs green" ng-click="modify(row)">
                             <i class="fa fa-edit"></i>
                         </a>
                         <a href="#" class="btn btn-xs red" ng-click="remove(row)">

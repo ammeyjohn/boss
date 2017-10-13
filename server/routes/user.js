@@ -53,6 +53,22 @@ router.post('/', function(req, res) {
         });
 });
 
+router.put('/:id', function(req, res) {
+    var id = parseInt(req.params.id);
+    debug('params:id=%s', id);
+
+    var user = req.body.user;
+    debug(user);
+
+    userApi.modifyUser(id, user)
+        .then(function(ret) {
+            res.json({
+                code: 0,
+                data: ret
+            });
+        });
+});
+
 router.delete('/:id', function(req, res) {
     var id = parseInt(req.params.id);
     debug('params:id=%s', id);

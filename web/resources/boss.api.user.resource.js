@@ -31,6 +31,14 @@ define([
                     user: '@user'
                 }
             },
+            modify: {
+                method: 'PUT',
+                url: '/api/user/:id',
+                params: {
+                    id: 'id',
+                    user: '@user'
+                }
+            },
             remove: {
                 method: 'DELETE',
                 url: '/api/user/:id',

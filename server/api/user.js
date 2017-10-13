@@ -47,6 +47,10 @@ exports.addUser = function(user) {
     return defered.promise;
 }
 
+exports.modifyUser = function(id, user) {
+    return mongo.update(USERS, { id: id }, user);
+}
+
 // 删除用户
 exports.removeUser = function(id) {
     return mongo.delete(USERS, { id: id });

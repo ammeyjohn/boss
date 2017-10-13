@@ -14,11 +14,17 @@ define([
 
         $scope.raw_users = [];
         $scope.users = [];
+        $scope.departments = [];
         $scope.pagination = {
             totalItems: 0,
             currentPage: 1,
             itemsPerPage: 15
         }
+
+        deptApi.get().$promise.then(function(depts) {
+            $scope.departments =
+                $scope.pageChanged();
+        });
 
         $scope.pageChanged = function() {
             var start = $scope.pagination.itemsPerPage * ($scope.pagination.currentPage - 1);
@@ -30,19 +36,14 @@ define([
             userApi.get().$promise.then(function(users) {
                 $scope.raw_users = _.sortBy(users.data, ['id']);
                 $scope.pagination.totalItems = $scope.raw_users.length;
-                //$scope.pagination.currentPage = 1;
-                $scope.pageChanged();
-
-                deptApi.get().$promise.then(function(depts) {
-                    _.each($scope.raw_users, function(user) {
-                        user.department = _.find(depts.data, {
-                            id: user.department
-                        });
-                        user.sex = user.sex == 'MAN' ? '男' : '女';
-                    });
-                });
+                //$scope.pagination.currentPage = 1;                
             });
         }
+
+        $scope.$on('USERS_RELOAD', function() {
+            refresh();
+        });
+        refresh();
 
         $scope.remove = function(user) {
             (function() {
@@ -68,12 +69,11 @@ define([
             })();
         }
 
-        $scope.$on('USERS_RELOAD', function() {
-            refresh();
-        });
-        refresh();
+        $scope.modify = function(user) {
+            $scope.showNewUserDialog(user);
+        }
 
-        $scope.showNewUserDialog = function() {
+        $scope.showNewUserDialog = function(user) {
             $mdDialog.show({
                 templateUrl: 'partials/option/user/editor/editor.tmpl.html',
                 parent: angular.element(document.body),
@@ -85,11 +85,28 @@ define([
                         return $ocLazyLoad.load({
                             files: ['partials/option/user/editor/editor.controller.js']
                         });
-                    }]
+                    }],
+                    user: function() {
+                        return user;
+                    }
                 }
             });
         };
     }
+
+    optionModule.filter('DeptRender', function() {
+        var filter = function(input) {
+            return input == 'MAN' ? '男' : '女';
+        };
+        return filter;
+    });
+
+    optionModule.filter('SexRender', function() {
+        var filter = function(input) {
+            return input == 'MAN' ? '男' : '女';
+        };
+        return filter;
+    });
 
     optionModule.filter('UserRender', function() {
         var filter = function(input, users) {
