@@ -37,6 +37,7 @@
             /* 第三方组件 */
             'lodash': 'assets/vendor/lodash/dist/lodash.min',
             'moment': 'assets/vendor/moment/min/moment-with-locales.min',
+            'pinyin': 'assets/vendor/pinyinjs/pinyinUtil',
             'crossfilter': 'assets/vendor/crossfilter2/crossfilter.min',
             'ztree': 'assets/vendor/ztree_v3/js/jquery.ztree.all.min',
             'ztree-css': 'assets/vendor/ztree_v3/css/zTreeStyle/zTreeStyle',
@@ -157,6 +158,11 @@
 
             'crossfilter': {
                 exports: 'crossfilter'
+            },
+
+            'pinyin': {
+                deps: ['assets/vendor/pinyinjs/dict/pinyin_dict_notone'],
+                exports: 'pinyinUtil'
             },
 
             'ztree': ['jquery', 'css!ztree-css'],

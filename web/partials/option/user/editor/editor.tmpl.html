@@ -15,7 +15,7 @@
                     <div class="col-xs-12 col-sm-6 col-md-6">
                         <div class="form-group" ng-class="{'has-error': userForm.name.$dirty && userForm.name.$invalid}">
                             <label class="control-label" for="name">姓名</label>
-                            <input type="text" class="form-control" name="name" ng-model="user.name" required>
+                            <input type="text" class="form-control" name="name" ng-model="user.name" ng-blur="toPinyin()" required>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6">
