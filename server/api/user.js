@@ -48,6 +48,7 @@ exports.addUser = function(user) {
 }
 
 exports.modifyUser = function(id, user) {
+    delete user._id;
     return mongo.update(USERS, { id: id }, user);
 }
 

@@ -62,7 +62,7 @@ helper.delete = function(collection, condition) {
         c.deleteOne(condition, function(err, docs) {
             debug(docs);
             if (!err) {
-                defered.resolve(doc);
+                defered.resolve(docs);
             } else {
                 defered.reject(err);
             }
@@ -92,10 +92,10 @@ helper.getNextSequence = function(name) {
         var defered = Q.defer();
         var c = db.collection('sequence');
         c.findAndModify({ _id: name }, [], { $inc: { seq: 1 } }, { new: true },
-            function(err, doc) {
+            function(err, docs) {
                 debug(doc);
                 if (!err) {
-                    defered.resolve(doc);
+                    defered.resolve(docs);
                 } else {
                     defered.reject(err);
                 }

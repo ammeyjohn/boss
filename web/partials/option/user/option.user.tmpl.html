@@ -24,7 +24,7 @@
                     <td>{{row.name}}</td>
                     <td>{{row.account}}</td>
                     <td>{{row.sex | SexRender}}</td>
-                    <td>{{row.department.name}}</td>
+                    <td>{{row.department | DeptRender:departments}}</td>
                     <td>{{row.notifier | UserRender:raw_users}}</td>
                     <td>{{row.roles | RoleRender}}</td>
                     <td>
