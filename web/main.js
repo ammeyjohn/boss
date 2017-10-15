@@ -66,6 +66,7 @@
             'angular-material': 'assets/vendor/angular-material/angular-material.min',
             'angular-daterangepicker': 'assets/vendor/angular-daterangepicker/js/angular-daterangepicker.min',
             'angular-block-ui': 'assets/vendor/angular-block-ui/dist/angular-block-ui.min',
+            'angular-ui-tree': 'assets/vendor/angular-ui-tree/dist/angular-ui-tree',
 
             /* AngularJS Directives */
             'oclazyload': 'assets/vendor/oclazyload/dist/ocLazyLoad.require.min',
@@ -124,6 +125,7 @@
             'angular-aria': ['angular'],
             'angular-ui-router': ['angular'],
             'angular-ui-select': ['angular', 'css!angular-ui-select'],
+            'angular-ui-tree': ['angular', 'css!angular-ui-tree'],
             'angular-local-storage': ['angular'],
             'angular-bootstrap': ['angular', 'bootstrap'],
             'angular-material': [
@@ -185,7 +187,7 @@
         deps: [],
 
         /* TODO：在正式上线前需要移除这行代码 */
-        urlArgs: 'v=1.0.5.2'
+        urlArgs: 'v=1.0.6.0'
     });
 
     /// 全局初始化 ///

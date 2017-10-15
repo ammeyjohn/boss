@@ -41,6 +41,7 @@
     "ztree_v3": "^3.5.28",
     "bootstrap-daterangepicker": "^2.1.25",
     "angular-daterangepicker": "^0.2.2",
-    "angular-block-ui": "^0.2.2"
+    "angular-block-ui": "^0.2.2",
+    "angular-ui-tree": "^2.22.6"
   }
 }

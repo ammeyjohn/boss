@@ -4,6 +4,7 @@ define([
     'angular-cookies',
     'angular-bootstrap',
     'angular-ui-select',
+    'angular-ui-tree',
     'boss.api'
 ], function(ng) {
     'use strict';
@@ -13,6 +14,7 @@ define([
         'ngSanitize',
         'ui.bootstrap',
         'ui.select',
+        'ui.tree',
         'boss.api'
     ]);
 
@@ -45,8 +47,8 @@ define([
                             }
                         },
                         'user-view@option': {
-                            controller: 'UserOptionCtrl',
                             templateUrl: 'partials/option/user/option.user.tmpl.html',
+                            controller: 'UserOptionCtrl',
                             resolve: {
                                 loadModule: ['$ocLazyLoad', function($ocLazyLoad) {
                                     return $ocLazyLoad.load({
@@ -57,6 +59,14 @@ define([
                         },
                         'dept-view@option': {
                             templateUrl: 'partials/option/department/option.dept.tmpl.html',
+                            controller: 'DeptOptionCtrl',
+                            resolve: {
+                                loadModule: ['$ocLazyLoad', function($ocLazyLoad) {
+                                    return $ocLazyLoad.load({
+                                        files: ['partials/option/department/option.dept.controller.js']
+                                    });
+                                }]
+                            }
                         }
                     }
                 });
