@@ -34,3 +34,28 @@ exports.getDepartmentByAccount = function(account) {
     });
     return defered.promise;
 }
+
+// 添加部门
+exports.addDeparment = function(dept) {
+    var defered = Q.defer();
+    mongo.getNextSequence('dept_id')
+        .then(function(id) {
+            dept.id = id.value.seq;
+            mongo.insert(DEPARTMENTS, dept)
+                .then(function(res) {
+                    defered.resolve(dept);
+                });
+        });
+    return defered.promise;
+}
+
+// 修改部门
+exports.modifyDepartment = function(id, dept) {
+    delete dept._id;
+    return mongo.update(DEPARTMENTS, { id: id }, dept);
+}
+
+// 删除部门
+exports.removeDepartment = function(id) {
+    return mongo.delete(DEPARTMENTS, { id: id });
+}
