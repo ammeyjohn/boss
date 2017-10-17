@@ -38,13 +38,9 @@ exports.getDepartmentByAccount = function(account) {
 // 添加部门
 exports.addDeparment = function(dept) {
     var defered = Q.defer();
-    mongo.getNextSequence('dept_id')
-        .then(function(id) {
-            dept.id = id.value.seq;
-            mongo.insert(DEPARTMENTS, dept)
-                .then(function(res) {
-                    defered.resolve(dept);
-                });
+    mongo.insert(DEPARTMENTS, dept)
+        .then(function(res) {
+            defered.resolve(dept);
         });
     return defered.promise;
 }

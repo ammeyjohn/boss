@@ -46,9 +46,9 @@ helper.update = function(collection, condition, item) {
         c.update(condition, item, function(err, docs) {
             debug(docs);
             if (!err) {
-                defered.resolve(docs);
+                defered.resolve(docs.result.ok == 1 && docs.result.nModified > 0);
             } else {
-                defered.reject(err);
+                defered.reject(false);
             }
         });
         return defered.promise;
@@ -62,7 +62,7 @@ helper.delete = function(collection, condition) {
         c.deleteOne(condition, function(err, docs) {
             debug(docs);
             if (!err) {
-                defered.resolve(docs);
+                defered.resolve(docs.result.ok == 1);
             } else {
                 defered.reject(err);
             }
@@ -93,7 +93,7 @@ helper.getNextSequence = function(name) {
         var c = db.collection('sequence');
         c.findAndModify({ _id: name }, [], { $inc: { seq: 1 } }, { new: true },
             function(err, docs) {
-                debug(doc);
+                debug(docs);
                 if (!err) {
                     defered.resolve(docs);
                 } else {
