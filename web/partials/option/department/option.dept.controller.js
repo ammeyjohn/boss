@@ -45,9 +45,11 @@ define([
         init();
 
         $scope.curDept = null;
+        $scope.mode = null;
 
         $scope.click = function (node, treeId, treeNode) {
             $scope.curDept = _.cloneDeep(treeNode.data);
+            $scope.mode = 'UPDATE';
             $scope.$apply();
         }
 
@@ -55,6 +57,7 @@ define([
             $scope.curDept = {
                 parent: $scope.curDept.id
             };
+            $scope.mode = 'ADD';
         }
 
         $scope.removeDept = function () {

@@ -48,7 +48,7 @@ exports.addDeparment = function(dept) {
 // 修改部门
 exports.modifyDepartment = function(id, dept) {
     delete dept._id;
-    return mongo.update(DEPARTMENTS, { id: id }, dept);
+    return mongo.update(DEPARTMENTS, { _id: id }, dept);
 }
 
 // 删除部门

@@ -43,8 +43,8 @@
                         </div>
                     </div>
                     <div class="form-actions right">
-                        <button type="button" class="btn green" ng-click="add()">保存</button>
-                        <button type="button" class="btn green" ng-click="update()">修改</button>
+                        <button type="button" class="btn green" ng-if="mode=='ADD'" ng-click="add()">保存</button>
+                        <button type="button" class="btn green" ng-if="mode=='UPDATE'" ng-click="update()">修改</button>
                         <button type="button" class="btn default">取消</button>
                     </div>
                 </form>
