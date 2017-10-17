@@ -27,7 +27,7 @@ router.get('/:id', function(req, res) {
 router.post('/', function(req, res) {
     var dept = req.body.dept;
     debug(dept);
-    deptApi.adddept(dept)
+    deptApi.addDeparment(dept)
         .then(function(ret) {
             debug(ret);
             res.json({
@@ -44,7 +44,7 @@ router.put('/:id', function(req, res) {
     var dept = req.body.dept;
     debug(dept);
 
-    deptApi.modifydept(id, dept)
+    deptApi.modifyDepartment(id, dept)
         .then(function(ret) {
             res.json({
                 code: 0,
@@ -56,7 +56,7 @@ router.put('/:id', function(req, res) {
 router.delete('/:id', function(req, res) {
     var id = parseInt(req.params.id);
     debug('params:id=%s', id);
-    deptApi.removedept(id)
+    deptApi.removeDepartment(id)
         .then(function(ret) {
             res.json({
                 code: 0,

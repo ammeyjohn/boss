@@ -1,26 +1,19 @@
 define([
     'angular',
     'ztree'
-], function(ng) {
+], function (ng) {
     'use strict';
 
     var ztreeModule = angular.module('ztree', []);
 
-    // ecModule
-    //     .config(['$compileProvider',
-    //         function($compileProvider) {
-    //         	ecModule.directive = $compileProvider.directive;
-    //         }
-    //     ]);
-
-    var ztreeCtrl = function($rootScope) {
+    var ztreeCtrl = function ($rootScope) {
         return {
             restrict: 'AE',
             scope: {
                 checkable: '=ztreeCheckable',
                 nodes: '=ztreeNodes'
             },
-            link: function(scope, elem, attrs) {
+            link: function (scope, elem, attrs) {
                 var tree = null;
 
                 var option = {
@@ -28,7 +21,8 @@ define([
                         simpleData: {
                             enable: true
                         }
-                    }
+                    },
+                    callback: {}
                 };
                 if (scope.checkable) {
                     option.check = {
@@ -36,11 +30,15 @@ define([
                     }
                 }
 
-                scope.$watch('nodes', function(nodes) {
+                if (attrs['ngClick']) {
+                    option.callback.onClick = scope.$parent[attrs['ngClick']];
+                }
+
+                scope.$watch('nodes', function (nodes) {
                     initTree(nodes);
                 });
 
-                var initTree = function(nodes) {
+                var initTree = function (nodes) {
                     if (tree) {
                         tree.destroy();
                         tree = null;

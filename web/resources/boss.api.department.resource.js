@@ -16,6 +16,28 @@ define([
                 params: {
                     id: 'id'
                 }
+            },
+            add: {
+                method: 'POST',
+                url: '/api/department',
+                params: {
+                    dept: '@dept'
+                }
+            },
+            modify: {
+                method: 'PUT',
+                url: '/api/department/:id',
+                params: {
+                    id: 'id',
+                    dept: '@dept'
+                }
+            },
+            remove: {
+                method: 'DELETE',
+                url: '/api/department/:id',
+                params: {
+                    id: 'id'
+                }
             }
         });
     });

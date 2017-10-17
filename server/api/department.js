@@ -53,5 +53,5 @@ exports.modifyDepartment = function(id, dept) {
 
 // 删除部门
 exports.removeDepartment = function(id) {
-    return mongo.delete(DEPARTMENTS, { id: id });
+    return mongo.delete(DEPARTMENTS, { _id: id });
 }
