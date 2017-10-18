@@ -3,6 +3,7 @@ var path = require('path');
 var _ = require('lodash');
 var Q = require('q');
 var request = require('../request.js');
+var ObjectID = require('mongodb').ObjectID;
 var mongo = require('../mongo.js');
 
 // Defines mongodb collection name
@@ -35,23 +36,13 @@ exports.getDepartmentByAccount = function(account) {
     return defered.promise;
 }
 
-// 添加部门
-exports.addDeparment = function(dept) {
-    var defered = Q.defer();
-    mongo.insert(DEPARTMENTS, dept)
-        .then(function(res) {
-            defered.resolve(dept);
-        });
-    return defered.promise;
-}
-
-// 修改部门
-exports.modifyDepartment = function(id, dept) {
-    delete dept._id;
-    return mongo.update(DEPARTMENTS, { _id: id }, dept);
+// 添加或者修改部门
+exports.saveDepartment = function(dept) {
+    dept._id = ObjectID(dept._id);
+    return mongo.save(DEPARTMENTS, dept);
 }
 
 // 删除部门
-exports.removeDepartment = function(id) {
-    return mongo.delete(DEPARTMENTS, { _id: id });
+exports.removeDepartment = function(key) {
+    return mongo.delete(DEPARTMENTS, { _id: ObjectID(key) });
 }

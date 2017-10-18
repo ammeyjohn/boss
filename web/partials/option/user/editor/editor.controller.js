@@ -63,7 +63,6 @@ define([
                     user: $scope.user
                 }).$promise
                 .then(function(res) {
-                    console.log(res);
                     $mdToast.show(
                         $mdToast.simple()
                         .textContent('用户添加成功!')

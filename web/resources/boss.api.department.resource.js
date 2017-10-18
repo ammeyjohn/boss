@@ -17,18 +17,10 @@ define([
                     id: 'id'
                 }
             },
-            add: {
+            save: {
                 method: 'POST',
                 url: '/api/department',
                 params: {
-                    dept: '@dept'
-                }
-            },
-            modify: {
-                method: 'PUT',
-                url: '/api/department/:id',
-                params: {
-                    id: 'id',
                     dept: '@dept'
                 }
             },

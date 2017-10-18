@@ -3,6 +3,7 @@ var express = require('express');
 var deptApi = require('../api/department');
 var router = express.Router();
 
+// 获取全部部门列表
 router.get('/', function(req, res) {
     deptApi.getDepartments().then(function(departments) {
         debug(departments);
@@ -13,6 +14,7 @@ router.get('/', function(req, res) {
     });
 });
 
+// 根据部门编号查询
 router.get('/:id', function(req, res) {
     deptApi.getDepartmentById(parseInt(req.params.id))
         .then(function(department) {
@@ -24,10 +26,11 @@ router.get('/:id', function(req, res) {
         });
 });
 
+// 添加或者更新部门信息
 router.post('/', function(req, res) {
     var dept = req.body.dept;
     debug(dept);
-    deptApi.addDeparment(dept)
+    deptApi.saveDepartment(dept)
         .then(function(ret) {
             debug(ret);
             res.json({
@@ -37,26 +40,11 @@ router.post('/', function(req, res) {
         });
 });
 
-router.put('/:id', function(req, res) {
-    var id = req.params.id;
-    debug('params:id=%s', id);
-
-    var dept = req.body.dept;
-    debug(dept);
-
-    deptApi.modifyDepartment(id, dept)
-        .then(function(ret) {
-            res.json({
-                code: 0,
-                data: ret
-            });
-        });
-});
-
-router.delete('/:id', function(req, res) {
-    var id = parseInt(req.params.id);
-    debug('params:id=%s', id);
-    deptApi.removeDepartment(id)
+// 根据_id删除部门信息
+router.delete('/:key', function(req, res) {
+    var key = parseInt(req.params.key);
+    debug('params:key=%s', key);
+    deptApi.removeDepartment(key)
         .then(function(ret) {
             res.json({
                 code: 0,

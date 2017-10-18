@@ -1,44 +1,28 @@
 define([
     'angular',
     'ztree'
-], function (ng) {
+], function(ng) {
     'use strict';
 
     var ztreeModule = angular.module('ztree', []);
 
-    var ztreeCtrl = function ($rootScope) {
+    var ztreeCtrl = function($rootScope) {
         return {
             restrict: 'AE',
             scope: {
-                checkable: '=ztreeCheckable',
+                instance: '=ztreeObj',
                 nodes: '=ztreeNodes'
             },
-            link: function (scope, elem, attrs) {
-                var tree = null;
+            link: function(scope, elem, attrs) {
 
-                var option = {
-                    data: {
-                        simpleData: {
-                            enable: true
-                        }
-                    },
-                    callback: {}
-                };
-                if (scope.checkable) {
-                    option.check = {
-                        enable: true
-                    }
-                }
+                var option = scope.$parent[attrs['ztree']];
 
-                if (attrs['ngClick']) {
-                    option.callback.onClick = scope.$parent[attrs['ngClick']];
-                }
-
-                scope.$watch('nodes', function (nodes) {
+                scope.$watch('nodes', function(nodes) {
                     initTree(nodes);
                 });
 
-                var initTree = function (nodes) {
+                var tree = null;
+                var initTree = function(nodes) {
                     if (tree) {
                         tree.destroy();
                         tree = null;
@@ -47,6 +31,10 @@ define([
                     if (tree === null) {
                         $(elem).addClass('ztree');
                         tree = $.fn.zTree.init(elem, option, nodes);
+                    }
+
+                    if (scope.instance !== undefined) {
+                        scope.instance = tree;
                     }
                 }
 

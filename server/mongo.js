@@ -55,6 +55,22 @@ helper.update = function(collection, condition, item) {
     });
 }
 
+helper.save = function(collection, item) {
+    return connect().then(function(db) {
+        var defered = Q.defer();
+        var c = db.collection(collection);
+        c.save(item, function(err, docs) {
+            debug(docs);
+            if (!err) {
+                defered.resolve(docs.result.ok == 1 && docs.result.nModified > 0);
+            } else {
+                defered.reject(false);
+            }
+        });
+        return defered.promise;
+    });
+}
+
 helper.delete = function(collection, condition) {
     return connect().then(function(db) {
         var defered = Q.defer();
