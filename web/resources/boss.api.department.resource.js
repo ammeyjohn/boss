@@ -26,9 +26,9 @@ define([
             },
             remove: {
                 method: 'DELETE',
-                url: '/api/department/:id',
+                url: '/api/department/:key',
                 params: {
-                    id: 'id'
+                    key: 'key'
                 }
             }
         });

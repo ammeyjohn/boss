@@ -19,7 +19,18 @@ define([
                 }
             },
             callback: {
-                onClick: nodeClick
+                onClick: nodeClick,
+                onRemove: nodeRemove,
+                onDrop: nodeDrop
+            },
+            edit: {
+                enable: true,
+                drag: {
+                    isCopy: false
+                },
+                removeTitle: '删除',
+                showRemoveBtn: true,
+                showRenameBtn: false
             }
         }
         $scope.treeObj = null;
@@ -47,7 +58,27 @@ define([
         $scope.curDept = null;
         $scope.mode = null;
 
-        function nodeClick(node, treeId, treeNode) {
+        function nodeDrop(event, treeId, treeNodes, targetNode, moveType, isCopy) {
+            // var srcNode = treeNodes[0];
+            // var dept = {
+            //     _id: srcNode._id,
+            //     id: srcNode.id,
+            //     name: srcNode.name,
+            //     code: srcNode.code,
+            //     parent: targetNode.id
+            // }
+            // deptApi.save({
+            //         dept: dept
+            //     }).$promise
+            //     .then(function(ret) {
+            //         if (ret) {
+            //             init();
+            //             $scope.$apply();
+            //         }
+            //     });
+        }
+
+        function nodeClick(event, treeId, treeNode) {
             $scope.curDept = {
                 _id: treeNode._id,
                 id: treeNode.id,
@@ -58,28 +89,42 @@ define([
             $scope.$apply();
         }
 
+        function nodeRemove(event, treeId, treeNode) {
+            deptApi.remove({ key: treeNode._id }).$promise
+                .then(function(ret) {
+                    if (ret) {
+                        $mdToast.show(
+                            $mdToast.simple()
+                            .textContent('部门"' + treeNode.name + '"已经删除!')
+                            .position('bottom right')
+                            .hideDelay(3000)
+                        );
+                        init();
+                    }
+                });
+            $scope.$apply();
+        }
+
         $scope.addDept = function() {
             $scope.curDept = {
                 parent: $scope.curDept.id
             };
         }
 
-        $scope.removeDept = function() {
-
-        }
-
         $scope.save = function() {
             deptApi.save({
                     dept: $scope.curDept
                 }).$promise
-                .then(function() {
-                    $mdToast.show(
-                        $mdToast.simple()
-                        .textContent('部门添加成功!')
-                        .position('bottom right')
-                        .hideDelay(3000)
-                    );
-                    init();
+                .then(function(ret) {
+                    if (ret) {
+                        $mdToast.show(
+                            $mdToast.simple()
+                            .textContent('部门添加成功!')
+                            .position('bottom right')
+                            .hideDelay(3000)
+                        );
+                        init();
+                    }
                 });
         }
     }

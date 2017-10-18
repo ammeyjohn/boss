@@ -42,7 +42,7 @@ router.post('/', function(req, res) {
 
 // 根据_id删除部门信息
 router.delete('/:key', function(req, res) {
-    var key = parseInt(req.params.key);
+    var key = req.params.key;
     debug('params:key=%s', key);
     deptApi.removeDepartment(key)
         .then(function(ret) {
