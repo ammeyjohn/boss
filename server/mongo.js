@@ -62,7 +62,7 @@ helper.save = function(collection, item) {
         c.save(item, function(err, docs) {
             debug(docs);
             if (!err) {
-                defered.resolve(docs.result.ok == 1 && docs.result.nModified > 0);
+                defered.resolve(docs.result.ok == 1 && docs.result.n > 0);
             } else {
                 defered.reject(false);
             }

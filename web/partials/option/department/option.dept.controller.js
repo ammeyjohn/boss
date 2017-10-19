@@ -9,13 +9,12 @@ define([
 ], function(ng, moment, _, settings, optionModule) {
     'use strict';
 
-    function DeptOptionCtrl($scope, $rootScope, $mdToast, deptApi) {
+    function DeptOptionCtrl($scope, $rootScope, $q, $mdToast, deptApi) {
 
         $scope.option = {
             data: {
                 simpleData: {
-                    enable: true,
-                    pIdKey: 'parent'
+                    enable: true
                 }
             },
             callback: {
@@ -26,7 +25,8 @@ define([
             edit: {
                 enable: true,
                 drag: {
-                    isCopy: false
+                    isCopy: false,
+                    isMove: true,
                 },
                 removeTitle: '删除',
                 showRemoveBtn: true,
@@ -46,51 +46,46 @@ define([
                         name: '上海三高',
                         code: 'SH3H'
                     });
-                    _.each(depts.data, (d) => {
-                        d.open = true;
+                    $scope.depts = _.map(depts.data, (d) => {
+                        return {
+                            id: d.id,
+                            name: d.name,
+                            pId: d.parent,
+                            open: true,
+                            data: d
+                        }
                     });
-                    $scope.depts = depts.data;
                 });
         };
 
         init();
 
+        var curNode = null;
         $scope.curDept = null;
         $scope.mode = null;
 
         function nodeDrop(event, treeId, treeNodes, targetNode, moveType, isCopy) {
-            // var srcNode = treeNodes[0];
-            // var dept = {
-            //     _id: srcNode._id,
-            //     id: srcNode.id,
-            //     name: srcNode.name,
-            //     code: srcNode.code,
-            //     parent: targetNode.id
-            // }
-            // deptApi.save({
-            //         dept: dept
-            //     }).$promise
-            //     .then(function(ret) {
-            //         if (ret) {
-            //             init();
-            //             $scope.$apply();
-            //         }
-            //     });
+            var dept = treeNodes[0].data;
+            dept.parent = targetNode.data.id;
+
+            deptApi.save({
+                    dept: dept
+                }).$promise
+                .then(function(ret) {
+                    if (ret) {
+                        init();
+                    }
+                });
         }
 
         function nodeClick(event, treeId, treeNode) {
-            $scope.curDept = {
-                _id: treeNode._id,
-                id: treeNode.id,
-                name: treeNode.name,
-                code: treeNode.code,
-                parent: treeNode.parent
-            }
+            curNode = treeNode;
+            $scope.curDept = _.cloneDeep(treeNode.data);
             $scope.$apply();
         }
 
         function nodeRemove(event, treeId, treeNode) {
-            deptApi.remove({ key: treeNode._id }).$promise
+            deptApi.remove({ key: treeNode.data._id }).$promise
                 .then(function(ret) {
                     if (ret) {
                         $mdToast.show(
@@ -111,15 +106,35 @@ define([
             };
         }
 
+        $scope.cancel = function() {
+            $scope.curDept = curNode.data;
+        }
+
         $scope.save = function() {
-            deptApi.save({
+
+            var promises = [
+                deptApi.save({
                     dept: $scope.curDept
                 }).$promise
-                .then(function(ret) {
-                    if (ret) {
+            ];
+
+            // 如果调整了部门编号，需要同时调整部门的上级编号
+            if ($scope.curDept.id != curNode.data.id) {
+                _.each(curNode.children, (node) => {
+                    var dept = _.cloneDeep(node.data);
+                    dept.parent = $scope.curDept.id;
+                    promises.push(deptApi.save({
+                        dept: dept
+                    }).$promise);
+                });
+            }
+
+            $q.all(promises)
+                .then((rets) => {
+                    if (_.every(rets, { data: true })) {
                         $mdToast.show(
                             $mdToast.simple()
-                            .textContent('部门添加成功!')
+                            .textContent('部门保存成功!')
                             .position('bottom right')
                             .hideDelay(3000)
                         );
@@ -132,6 +147,7 @@ define([
     optionModule.controller('DeptOptionCtrl', [
         '$scope',
         '$rootScope',
+        '$q',
         '$mdToast',
         'boss.api.department',
         DeptOptionCtrl
