@@ -127,7 +127,7 @@ define([
                 logApi.queryLogs({
                     logType: null,
                     projectCode: [],
-                    departments: [25],
+                    departments: [25, 103],
                     users: [],
                     logStartTime: daterange.startDate,
                     logEndTime: daterange.endDate,
@@ -147,7 +147,7 @@ define([
 
                 // 根据加班记录统计
                 otApi.query({
-                        departments: [25],
+                        departments: [25, 103],
                         recordStartTime: daterange.startDate,
                         recordEndTime: daterange.endDate
                     }).$promise
@@ -199,7 +199,7 @@ define([
                 }, []);
             var orderedUserGroup = _.orderBy(sumOfUserGroup, ['taskTime'], ['desc']);
 
-            userApi.getByDept({ 'department': '25,-1,-2,-3,-4' }).$promise
+            userApi.getByDept({ 'department': '25,-1,-2,-3,-4,103,-11,-13' }).$promise
                 .then(function(result) {
                     var users = result.data;
                     for (var idx in users) {
