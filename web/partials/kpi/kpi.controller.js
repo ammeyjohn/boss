@@ -11,8 +11,7 @@ define([
     'boss.api.otwork',
     'directive.datetimepicker',
     'angular-daterangepicker',
-    'css!metronic-style',
-    'css!font-awesome'
+    'metronic'
 ], function(ng, moment, _, settings, kpiModule) {
     'use strict';
 
